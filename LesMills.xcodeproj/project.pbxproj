@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */; };
+		4D39F18C2AB0864F00FD0BCD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F18B2AB0864F00FD0BCD /* ContentView.swift */; };
+		4D39F18E2AB0865000FD0BCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D39F18D2AB0865000FD0BCD /* Assets.xcassets */; };
+		4D39F1922AB0865000FD0BCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D39F1912AB0865000FD0BCD /* Preview Assets.xcassets */; };
+		4D39F19C2AB0865000FD0BCD /* LesMillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F19B2AB0865000FD0BCD /* LesMillsTests.swift */; };
+		4D39F1A62AB0865000FD0BCD /* LesMillsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1A52AB0865000FD0BCD /* LesMillsUITests.swift */; };
+		4D39F1A82AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1A72AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D39F1982AB0865000FD0BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D39F17E2AB0864F00FD0BCD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D39F1852AB0864F00FD0BCD;
+			remoteInfo = LesMills;
+		};
+		4D39F1A22AB0865000FD0BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D39F17E2AB0864F00FD0BCD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D39F1852AB0864F00FD0BCD;
+			remoteInfo = LesMills;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4D39F1862AB0864F00FD0BCD /* LesMills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LesMills.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsApp.swift; sourceTree = "<group>"; };
+		4D39F18B2AB0864F00FD0BCD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4D39F18D2AB0865000FD0BCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D39F18F2AB0865000FD0BCD /* LesMills.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LesMills.entitlements; sourceTree = "<group>"; };
+		4D39F1912AB0865000FD0BCD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4D39F1972AB0865000FD0BCD /* LesMillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LesMillsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D39F19B2AB0865000FD0BCD /* LesMillsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsTests.swift; sourceTree = "<group>"; };
+		4D39F1A12AB0865000FD0BCD /* LesMillsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LesMillsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D39F1A52AB0865000FD0BCD /* LesMillsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsUITests.swift; sourceTree = "<group>"; };
+		4D39F1A72AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D39F1832AB0864F00FD0BCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D39F1942AB0865000FD0BCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D39F19E2AB0865000FD0BCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D39F17D2AB0864F00FD0BCD = {
+			isa = PBXGroup;
+			children = (
+				4D39F1882AB0864F00FD0BCD /* LesMills */,
+				4D39F19A2AB0865000FD0BCD /* LesMillsTests */,
+				4D39F1A42AB0865000FD0BCD /* LesMillsUITests */,
+				4D39F1872AB0864F00FD0BCD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4D39F1872AB0864F00FD0BCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D39F1862AB0864F00FD0BCD /* LesMills.app */,
+				4D39F1972AB0865000FD0BCD /* LesMillsTests.xctest */,
+				4D39F1A12AB0865000FD0BCD /* LesMillsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D39F1882AB0864F00FD0BCD /* LesMills */ = {
+			isa = PBXGroup;
+			children = (
+				4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */,
+				4D39F18B2AB0864F00FD0BCD /* ContentView.swift */,
+				4D39F18D2AB0865000FD0BCD /* Assets.xcassets */,
+				4D39F18F2AB0865000FD0BCD /* LesMills.entitlements */,
+				4D39F1902AB0865000FD0BCD /* Preview Content */,
+			);
+			path = LesMills;
+			sourceTree = "<group>";
+		};
+		4D39F1902AB0865000FD0BCD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4D39F1912AB0865000FD0BCD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4D39F19A2AB0865000FD0BCD /* LesMillsTests */ = {
+			isa = PBXGroup;
+			children = (
+				4D39F19B2AB0865000FD0BCD /* LesMillsTests.swift */,
+			);
+			path = LesMillsTests;
+			sourceTree = "<group>";
+		};
+		4D39F1A42AB0865000FD0BCD /* LesMillsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4D39F1A52AB0865000FD0BCD /* LesMillsUITests.swift */,
+				4D39F1A72AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift */,
+			);
+			path = LesMillsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D39F1852AB0864F00FD0BCD /* LesMills */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D39F1AB2AB0865000FD0BCD /* Build configuration list for PBXNativeTarget "LesMills" */;
+			buildPhases = (
+				4D39F1822AB0864F00FD0BCD /* Sources */,
+				4D39F1832AB0864F00FD0BCD /* Frameworks */,
+				4D39F1842AB0864F00FD0BCD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LesMills;
+			productName = LesMills;
+			productReference = 4D39F1862AB0864F00FD0BCD /* LesMills.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4D39F1962AB0865000FD0BCD /* LesMillsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D39F1AE2AB0865000FD0BCD /* Build configuration list for PBXNativeTarget "LesMillsTests" */;
+			buildPhases = (
+				4D39F1932AB0865000FD0BCD /* Sources */,
+				4D39F1942AB0865000FD0BCD /* Frameworks */,
+				4D39F1952AB0865000FD0BCD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D39F1992AB0865000FD0BCD /* PBXTargetDependency */,
+			);
+			name = LesMillsTests;
+			productName = LesMillsTests;
+			productReference = 4D39F1972AB0865000FD0BCD /* LesMillsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4D39F1A02AB0865000FD0BCD /* LesMillsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D39F1B12AB0865000FD0BCD /* Build configuration list for PBXNativeTarget "LesMillsUITests" */;
+			buildPhases = (
+				4D39F19D2AB0865000FD0BCD /* Sources */,
+				4D39F19E2AB0865000FD0BCD /* Frameworks */,
+				4D39F19F2AB0865000FD0BCD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D39F1A32AB0865000FD0BCD /* PBXTargetDependency */,
+			);
+			name = LesMillsUITests;
+			productName = LesMillsUITests;
+			productReference = 4D39F1A12AB0865000FD0BCD /* LesMillsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4D39F17E2AB0864F00FD0BCD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					4D39F1852AB0864F00FD0BCD = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					4D39F1962AB0865000FD0BCD = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 4D39F1852AB0864F00FD0BCD;
+					};
+					4D39F1A02AB0865000FD0BCD = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 4D39F1852AB0864F00FD0BCD;
+					};
+				};
+			};
+			buildConfigurationList = 4D39F1812AB0864F00FD0BCD /* Build configuration list for PBXProject "LesMills" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4D39F17D2AB0864F00FD0BCD;
+			productRefGroup = 4D39F1872AB0864F00FD0BCD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D39F1852AB0864F00FD0BCD /* LesMills */,
+				4D39F1962AB0865000FD0BCD /* LesMillsTests */,
+				4D39F1A02AB0865000FD0BCD /* LesMillsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D39F1842AB0864F00FD0BCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D39F1922AB0865000FD0BCD /* Preview Assets.xcassets in Resources */,
+				4D39F18E2AB0865000FD0BCD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D39F1952AB0865000FD0BCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D39F19F2AB0865000FD0BCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D39F1822AB0864F00FD0BCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D39F18C2AB0864F00FD0BCD /* ContentView.swift in Sources */,
+				4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D39F1932AB0865000FD0BCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D39F19C2AB0865000FD0BCD /* LesMillsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D39F19D2AB0865000FD0BCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D39F1A82AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift in Sources */,
+				4D39F1A62AB0865000FD0BCD /* LesMillsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D39F1992AB0865000FD0BCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D39F1852AB0864F00FD0BCD /* LesMills */;
+			targetProxy = 4D39F1982AB0865000FD0BCD /* PBXContainerItemProxy */;
+		};
+		4D39F1A32AB0865000FD0BCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D39F1852AB0864F00FD0BCD /* LesMills */;
+			targetProxy = 4D39F1A22AB0865000FD0BCD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4D39F1A92AB0865000FD0BCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4D39F1AA2AB0865000FD0BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4D39F1AC2AB0865000FD0BCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LesMills/LesMills.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LesMills/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asherfoster.LesMills;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4D39F1AD2AB0865000FD0BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LesMills/LesMills.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LesMills/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asherfoster.LesMills;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4D39F1AF2AB0865000FD0BCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asherfoster.LesMillsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LesMills.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LesMills";
+			};
+			name = Debug;
+		};
+		4D39F1B02AB0865000FD0BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asherfoster.LesMillsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LesMills.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LesMills";
+			};
+			name = Release;
+		};
+		4D39F1B22AB0865000FD0BCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asherfoster.LesMillsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LesMills;
+			};
+			name = Debug;
+		};
+		4D39F1B32AB0865000FD0BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asherfoster.LesMillsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LesMills;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D39F1812AB0864F00FD0BCD /* Build configuration list for PBXProject "LesMills" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D39F1A92AB0865000FD0BCD /* Debug */,
+				4D39F1AA2AB0865000FD0BCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D39F1AB2AB0865000FD0BCD /* Build configuration list for PBXNativeTarget "LesMills" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D39F1AC2AB0865000FD0BCD /* Debug */,
+				4D39F1AD2AB0865000FD0BCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D39F1AE2AB0865000FD0BCD /* Build configuration list for PBXNativeTarget "LesMillsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D39F1AF2AB0865000FD0BCD /* Debug */,
+				4D39F1B02AB0865000FD0BCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D39F1B12AB0865000FD0BCD /* Build configuration list for PBXNativeTarget "LesMillsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D39F1B22AB0865000FD0BCD /* Debug */,
+				4D39F1B32AB0865000FD0BCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4D39F17E2AB0864F00FD0BCD /* Project object */;
+}
