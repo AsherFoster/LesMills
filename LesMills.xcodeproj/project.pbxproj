@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D093EF82AC2D019004F2F6A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093EF72AC2D019004F2F6A /* HomeView.swift */; };
+		4D093EFA2AC2D322004F2F6A /* ClassRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093EF92AC2D322004F2F6A /* ClassRow.swift */; };
+		4D093EFC2AC7908A004F2F6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093EFB2AC7908A004F2F6A /* ContentView.swift */; };
+		4D093F002AC79277004F2F6A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093EFF2AC79277004F2F6A /* AccountView.swift */; };
+		4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F042AC792A7004F2F6A /* ClassesView.swift */; };
+		4D093F072AC7BE42004F2F6A /* ClassInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F062AC7BE42004F2F6A /* ClassInstance.swift */; };
 		4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */; };
-		4D39F18C2AB0864F00FD0BCD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F18B2AB0864F00FD0BCD /* ContentView.swift */; };
 		4D39F18E2AB0865000FD0BCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D39F18D2AB0865000FD0BCD /* Assets.xcassets */; };
 		4D39F1922AB0865000FD0BCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D39F1912AB0865000FD0BCD /* Preview Assets.xcassets */; };
 		4D39F19C2AB0865000FD0BCD /* LesMillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F19B2AB0865000FD0BCD /* LesMillsTests.swift */; };
@@ -34,9 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D093EF72AC2D019004F2F6A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4D093EF92AC2D322004F2F6A /* ClassRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRow.swift; sourceTree = "<group>"; };
+		4D093EFB2AC7908A004F2F6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4D093EFF2AC79277004F2F6A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		4D093F042AC792A7004F2F6A /* ClassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesView.swift; sourceTree = "<group>"; };
+		4D093F062AC7BE42004F2F6A /* ClassInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInstance.swift; sourceTree = "<group>"; };
 		4D39F1862AB0864F00FD0BCD /* LesMills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LesMills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsApp.swift; sourceTree = "<group>"; };
-		4D39F18B2AB0864F00FD0BCD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D39F18D2AB0865000FD0BCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D39F18F2AB0865000FD0BCD /* LesMills.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LesMills.entitlements; sourceTree = "<group>"; };
 		4D39F1912AB0865000FD0BCD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -72,6 +82,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D093EF62AC2CAE3004F2F6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D093EFD2AC79264004F2F6A /* Home */,
+				4D093EFE2AC7926F004F2F6A /* Account */,
+				4D093EFB2AC7908A004F2F6A /* ContentView.swift */,
+				4D093F032AC79290004F2F6A /* Classes */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4D093EFD2AC79264004F2F6A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4D093EF72AC2D019004F2F6A /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4D093EFE2AC7926F004F2F6A /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				4D093EFF2AC79277004F2F6A /* AccountView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		4D093F032AC79290004F2F6A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4D093EF92AC2D322004F2F6A /* ClassRow.swift */,
+				4D093F042AC792A7004F2F6A /* ClassesView.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		4D39F17D2AB0864F00FD0BCD = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */,
-				4D39F18B2AB0864F00FD0BCD /* ContentView.swift */,
+				4D093EF62AC2CAE3004F2F6A /* Views */,
+				4D39F1B42AB0865500FD0BCD /* Model */,
 				4D39F18D2AB0865000FD0BCD /* Assets.xcassets */,
 				4D39F18F2AB0865000FD0BCD /* LesMills.entitlements */,
 				4D39F1902AB0865000FD0BCD /* Preview Content */,
@@ -127,6 +174,14 @@
 				4D39F1A72AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift */,
 			);
 			path = LesMillsUITests;
+			sourceTree = "<group>";
+		};
+		4D39F1B42AB0865500FD0BCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D093F062AC7BE42004F2F6A /* ClassInstance.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +248,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					4D39F1852AB0864F00FD0BCD = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -259,8 +314,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D39F18C2AB0864F00FD0BCD /* ContentView.swift in Sources */,
+				4D093EF82AC2D019004F2F6A /* HomeView.swift in Sources */,
+				4D093EFC2AC7908A004F2F6A /* ContentView.swift in Sources */,
 				4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */,
+				4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */,
+				4D093F072AC7BE42004F2F6A /* ClassInstance.swift in Sources */,
+				4D093EFA2AC2D322004F2F6A /* ClassRow.swift in Sources */,
+				4D093F002AC79277004F2F6A /* AccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,9 +390,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -388,9 +450,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -414,6 +478,7 @@
 				CODE_SIGN_ENTITLEMENTS = LesMills/LesMills.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LesMills/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -450,6 +515,7 @@
 				CODE_SIGN_ENTITLEMENTS = LesMills/LesMills.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LesMills/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -485,6 +551,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
@@ -507,6 +574,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
@@ -528,6 +596,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
@@ -549,6 +618,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
