@@ -13,12 +13,21 @@
 		4D093F002AC79277004F2F6A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093EFF2AC79277004F2F6A /* AccountView.swift */; };
 		4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F042AC792A7004F2F6A /* ClassesView.swift */; };
 		4D093F072AC7BE42004F2F6A /* ClassInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F062AC7BE42004F2F6A /* ClassInstance.swift */; };
+		4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F082ACEABF4004F2F6A /* AccountLinkView.swift */; };
+		4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F0A2ACEAD65004F2F6A /* NotImplementedView.swift */; };
+		4D279F532AFA40110010C5E8 /* ClassesToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D279F522AFA40110010C5E8 /* ClassesToday.swift */; };
 		4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */; };
 		4D39F18E2AB0865000FD0BCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D39F18D2AB0865000FD0BCD /* Assets.xcassets */; };
 		4D39F1922AB0865000FD0BCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D39F1912AB0865000FD0BCD /* Preview Assets.xcassets */; };
 		4D39F19C2AB0865000FD0BCD /* LesMillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F19B2AB0865000FD0BCD /* LesMillsTests.swift */; };
 		4D39F1A62AB0865000FD0BCD /* LesMillsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1A52AB0865000FD0BCD /* LesMillsUITests.swift */; };
 		4D39F1A82AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1A72AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift */; };
+		4D3DDCEB2AD800A000E72291 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DDCEA2AD800A000E72291 /* LoginView.swift */; };
+		4D3DDCF02ADFC3C900E72291 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DDCEF2ADFC3C900E72291 /* LoginForm.swift */; };
+		4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42EFFE2AEA6CDF00694111 /* LesMillsTextField.swift */; };
+		4D42F0012AEA71A400694111 /* LesMillsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42F0002AEA71A400694111 /* LesMillsClient.swift */; };
+		4D42F0032AEC710400694111 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42F0022AEC710400694111 /* AuthenticatedView.swift */; };
+		4D9042702AFB7936001E3311 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 4D90426F2AFB7936001E3311 /* Get */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +54,9 @@
 		4D093EFF2AC79277004F2F6A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		4D093F042AC792A7004F2F6A /* ClassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesView.swift; sourceTree = "<group>"; };
 		4D093F062AC7BE42004F2F6A /* ClassInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInstance.swift; sourceTree = "<group>"; };
+		4D093F082ACEABF4004F2F6A /* AccountLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkView.swift; sourceTree = "<group>"; };
+		4D093F0A2ACEAD65004F2F6A /* NotImplementedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotImplementedView.swift; sourceTree = "<group>"; };
+		4D279F522AFA40110010C5E8 /* ClassesToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesToday.swift; sourceTree = "<group>"; };
 		4D39F1862AB0864F00FD0BCD /* LesMills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LesMills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsApp.swift; sourceTree = "<group>"; };
 		4D39F18D2AB0865000FD0BCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +67,11 @@
 		4D39F1A12AB0865000FD0BCD /* LesMillsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LesMillsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D39F1A52AB0865000FD0BCD /* LesMillsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsUITests.swift; sourceTree = "<group>"; };
 		4D39F1A72AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4D3DDCEA2AD800A000E72291 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4D3DDCEF2ADFC3C900E72291 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
+		4D42EFFE2AEA6CDF00694111 /* LesMillsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsTextField.swift; sourceTree = "<group>"; };
+		4D42F0002AEA71A400694111 /* LesMillsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsClient.swift; sourceTree = "<group>"; };
+		4D42F0022AEC710400694111 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9042702AFB7936001E3311 /* Get in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,10 +103,13 @@
 		4D093EF62AC2CAE3004F2F6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D42EFFD2AEA6CCF00694111 /* Components */,
 				4D093EFD2AC79264004F2F6A /* Home */,
 				4D093EFE2AC7926F004F2F6A /* Account */,
-				4D093EFB2AC7908A004F2F6A /* ContentView.swift */,
 				4D093F032AC79290004F2F6A /* Classes */,
+				4D093EFB2AC7908A004F2F6A /* ContentView.swift */,
+				4D42F0022AEC710400694111 /* AuthenticatedView.swift */,
+				4D3DDCEC2ADFC3B600E72291 /* Login */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -97,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				4D093EF72AC2D019004F2F6A /* HomeView.swift */,
+				4D279F522AFA40110010C5E8 /* ClassesToday.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -105,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				4D093EFF2AC79277004F2F6A /* AccountView.swift */,
+				4D093F082ACEABF4004F2F6A /* AccountLinkView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -180,8 +203,27 @@
 			isa = PBXGroup;
 			children = (
 				4D093F062AC7BE42004F2F6A /* ClassInstance.swift */,
+				4D42F0002AEA71A400694111 /* LesMillsClient.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4D3DDCEC2ADFC3B600E72291 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4D3DDCEA2AD800A000E72291 /* LoginView.swift */,
+				4D3DDCEF2ADFC3C900E72291 /* LoginForm.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4D42EFFD2AEA6CCF00694111 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4D42EFFE2AEA6CDF00694111 /* LesMillsTextField.swift */,
+				4D093F0A2ACEAD65004F2F6A /* NotImplementedView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +242,9 @@
 			dependencies = (
 			);
 			name = LesMills;
+			packageProductDependencies = (
+				4D90426F2AFB7936001E3311 /* Get */,
+			);
 			productName = LesMills;
 			productReference = 4D39F1862AB0864F00FD0BCD /* LesMills.app */;
 			productType = "com.apple.product-type.application";
@@ -272,6 +317,9 @@
 				Base,
 			);
 			mainGroup = 4D39F17D2AB0864F00FD0BCD;
+			packageReferences = (
+				4D90426E2AFB7936001E3311 /* XCRemoteSwiftPackageReference "Get" */,
+			);
 			productRefGroup = 4D39F1872AB0864F00FD0BCD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -315,11 +363,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D093EF82AC2D019004F2F6A /* HomeView.swift in Sources */,
+				4D42F0012AEA71A400694111 /* LesMillsClient.swift in Sources */,
 				4D093EFC2AC7908A004F2F6A /* ContentView.swift in Sources */,
 				4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */,
 				4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */,
+				4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */,
 				4D093F072AC7BE42004F2F6A /* ClassInstance.swift in Sources */,
 				4D093EFA2AC2D322004F2F6A /* ClassRow.swift in Sources */,
+				4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */,
+				4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */,
+				4D279F532AFA40110010C5E8 /* ClassesToday.swift in Sources */,
+				4D42F0032AEC710400694111 /* AuthenticatedView.swift in Sources */,
+				4D3DDCEB2AD800A000E72291 /* LoginView.swift in Sources */,
+				4D3DDCF02ADFC3C900E72291 /* LoginForm.swift in Sources */,
 				4D093F002AC79277004F2F6A /* AccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +536,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LesMills/Preview Content\"";
+				DEVELOPMENT_TEAM = MCWDNJU54B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -488,6 +545,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -517,6 +575,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LesMills/Preview Content\"";
+				DEVELOPMENT_TEAM = MCWDNJU54B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -525,6 +584,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -674,6 +734,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D90426E2AFB7936001E3311 /* XCRemoteSwiftPackageReference "Get" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Get";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D90426F2AFB7936001E3311 /* Get */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D90426E2AFB7936001E3311 /* XCRemoteSwiftPackageReference "Get" */;
+			productName = Get;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D39F17E2AB0864F00FD0BCD /* Project object */;
 }

@@ -13,15 +13,15 @@ struct ClassRow: View {
     var body: some View {
         HStack {
             Path(roundedRect: CGRect(x: 0, y: 0, width: 5, height: 50), cornerSize: CGSize(width: 3, height: 3))
-                .fill(style: classInstance.color))
+//                .fill(style: classInstance.color))
                 .frame(width: 5, height: 50)
             VStack(alignment: .leading) {
                 Text(classInstance.startsAt, style: .time)
-                Text("\(classInstance.durationMins) mins").foregroundStyle(.secondary)
+                Text("\(classInstance.durationMinutes) mins").foregroundStyle(.secondary)
             }
             VStack(alignment: .leading) {
-                Text(classInstance.className).bold()
-                Text(classInstance.mainInstructorName).foregroundStyle(.secondary)
+                Text(classInstance.name).bold()
+                Text(classInstance.instructor.name).foregroundStyle(.secondary)
             }
             Spacer()
             Button("Save Class", systemImage: "plus") {}
@@ -31,7 +31,5 @@ struct ClassRow: View {
 }
 
 #Preview {
-    List {
-        ClassRow(classInstance: .mock)
-    }
+    ClassRow(classInstance: .mock())
 }

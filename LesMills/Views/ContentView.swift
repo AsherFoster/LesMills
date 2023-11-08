@@ -8,36 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab: Tab = .home
+    var client: LesMillsClient = LesMillsHTTPClient()
     
-    enum Tab {
-        case home
-        case account
-        case classes
-    }
+    @State private var isAuthenticated: Bool = false
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            HomeView(classesToday: [.mock])
-                .tabItem {
-                    Label("Home", systemImage: "house")
+        Group {
+            if isAuthenticated {
+                AuthenticatedView()
+                .preferredColorScheme(.dark)
+                .background(.background)
+                .environment(\.lesMillsClient, client)
+            } else {
+                VStack {
+                    Button("crimes crimes crimes") {
+                        isAuthenticated = client.isAuthenticated
+                    }
+                    LoginView()
                 }
-                .tag(Tab.home)
-            ClassesView()
-                .tabItem {
-                    Label("Classes", systemImage: "calendar")
-                }
-                .tag(Tab.classes)
-            AccountView()
-                .tabItem {
-                    Label("Account", systemImage: "person")
-                }
-                .tag(Tab.account)
+            }
+        }
+        .task {
+            await client.tryResumeSession()
         }
     }
 }
 
+struct LesMillsClientKey: EnvironmentKey {
+    static let defaultValue: LesMillsClient = LesMillsHTTPClient()
+}
+
+extension EnvironmentValues {
+    var lesMillsClient: LesMillsClient {
+        get { self[LesMillsClientKey.self] }
+        set { self[LesMillsClientKey.self] = newValue }
+    }
+}
+
+
 #Preview {
     ContentView()
-        .preferredColorScheme(.dark)
 }
