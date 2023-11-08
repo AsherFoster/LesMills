@@ -7,23 +7,27 @@
 
 import SwiftUI
 
-struct LoginForm: View {
-    @State private var memberId: String = ""
-    @State private var password: String = ""
+class LoginViewModel: ViewModel {
+    @Published private var error: String? = nil
     
-    @Environment(\.lesMillsClient) private var client: LesMillsClient
-    @State private var isLoading: Bool = false
-    @State private var error: String? = nil
-    
-    private func login() async {
+    func login(memberId: String, password: String) async {
         isLoading = true
         do {
-            try await client.login(memberId: memberId, password: password)
+            let request = Paths.signIn(memberId: memberId, password: password)
+            try await client.send(request)
         } catch {
             self.error = "\(error)"
         }
         isLoading = false
     }
+    
+}
+
+struct LoginForm: View {
+    @StateObject var model = LoginViewModel()
+    
+    @State private var memberId: String = ""
+    @State private var password: String = ""
     
     var body: some View {
         VStack(spacing: 32) {
@@ -39,10 +43,10 @@ struct LoginForm: View {
             
             Button() {
                 Task {
-                    await login()
+                    await model.login(memberId: memberId, password: password)
                 }
             } label: {
-                if isLoading {
+                if model.isLoading {
                     ProgressView()
                         .controlSize(.small)
                         .frame(maxWidth: .infinity, maxHeight: 20.0)
@@ -71,7 +75,7 @@ struct LoginForm: View {
                 Spacer()
             }
         }
-        .disabled(isLoading)
+        .disabled(model.isLoading)
         .padding()
         
     }

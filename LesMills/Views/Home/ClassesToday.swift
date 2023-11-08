@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ClassesToday: View {
-    @Environment(\.lesMillsClient) var client: LesMillsClient
+    @EnvironmentObject var viewModel: ViewModel
     
     @State private var classesToday: [ClassInstance]? = nil
     

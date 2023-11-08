@@ -28,6 +28,15 @@
 		4D42F0012AEA71A400694111 /* LesMillsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42F0002AEA71A400694111 /* LesMillsClient.swift */; };
 		4D42F0032AEC710400694111 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42F0022AEC710400694111 /* AuthenticatedView.swift */; };
 		4D9042702AFB7936001E3311 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 4D90426F2AFB7936001E3311 /* Get */; };
+		4D9042762AFB8268001E3311 /* UserContactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042752AFB8268001E3311 /* UserContactDetails.swift */; };
+		4D9042792AFB8291001E3311 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042782AFB8291001E3311 /* SignIn.swift */; };
+		4D90427B2AFB8309001E3311 /* ValidateAPIToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D90427A2AFB8309001E3311 /* ValidateAPIToken.swift */; };
+		4D90427D2AFB8425001E3311 /* GetDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D90427C2AFB8425001E3311 /* GetDetails.swift */; };
+		4D90427F2AFB848B001E3311 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D90427E2AFB848B001E3311 /* ForgotPassword.swift */; };
+		4D9042812AFB8543001E3311 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042802AFB8543001E3311 /* ChangePassword.swift */; };
+		4D9042832AFB8639001E3311 /* CheckContactExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042822AFB8639001E3311 /* CheckContactExists.swift */; };
+		4D9042882AFB95A4001E3311 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 4D9042872AFB95A4001E3311 /* Factory */; };
+		4D90428A2AFB95BD001E3311 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042892AFB95BD001E3311 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +81,14 @@
 		4D42EFFE2AEA6CDF00694111 /* LesMillsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsTextField.swift; sourceTree = "<group>"; };
 		4D42F0002AEA71A400694111 /* LesMillsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsClient.swift; sourceTree = "<group>"; };
 		4D42F0022AEC710400694111 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		4D9042752AFB8268001E3311 /* UserContactDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContactDetails.swift; sourceTree = "<group>"; };
+		4D9042782AFB8291001E3311 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		4D90427A2AFB8309001E3311 /* ValidateAPIToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAPIToken.swift; sourceTree = "<group>"; };
+		4D90427C2AFB8425001E3311 /* GetDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetails.swift; sourceTree = "<group>"; };
+		4D90427E2AFB848B001E3311 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		4D9042802AFB8543001E3311 /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
+		4D9042822AFB8639001E3311 /* CheckContactExists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckContactExists.swift; sourceTree = "<group>"; };
+		4D9042892AFB95BD001E3311 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9042702AFB7936001E3311 /* Get in Frameworks */,
+				4D9042882AFB95A4001E3311 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +162,7 @@
 		4D39F17D2AB0864F00FD0BCD = {
 			isa = PBXGroup;
 			children = (
+				4D9042712AFB821E001E3311 /* Shared */,
 				4D39F1882AB0864F00FD0BCD /* LesMills */,
 				4D39F19A2AB0865000FD0BCD /* LesMillsTests */,
 				4D39F1A42AB0865000FD0BCD /* LesMillsUITests */,
@@ -203,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				4D093F062AC7BE42004F2F6A /* ClassInstance.swift */,
-				4D42F0002AEA71A400694111 /* LesMillsClient.swift */,
+				4D9042892AFB95BD001E3311 /* ViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -226,6 +245,45 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		4D9042712AFB821E001E3311 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4D9042722AFB822C001E3311 /* LesMillsClient */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4D9042722AFB822C001E3311 /* LesMillsClient */ = {
+			isa = PBXGroup;
+			children = (
+				4D9042772AFB8285001E3311 /* Paths */,
+				4D9042732AFB823B001E3311 /* Entities */,
+				4D42F0002AEA71A400694111 /* LesMillsClient.swift */,
+			);
+			path = LesMillsClient;
+			sourceTree = "<group>";
+		};
+		4D9042732AFB823B001E3311 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4D9042752AFB8268001E3311 /* UserContactDetails.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		4D9042772AFB8285001E3311 /* Paths */ = {
+			isa = PBXGroup;
+			children = (
+				4D9042782AFB8291001E3311 /* SignIn.swift */,
+				4D9042822AFB8639001E3311 /* CheckContactExists.swift */,
+				4D9042802AFB8543001E3311 /* ChangePassword.swift */,
+				4D90427C2AFB8425001E3311 /* GetDetails.swift */,
+				4D90427A2AFB8309001E3311 /* ValidateAPIToken.swift */,
+				4D90427E2AFB848B001E3311 /* ForgotPassword.swift */,
+			);
+			path = Paths;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,6 +302,7 @@
 			name = LesMills;
 			packageProductDependencies = (
 				4D90426F2AFB7936001E3311 /* Get */,
+				4D9042872AFB95A4001E3311 /* Factory */,
 			);
 			productName = LesMills;
 			productReference = 4D39F1862AB0864F00FD0BCD /* LesMills.app */;
@@ -319,6 +378,7 @@
 			mainGroup = 4D39F17D2AB0864F00FD0BCD;
 			packageReferences = (
 				4D90426E2AFB7936001E3311 /* XCRemoteSwiftPackageReference "Get" */,
+				4D9042862AFB95A4001E3311 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = 4D39F1872AB0864F00FD0BCD /* Products */;
 			projectDirPath = "";
@@ -364,19 +424,27 @@
 			files = (
 				4D093EF82AC2D019004F2F6A /* HomeView.swift in Sources */,
 				4D42F0012AEA71A400694111 /* LesMillsClient.swift in Sources */,
+				4D90427B2AFB8309001E3311 /* ValidateAPIToken.swift in Sources */,
+				4D9042792AFB8291001E3311 /* SignIn.swift in Sources */,
 				4D093EFC2AC7908A004F2F6A /* ContentView.swift in Sources */,
+				4D9042832AFB8639001E3311 /* CheckContactExists.swift in Sources */,
 				4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */,
+				4D9042762AFB8268001E3311 /* UserContactDetails.swift in Sources */,
 				4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */,
 				4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */,
+				4D90427D2AFB8425001E3311 /* GetDetails.swift in Sources */,
 				4D093F072AC7BE42004F2F6A /* ClassInstance.swift in Sources */,
 				4D093EFA2AC2D322004F2F6A /* ClassRow.swift in Sources */,
 				4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */,
+				4D9042812AFB8543001E3311 /* ChangePassword.swift in Sources */,
 				4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */,
 				4D279F532AFA40110010C5E8 /* ClassesToday.swift in Sources */,
 				4D42F0032AEC710400694111 /* AuthenticatedView.swift in Sources */,
 				4D3DDCEB2AD800A000E72291 /* LoginView.swift in Sources */,
 				4D3DDCF02ADFC3C900E72291 /* LoginForm.swift in Sources */,
 				4D093F002AC79277004F2F6A /* AccountView.swift in Sources */,
+				4D90428A2AFB95BD001E3311 /* ViewModel.swift in Sources */,
+				4D90427F2AFB848B001E3311 /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +812,14 @@
 				minimumVersion = 2.1.6;
 			};
 		};
+		4D9042862AFB95A4001E3311 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -751,6 +827,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D90426E2AFB7936001E3311 /* XCRemoteSwiftPackageReference "Get" */;
 			productName = Get;
+		};
+		4D9042872AFB95A4001E3311 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D9042862AFB95A4001E3311 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,0 +1,28 @@
+//
+//  SignIn.swift
+//  LesMills
+//
+//  Created by Asher Foster on 8/11/23.
+//
+
+import Foundation
+import Get
+
+struct SignInRequest: Codable, Hashable {
+    var memberId: String
+    var password: String
+}
+struct SignInResponse: Codable, Hashable {
+    let contactDetails: UserContactDetails
+    let message: String
+    
+    static func mock() -> SignInResponse {
+        SignInResponse(contactDetails: .mock(), message: "")
+    }
+}
+
+extension Paths {
+   static func signIn(memberId: String, password: String) -> Request<SignInResponse> {
+        Request(path: "/User/SignIn", method: "POST", body: SignInRequest(memberId: memberId, password: password), id: "SignIn")
+    }
+}

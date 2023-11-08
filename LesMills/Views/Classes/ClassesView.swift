@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct ClassesViewHeader: View {
-    @Environment(\.lesMillsClient) var client: LesMillsClient
-    
+struct ClassesViewHeader: View {    
     var body: some View {
         VStack {
             HStack {

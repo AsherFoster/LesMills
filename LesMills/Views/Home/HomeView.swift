@@ -7,18 +7,16 @@
 
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
+class HomeViewModel: ViewModel {
     @Published var profile: UserContactDetails? = nil
     @Published var classesToday: [ClassInstance]? = nil
-    @Published var isLoading: Bool = false
     
-    
-    func loadData(client: LesMillsClient) async {
-        // TODO passing client in here feels sooo wrong
+    func loadData() async {
         self.isLoading = true
         
         do {
-            profile = try await client.getUserContactDetails()
+            let request = Paths.getDetails()
+            profile = try await client.send(request).value.contactDetails
         } catch {
             // TODO :shrug:
             print("Failed to load HomeViewModel \(error)")
@@ -29,14 +27,12 @@ class HomeViewModel: ObservableObject {
 }
 
 struct HomeView: View {
-    @Environment(\.lesMillsClient) var client: LesMillsClient
-    
-    @StateObject var homeViewModel = HomeViewModel()
+    @StateObject var viewModel = HomeViewModel()
     
     @ViewBuilder
     var body: some View {
         Group {
-            if !homeViewModel.isLoading, let profile = homeViewModel.profile {
+            if !viewModel.isLoading, let profile = viewModel.profile {
                 NavigationStack {
                     VStack(alignment: .leading) {
                         Text("Kia ora, \(profile.firstName)")
@@ -82,7 +78,7 @@ struct HomeView: View {
 
         }
         .task {
-            await homeViewModel.loadData(client: client)
+            await viewModel.loadData()
         }
     }
 }
@@ -90,5 +86,4 @@ struct HomeView: View {
 #Preview {
     HomeView()
         .preferredColorScheme(.dark)
-        .environment(\.lesMillsClient, MockLesMillsClient())
 }

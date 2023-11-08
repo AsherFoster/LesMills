@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    var client: LesMillsClient = LesMillsHTTPClient()
+    @EnvironmentObject var viewModel: ViewModel
     
-    @State private var isAuthenticated: Bool = false
+    var isAuthenticated: Bool {
+        print("Token is \(viewModel.client.apiToken?.uuidString ?? "not set")")
+        return viewModel.client.apiToken != nil
+    }
+    
     
     var body: some View {
         Group {
@@ -18,30 +22,13 @@ struct ContentView: View {
                 AuthenticatedView()
                 .preferredColorScheme(.dark)
                 .background(.background)
-                .environment(\.lesMillsClient, client)
             } else {
-                VStack {
-                    Button("crimes crimes crimes") {
-                        isAuthenticated = client.isAuthenticated
-                    }
-                    LoginView()
-                }
+                LoginView()
             }
         }
         .task {
-            await client.tryResumeSession()
+//            await viewModel.tryResumeSession()
         }
-    }
-}
-
-struct LesMillsClientKey: EnvironmentKey {
-    static let defaultValue: LesMillsClient = LesMillsHTTPClient()
-}
-
-extension EnvironmentValues {
-    var lesMillsClient: LesMillsClient {
-        get { self[LesMillsClientKey.self] }
-        set { self[LesMillsClientKey.self] = newValue }
     }
 }
 
