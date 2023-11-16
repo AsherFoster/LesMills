@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject private var viewModel = ViewModel()
     
-    var isAuthenticated: Bool {
-        print("Token is \(viewModel.client.apiToken?.uuidString ?? "not set")")
-        return viewModel.client.apiToken != nil
-    }
+    @State var isAuthenticated = false
+//    @State var isAuthenticated: Bool {
+//        return viewModel.client.apiToken != nil
+//    }
     
     
     var body: some View {
@@ -26,8 +26,14 @@ struct ContentView: View {
                 LoginView()
             }
         }
-        .task {
-//            await viewModel.tryResumeSession()
+        .onAppear {
+            do {
+                if try viewModel.client.signInFromStorage() {
+                    isAuthenticated = true
+                }
+            } catch {
+                //
+            }
         }
     }
 }

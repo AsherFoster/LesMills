@@ -23,6 +23,9 @@ struct AuthenticatedView: View {
                     Label("Home", systemImage: "house")
                 }
                 .tag(Tab.home)
+                .onAppear {
+                    print("HomeView component .onAppear")
+                }
             ClassesView()
                 .tabItem {
                     Label("Classes", systemImage: "calendar")

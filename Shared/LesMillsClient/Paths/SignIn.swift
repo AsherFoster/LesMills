@@ -9,7 +9,7 @@ import Foundation
 import Get
 
 struct SignInRequest: Codable, Hashable {
-    var memberId: String
+    var lesMillsID: String
     var password: String
 }
 struct SignInResponse: Codable, Hashable {
@@ -23,6 +23,6 @@ struct SignInResponse: Codable, Hashable {
 
 extension Paths {
    static func signIn(memberId: String, password: String) -> Request<SignInResponse> {
-        Request(path: "/User/SignIn", method: "POST", body: SignInRequest(memberId: memberId, password: password), id: "SignIn")
+        Request(path: "/User/SignIn", method: "POST", body: SignInRequest(lesMillsID: memberId, password: password), id: "SignIn")
     }
 }

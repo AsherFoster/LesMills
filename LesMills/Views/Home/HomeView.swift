@@ -9,25 +9,33 @@ import SwiftUI
 
 class HomeViewModel: ViewModel {
     @Published var profile: UserContactDetails? = nil
-    @Published var classesToday: [ClassInstance]? = nil
+//    @Published var classesToday: [ClassInstance]? = nil
     
-    func loadData() async {
-        self.isLoading = true
+    func loadData() {
+        isLoading = true
         
-        do {
-            let request = Paths.getDetails()
-            profile = try await client.send(request).value.contactDetails
-        } catch {
-            // TODO :shrug:
-            print("Failed to load HomeViewModel \(error)")
+        Task {
+            do {
+                let request = Paths.getDetails()
+                let contactDetails = try await client.send(request).value.contactDetails
+                
+                await MainActor.run {
+                    profile = contactDetails
+                }
+            } catch {
+                // TODO :shrug:
+                print("Failed to load HomeViewModel \(error)")
+            }
+            
+            await MainActor.run {
+                isLoading = false
+            }
         }
-        
-        self.isLoading = false
     }
 }
 
 struct HomeView: View {
-    @StateObject var viewModel = HomeViewModel()
+    @StateObject var viewModel: HomeViewModel = .init()
     
     @ViewBuilder
     var body: some View {
@@ -77,8 +85,9 @@ struct HomeView: View {
                 //            .navigationTitle("Home")
 
         }
-        .task {
-            await viewModel.loadData()
+        .onAppear {
+            print("HomeView .onAppear")
+            viewModel.loadData()
         }
     }
 }

@@ -13,8 +13,7 @@ class LoginViewModel: ViewModel {
     func login(memberId: String, password: String) async {
         isLoading = true
         do {
-            let request = Paths.signIn(memberId: memberId, password: password)
-            try await client.send(request)
+            try await client.signIn(memberId: memberId, password: password)
         } catch {
             self.error = "\(error)"
         }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Get
+import Security
 
 enum Paths {}
 
@@ -76,7 +77,9 @@ extension LesMillsClient: APIClientDelegate {
         if let delegate = delegate {
             try delegate.client(_apiClient, validateResponse: response, data: data, task: task)
         } else {
-            print(response)
+            #if DEBUG
+            print("\(response.statusCode): \(response.url != nil ? response.url!.absoluteString : "no URL")")
+            #endif
             guard (200 ..< 300).contains(response.statusCode) else {
                 throw APIError.unacceptableStatusCode(response.statusCode)
             }
@@ -94,17 +97,95 @@ extension LesMillsClient: APIClientDelegate {
 
 
 extension LesMillsClient {
+    static let keychainKeyName = "LES_MILLS_API_TOKEN"
+    
+    private func saveTokenToStorage(token: UUID) throws {
+        #if DEBUG
+        print("saveTokenToStorage", token.uuidString)
+        #endif
+        
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: LesMillsClient.keychainKeyName,
+            kSecValueData as String: Data(token.uuidString.utf8),
+            kSecAttrAccessible as String:
+            kSecAttrAccessibleWhenUnlockedThisDeviceOnly
+        ]
+        let status = SecItemAdd(query as CFDictionary, nil)
+        guard status == errSecSuccess else {
+            throw APIError.unacceptableStatusCode(500) // TODO make an actual error
+        }
+    }
+    
+    private func readTokenFromStorage() throws -> UUID? {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: LesMillsClient.keychainKeyName,
+            kSecMatchLimit as String: kSecMatchLimitOne,
+            kSecReturnData as String: kCFBooleanTrue as Any
+        ]
+        var dataTypeRef: AnyObject?
+        let status = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
+        
+        if status == errSecItemNotFound {
+            return nil
+        }
+        
+        guard status == errSecSuccess else {
+            throw APIError.unacceptableStatusCode(500) // TODO make an actual error
+        }
+        
+        #if DEBUG
+        print("readTokenFromStorage", String(data: dataTypeRef as! Data, encoding: .utf8)!)
+        #endif
+        
+        guard
+            let data = dataTypeRef as? Data,
+            let dataStr = String(data: data, encoding: .utf8),
+            let uuid = UUID(uuidString: dataStr)
+        else {
+            throw APIError.unacceptableStatusCode(500) // TODO make an actual error
+        }
+        
+        return uuid
+    }
+    
+    private func removeTokenFromStorage() throws {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: LesMillsClient.keychainKeyName,
+            kSecMatchLimit as String: kSecMatchLimitOne,
+            kSecReturnData as String: kCFBooleanTrue as Any
+        ]
+        let status = SecItemDelete(query as CFDictionary)
+        guard status == errSecSuccess else {
+            throw APIError.unacceptableStatusCode(500) // TODO make an actual error
+        }
+    }
+    
+    @discardableResult
+    func signInFromStorage() throws -> Bool {
+        apiToken = try readTokenFromStorage()
+        return apiToken != nil
+    }
+    
     func signIn(memberId: String, password: String) async throws -> SignInResponse {
         let signInRequest = Paths.signIn(memberId: memberId, password: password)
         let response = try await send(signInRequest).value
         
-        apiToken = response.contactDetails.apiToken
+        #if DEBUG
+        print("signIn response", response)
+        #endif
+        
+        let token = response.contactDetails.apiToken
+        try saveTokenToStorage(token: token)
+        apiToken = token
         
         return response
     }
     
     func signOut() async throws {
-        // Do something server-side?
+        try removeTokenFromStorage()
         apiToken = nil
     }
 }
