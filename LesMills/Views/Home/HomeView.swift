@@ -39,7 +39,7 @@ struct HomeView: View {
     
     @ViewBuilder
     var body: some View {
-        Group {
+        VStack {
             if !viewModel.isLoading, let profile = viewModel.profile {
                 NavigationStack {
                     VStack(alignment: .leading) {
@@ -47,34 +47,20 @@ struct HomeView: View {
                             .font(.largeTitle)
                             .bold()
                             .padding(.bottom)
+                        
                         Text("Today")
                             .font(.title2)
-                        Group{}
+                        BookedClasses(viewModel: viewModel)
+                        
                         Button("Show barcode", systemImage: "barcode") {}
+                            .frame(width: .infinity)
                             .buttonStyle(.bordered)
                             .controlSize(.large)
+
                         
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Next classes")
-                                    .font(.title2)
-                                Text(try! AttributedString(markdown: "At **Taranaki Street**"))
-                                    .font(.subheadline)
-                            }
-                            Spacer()
-                            NavigationLink {
-                                ClassesView()
-                            } label: {
-                                HStack {
-                                    Text("More")
-                                    Image(systemName: "chevron.right")
-                                }
-                                .font(.subheadline.bold())
-                            }
-                        }
-                        ClassesToday()
-                        
-                        
+                        NextClasses(viewModel: viewModel)
+
+
                         Spacer()
                     }
                     .padding()
@@ -83,10 +69,8 @@ struct HomeView: View {
                 ProgressView()
             }
                 //            .navigationTitle("Home")
-
         }
         .onAppear {
-            print("HomeView .onAppear")
             viewModel.loadData()
         }
     }

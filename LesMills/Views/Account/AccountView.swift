@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SafariServices
-import CryptoKit
 
 struct AccountProfileView: View {
     var name: String

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ClassesToday: View {
-    @EnvironmentObject var viewModel: ViewModel
+struct BookedClasses: View {
+    @ObservedObject var viewModel: HomeViewModel
     
     @State private var classesToday: [ClassInstance]? = nil
     
@@ -35,5 +35,5 @@ struct ClassesToday: View {
 }
 
 #Preview {
-    ClassesToday()
+    BookedClasses(viewModel: .init())
 }
