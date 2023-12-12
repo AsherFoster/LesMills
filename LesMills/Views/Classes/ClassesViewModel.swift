@@ -41,6 +41,17 @@ class ClassesViewModel: ViewModel {
     @Published public var timetable: NormalisedTimetable?
     @Published public var viewingDate: DateComponents?
     
+    public var classes: [ClassInstance]? {
+        guard let date = viewingDate else { return nil }
+        guard let timetable = self.timetable else { return nil }
+        
+        return timetable.classesForDate(date: date)
+            .filter { classInstance in
+                (selectedInstructors.isEmpty || selectedInstructors.contains(where: { $0.name == classInstance.instructor.name }))
+                && (selectedClassTypes.isEmpty || selectedClassTypes.contains(where: { $0.id == classInstance.lesMillsServiceId}))
+            }
+    }
+    
     func loadData() {
         isLoading = true
         
@@ -107,7 +118,7 @@ class ClassesViewModel: ViewModel {
         await MainActor.run {
             self.timetable = timetable
             
-            if let d = viewingDate, !timetable.dates.contains(d) {
+            if viewingDate == nil || !timetable.dates.contains(viewingDate!) {
                 viewingDate = timetable.dates.first
             }
         }

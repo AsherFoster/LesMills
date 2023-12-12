@@ -12,7 +12,6 @@
 		4D093EFC2AC7908A004F2F6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093EFB2AC7908A004F2F6A /* ContentView.swift */; };
 		4D093F002AC79277004F2F6A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093EFF2AC79277004F2F6A /* AccountView.swift */; };
 		4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F042AC792A7004F2F6A /* ClassesView.swift */; };
-		4D093F072AC7BE42004F2F6A /* ClassInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F062AC7BE42004F2F6A /* ClassInstance.swift */; };
 		4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F082ACEABF4004F2F6A /* AccountLinkView.swift */; };
 		4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F0A2ACEAD65004F2F6A /* NotImplementedView.swift */; };
 		4D279F532AFA40110010C5E8 /* BookedClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D279F522AFA40110010C5E8 /* BookedClasses.swift */; };
@@ -46,6 +45,7 @@
 		4D90428A2AFB95BD001E3311 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042892AFB95BD001E3311 /* ViewModel.swift */; };
 		4DA975BD2B25B00200E79AA5 /* NextClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA975BC2B25B00200E79AA5 /* NextClasses.swift */; };
 		4DA975BF2B25B0F500E79AA5 /* GetClubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA975BE2B25B0F500E79AA5 /* GetClubs.swift */; };
+		4DDD36572B286CFC0015FCB3 /* ClassInstance+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD36562B286CFC0015FCB3 /* ClassInstance+Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +71,6 @@
 		4D093EFB2AC7908A004F2F6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D093EFF2AC79277004F2F6A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		4D093F042AC792A7004F2F6A /* ClassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesView.swift; sourceTree = "<group>"; };
-		4D093F062AC7BE42004F2F6A /* ClassInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInstance.swift; sourceTree = "<group>"; };
 		4D093F082ACEABF4004F2F6A /* AccountLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkView.swift; sourceTree = "<group>"; };
 		4D093F0A2ACEAD65004F2F6A /* NotImplementedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotImplementedView.swift; sourceTree = "<group>"; };
 		4D279F522AFA40110010C5E8 /* BookedClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedClasses.swift; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		4D9042892AFB95BD001E3311 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4DA975BC2B25B00200E79AA5 /* NextClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextClasses.swift; sourceTree = "<group>"; };
 		4DA975BE2B25B0F500E79AA5 /* GetClubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClubs.swift; sourceTree = "<group>"; };
+		4DDD36562B286CFC0015FCB3 /* ClassInstance+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassInstance+Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,8 +243,8 @@
 		4D39F1B42AB0865500FD0BCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4D093F062AC7BE42004F2F6A /* ClassInstance.swift */,
 				4D9042892AFB95BD001E3311 /* ViewModel.swift */,
+				4DDD36562B286CFC0015FCB3 /* ClassInstance+Color.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -458,6 +458,7 @@
 				4D3A623D2B284CF000DD1AF4 /* MultiSelectList.swift in Sources */,
 				4D3A62432B285B3E00DD1AF4 /* GetTimetable.swift in Sources */,
 				4D90427B2AFB8309001E3311 /* ValidateAPIToken.swift in Sources */,
+				4DDD36572B286CFC0015FCB3 /* ClassInstance+Color.swift in Sources */,
 				4D9042792AFB8291001E3311 /* SignIn.swift in Sources */,
 				4D093EFC2AC7908A004F2F6A /* ContentView.swift in Sources */,
 				4D9042832AFB8639001E3311 /* CheckContactExists.swift in Sources */,
@@ -468,7 +469,6 @@
 				4DA975BD2B25B00200E79AA5 /* NextClasses.swift in Sources */,
 				4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */,
 				4D90427D2AFB8425001E3311 /* GetDetails.swift in Sources */,
-				4D093F072AC7BE42004F2F6A /* ClassInstance.swift in Sources */,
 				4D093EFA2AC2D322004F2F6A /* ClassRow.swift in Sources */,
 				4D3A62472B28684A00DD1AF4 /* ClassesViewFilters.swift in Sources */,
 				4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */,

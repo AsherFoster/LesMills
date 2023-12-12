@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Club: Codable, Hashable, Identifiable {
     let id: String // Example: "04"

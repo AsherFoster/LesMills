@@ -100,8 +100,8 @@ struct ClassesView: View {
     
     @ViewBuilder
     var classes: some View {
-        if let timetable = viewModel.timetable, let viewingDate = viewModel.viewingDate {
-            List(timetable.classesForDate(date: viewingDate)) {
+        if let classes = viewModel.classes {
+            List(classes) {
                 ClassRow(classInstance: $0)
             }
             .listStyle(.plain)
