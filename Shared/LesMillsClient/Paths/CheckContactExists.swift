@@ -9,7 +9,7 @@ import Foundation
 import Get
 
 struct CheckContactExistsRequest: Codable, Hashable {
-    var lesMillsID: String
+    let lesMillsID: String
     
     public var asQuery: [(String, String?)] {
         return [
@@ -20,11 +20,16 @@ struct CheckContactExistsRequest: Codable, Hashable {
 
 struct CheckContactExistsResponse: Codable, Hashable {
     // My account returns "Tango", but presumably there are other values?
-    var contactType: String
+    let contactType: String
 }
 
 extension Paths {
     static func checkContactExists(memberId: String) -> Request<CheckContactExistsResponse> {
-        Request(path: "/User/CheckContactExists", method: "GET", query: CheckContactExistsRequest(lesMillsID: memberId).asQuery, id: "CheckContactExists")
+        Request(
+            path: "/User/CheckContactExists",
+            method: "GET",
+            query: CheckContactExistsRequest(lesMillsID: memberId).asQuery,
+            id: "CheckContactExists"
+        )
     }
 }

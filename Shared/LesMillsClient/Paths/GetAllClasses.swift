@@ -1,0 +1,42 @@
+//
+//  GetAllClasses.swift
+//  LesMills
+//
+//  Created by Asher Foster on 12/12/23.
+//
+
+import Foundation
+import Get
+
+struct ClassType: Codable, Hashable, Identifiable {
+    let id: String
+    let name: String
+    
+    enum CodingKeys: String, CodingKey {
+        // Les Mill's API gives strong "it technically works and that's technically good enough" vibes
+        case id = "item1"
+        case name = "item2"
+    }
+}
+
+struct GetAllClassesRequest {
+    let clubs: [String]
+    
+    public var asQuery: [(String, String?)] {
+        return [
+            ("searchClubCodes", clubs.joined(separator: ","))
+        ]
+    }
+}
+
+extension Paths {
+    /// Get a list of all instructors that run classes at a set of clubs (name only)
+    static func getAllClasses(clubs: Set<ClubDetailPage>) -> Request<[ClassType]> {
+        Request(
+            path: "/LesMillsData/GetAllClasses",
+            method: "GET",
+            query: GetAllClassesRequest(clubs: clubs.map { $0.id }).asQuery,
+            id: "GetAllClasses"
+        )
+    }
+}

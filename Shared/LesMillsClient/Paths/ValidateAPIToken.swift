@@ -9,7 +9,7 @@ import Foundation
 import Get
 
 struct ValidateAPITokenResponse: Codable, Hashable {
-    var message: String
+    let message: String
 }
 
 extension Paths {

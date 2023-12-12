@@ -9,12 +9,12 @@ import Foundation
 import Get
 
 struct ChangePasswordRequest: Codable, Hashable {
-    var currentPassword: String
-    var newPassword: String
+    let currentPassword: String
+    let newPassword: String
 }
 
 struct ChangePasswordResponse: Codable, Hashable {
-    var apiToken: String
+    let apiToken: String
 }
 
 extension Paths {

@@ -9,10 +9,10 @@ import Foundation
 import Get
 
 struct ForgotPasswordRequest: Codable, Hashable {
-    var id: String
+    let id: String
 }
 struct ForgotPasswordResponse: Codable, Hashable {
-    var memberEmail: String
+    let memberEmail: String
 }
 
 extension Paths {

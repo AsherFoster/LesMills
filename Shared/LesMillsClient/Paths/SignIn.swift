@@ -9,8 +9,8 @@ import Foundation
 import Get
 
 struct SignInRequest: Codable, Hashable {
-    var lesMillsID: String
-    var password: String
+    let lesMillsID: String
+    let password: String
 }
 struct SignInResponse: Codable, Hashable {
     let contactDetails: UserContactDetails

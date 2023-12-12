@@ -22,6 +22,13 @@
 		4D39F19C2AB0865000FD0BCD /* LesMillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F19B2AB0865000FD0BCD /* LesMillsTests.swift */; };
 		4D39F1A62AB0865000FD0BCD /* LesMillsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1A52AB0865000FD0BCD /* LesMillsUITests.swift */; };
 		4D39F1A82AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1A72AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift */; };
+		4D3A623B2B284CD700DD1AF4 /* ClassesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A623A2B284CD700DD1AF4 /* ClassesViewModel.swift */; };
+		4D3A623D2B284CF000DD1AF4 /* MultiSelectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A623C2B284CF000DD1AF4 /* MultiSelectList.swift */; };
+		4D3A623F2B28519E00DD1AF4 /* GetInstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A623E2B28519E00DD1AF4 /* GetInstructors.swift */; };
+		4D3A62412B28593800DD1AF4 /* GetAllClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A62402B28593800DD1AF4 /* GetAllClasses.swift */; };
+		4D3A62432B285B3E00DD1AF4 /* GetTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A62422B285B3E00DD1AF4 /* GetTimetable.swift */; };
+		4D3A62452B285CDF00DD1AF4 /* ClassInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A62442B285CDF00DD1AF4 /* ClassInstance.swift */; };
+		4D3A62472B28684A00DD1AF4 /* ClassesViewFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A62462B28684A00DD1AF4 /* ClassesViewFilters.swift */; };
 		4D3DDCEB2AD800A000E72291 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DDCEA2AD800A000E72291 /* LoginView.swift */; };
 		4D3DDCF02ADFC3C900E72291 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DDCEF2ADFC3C900E72291 /* LoginForm.swift */; };
 		4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42EFFE2AEA6CDF00694111 /* LesMillsTextField.swift */; };
@@ -78,6 +85,13 @@
 		4D39F1A12AB0865000FD0BCD /* LesMillsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LesMillsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D39F1A52AB0865000FD0BCD /* LesMillsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsUITests.swift; sourceTree = "<group>"; };
 		4D39F1A72AB0865000FD0BCD /* LesMillsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4D3A623A2B284CD700DD1AF4 /* ClassesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesViewModel.swift; sourceTree = "<group>"; };
+		4D3A623C2B284CF000DD1AF4 /* MultiSelectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectList.swift; sourceTree = "<group>"; };
+		4D3A623E2B28519E00DD1AF4 /* GetInstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInstructors.swift; sourceTree = "<group>"; };
+		4D3A62402B28593800DD1AF4 /* GetAllClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllClasses.swift; sourceTree = "<group>"; };
+		4D3A62422B285B3E00DD1AF4 /* GetTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTimetable.swift; sourceTree = "<group>"; };
+		4D3A62442B285CDF00DD1AF4 /* ClassInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInstance.swift; sourceTree = "<group>"; };
+		4D3A62462B28684A00DD1AF4 /* ClassesViewFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesViewFilters.swift; sourceTree = "<group>"; };
 		4D3DDCEA2AD800A000E72291 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4D3DDCEF2ADFC3C900E72291 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 		4D42EFFE2AEA6CDF00694111 /* LesMillsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsTextField.swift; sourceTree = "<group>"; };
@@ -160,6 +174,9 @@
 			children = (
 				4D093EF92AC2D322004F2F6A /* ClassRow.swift */,
 				4D093F042AC792A7004F2F6A /* ClassesView.swift */,
+				4D3A623A2B284CD700DD1AF4 /* ClassesViewModel.swift */,
+				4D3A623C2B284CF000DD1AF4 /* MultiSelectList.swift */,
+				4D3A62462B28684A00DD1AF4 /* ClassesViewFilters.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -272,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				4D9042752AFB8268001E3311 /* UserContactDetails.swift */,
+				4D3A62442B285CDF00DD1AF4 /* ClassInstance.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -281,6 +299,9 @@
 			children = (
 				4D9042782AFB8291001E3311 /* SignIn.swift */,
 				4DA975BE2B25B0F500E79AA5 /* GetClubs.swift */,
+				4D3A623E2B28519E00DD1AF4 /* GetInstructors.swift */,
+				4D3A62402B28593800DD1AF4 /* GetAllClasses.swift */,
+				4D3A62422B285B3E00DD1AF4 /* GetTimetable.swift */,
 				4D9042822AFB8639001E3311 /* CheckContactExists.swift */,
 				4D9042802AFB8543001E3311 /* ChangePassword.swift */,
 				4D90427C2AFB8425001E3311 /* GetDetails.swift */,
@@ -429,20 +450,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DA975BF2B25B0F500E79AA5 /* GetClubs.swift in Sources */,
+				4D3A62412B28593800DD1AF4 /* GetAllClasses.swift in Sources */,
 				4D093EF82AC2D019004F2F6A /* HomeView.swift in Sources */,
+				4D3A62452B285CDF00DD1AF4 /* ClassInstance.swift in Sources */,
 				4D42F0012AEA71A400694111 /* LesMillsClient.swift in Sources */,
+				4D3A623F2B28519E00DD1AF4 /* GetInstructors.swift in Sources */,
+				4D3A623D2B284CF000DD1AF4 /* MultiSelectList.swift in Sources */,
+				4D3A62432B285B3E00DD1AF4 /* GetTimetable.swift in Sources */,
 				4D90427B2AFB8309001E3311 /* ValidateAPIToken.swift in Sources */,
 				4D9042792AFB8291001E3311 /* SignIn.swift in Sources */,
 				4D093EFC2AC7908A004F2F6A /* ContentView.swift in Sources */,
 				4D9042832AFB8639001E3311 /* CheckContactExists.swift in Sources */,
 				4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */,
 				4D9042762AFB8268001E3311 /* UserContactDetails.swift in Sources */,
+				4D3A623B2B284CD700DD1AF4 /* ClassesViewModel.swift in Sources */,
 				4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */,
 				4DA975BD2B25B00200E79AA5 /* NextClasses.swift in Sources */,
 				4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */,
 				4D90427D2AFB8425001E3311 /* GetDetails.swift in Sources */,
 				4D093F072AC7BE42004F2F6A /* ClassInstance.swift in Sources */,
 				4D093EFA2AC2D322004F2F6A /* ClassRow.swift in Sources */,
+				4D3A62472B28684A00DD1AF4 /* ClassesViewFilters.swift in Sources */,
 				4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */,
 				4D9042812AFB8543001E3311 /* ChangePassword.swift in Sources */,
 				4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */,

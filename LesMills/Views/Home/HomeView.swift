@@ -53,7 +53,7 @@ struct HomeView: View {
                         BookedClasses(viewModel: viewModel)
                         
                         Button("Show barcode", systemImage: "barcode") {}
-                            .frame(width: .infinity)
+                            .frame(maxWidth: .infinity)
                             .buttonStyle(.bordered)
                             .controlSize(.large)
 
