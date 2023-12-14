@@ -46,33 +46,39 @@ struct FilterChip<Content: View>: View {
 struct ClassesViewHeader: View {
     @ObservedObject var viewModel: ClassesViewModel
     
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE"
+        
+        return formatter
+    }
+    
     var body: some View {
         VStack {
-            HStack {
-                Button {} label: {
-                    HStack {
-                        if let day = viewModel.viewingDate?.day {
-                            Text(String(day))
-                        } else {
-                            Text("idk")
-                        }
-                        Image(systemName: "chevron.right")
-                    }
-                }
-                Spacer()
-                
-                Button("Previous Day", systemImage: "chevron.left") {}
-                    .labelStyle(.iconOnly)
-                    .disabled(true)
-                Button("Next Day", systemImage: "chevron.right") {}
-                    .labelStyle(.iconOnly)
-            }
-            .padding(.bottom)
-            
             ClassesViewFilters(viewModel: viewModel)
+            
+            if let dates = viewModel.timetableDates {
+                ScrollView(.horizontal) {
+                    Picker("Date", selection: $viewModel.selectedDate) {
+                        ForEach(dates, id: \.self) {
+                            Text(dateFormatter.string(from: $0))
+                        }
+                    }
+                        .pickerStyle(.segmented)
+                        .padding(.vertical, 16)
+                }
+            } else {
+                ProgressView()
+                    .frame(maxWidth: .infinity)
+                    .padding(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
+                    .background {
+                        Rectangle()
+                            .fill(.quinary)
+                            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 8, height: 8)))
+                    }
+                    .padding(.vertical, 16)
+            }
         }
-        .padding(.all)
-        
     }
 }
 
@@ -82,31 +88,28 @@ struct ClassesView: View {
     var body: some View {
         NavigationStack {
             ClassesViewHeader(viewModel: viewModel)
+                .padding(.horizontal)
+                .padding(.top)
             Section {
                 classes
+                Spacer()
             }
-            .toolbar {
-                ToolbarItemGroup {
-                    Button("Previous Day", systemImage: "chevron.left") {}
-                    Button("Next Day", systemImage: "chevron.right") {}
+                .navigationTitle("Classes")
+                .onAppear {
+                    viewModel.loadData()
                 }
-            }
-            .navigationTitle("Classes")
-            .onAppear {
-                viewModel.loadData()
-            }
         }
     }
     
     @ViewBuilder
     var classes: some View {
-        if let classes = viewModel.classes {
-            List(classes) {
+        if viewModel.isLoading {
+            ProgressView()
+        } else {
+            List(viewModel.filteredTimetable) {
                 ClassRow(classInstance: $0)
             }
             .listStyle(.plain)
-        } else {
-            ProgressView()
         }
     }
 }

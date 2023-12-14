@@ -9,48 +9,41 @@ import Combine
 import Foundation
 
 class ClassesViewModel: ViewModel {
-    @Published var profile: UserContactDetails? = nil
-    @Published public var allClubs: [ClubDetailPage] = []
+    @Published public var profile: UserContactDetails? = nil
     
-    @Published public var selectedClubs: Set<ClubDetailPage> = [] {
-        didSet {
-            Task {
-                try await onClubsChange()
-            }
+    @Published public var allClubs: [ClubDetailPage] = []
+    @Published public private(set) var selectedClubs: Set<ClubDetailPage> = []
+    public func setSelectedClubs(_ newClubs: Set<ClubDetailPage>) async throws {
+        await MainActor.run {
+            selectedClubs = newClubs
         }
+        try await onClubsChange()
     }
     
     @Published public var allInstructors: [InstructorFromList] = []
-    @Published public var selectedInstructors: Set<InstructorFromList> = [] {
-        didSet {
-            Task {
-                try await onFilterChange()
-            }
-        }
-    }
+    @Published public var selectedInstructors: Set<InstructorFromList> = []
     
     @Published public var allClassTypes: [ClassType] = []
-    @Published public var selectedClassTypes: Set<ClassType> = [] {
-        didSet {
-            Task {
-                try await onFilterChange()
-            }
-        }
-    }
+    @Published public var selectedClassTypes: Set<ClassType> = []
     
-    @Published public var timetable: NormalisedTimetable?
-    @Published public var viewingDate: DateComponents?
+    @Published public var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
     
-    public var classes: [ClassInstance]? {
-        guard let date = viewingDate else { return nil }
-        guard let timetable = self.timetable else { return nil }
+    @Published private var timetable: NormalisedTimetable?
+    
+    public var filteredTimetable: [ClassInstance] {
+        guard let timetable = self.timetable else { return [] }
         
-        return timetable.classesForDate(date: date)
+        return timetable.classesForDate(date: selectedDate)
             .filter { classInstance in
                 (selectedInstructors.isEmpty || selectedInstructors.contains(where: { $0.name == classInstance.instructor.name }))
                 && (selectedClassTypes.isEmpty || selectedClassTypes.contains(where: { $0.id == classInstance.lesMillsServiceId}))
             }
     }
+    public var timetableDates: [Date]? {
+        timetable?.dates
+    }
+    
+    
     
     func loadData() {
         isLoading = true
@@ -65,10 +58,8 @@ class ClassesViewModel: ViewModel {
                 await MainActor.run {
                     profile = contactDetails
                     allClubs = clubs.map { $0.clubDetailPage }
-                    selectedClubs = Set(allClubs.filter { $0.id == profile?.homeClubGuid})
                 }
-                
-                try await onClubsChange()
+                try await setSelectedClubs(Set(allClubs.filter { $0.id == profile?.homeClubGuid}))
             } catch {
                 // TODO :shrug:
                 print("Failed to load HomeViewModel \(error)")
@@ -94,10 +85,10 @@ class ClassesViewModel: ViewModel {
             selectedClassTypes = selectedClassTypes.filter { classes.contains($0) }
         }
         
-        try await onFilterChange()
+        try await refreshTimetable()
     }
     
-    func onFilterChange() async throws {
+    func refreshTimetable() async throws {
         let responses = await withTaskGroup(of: GetTimetableResponse.self) { group in
             for club in selectedClubs {
                 group.addTask {
@@ -118,8 +109,9 @@ class ClassesViewModel: ViewModel {
         await MainActor.run {
             self.timetable = timetable
             
-            if viewingDate == nil || !timetable.dates.contains(viewingDate!) {
-                viewingDate = timetable.dates.first
+            // If the timetable is for different dates, update the selected date
+            if !timetable.dates.isEmpty && !timetable.dates.contains(selectedDate) {
+                selectedDate = timetable.dates.first!
             }
         }
     }

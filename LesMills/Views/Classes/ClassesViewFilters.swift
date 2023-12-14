@@ -15,7 +15,7 @@ struct ClassesViewFilters: View {
             FilterChip(label: "Clubs", active: !viewModel.selectedClubs.isEmpty) {
                 MultiSelectList(
                     options: viewModel.allClubs,
-                    selection: $viewModel.selectedClubs
+                    selection: selectedClubs
                 ) { Text($0.nodeName) }
             }
             FilterChip(label: "Instructor", active: !viewModel.selectedInstructors.isEmpty) {
@@ -33,6 +33,19 @@ struct ClassesViewFilters: View {
             
             Spacer()
         }
+    }
+    
+    private var selectedClubs: Binding<Set<ClubDetailPage>> {
+        Binding<Set<ClubDetailPage>>(
+            get: {
+                viewModel.selectedClubs
+            },
+            set: { newValue in
+                Task {
+                    try await viewModel.setSelectedClubs(newValue)
+                }
+            }
+        )
     }
 }
 
