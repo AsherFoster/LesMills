@@ -137,14 +137,14 @@ struct MetalView_SwiftUICompatible: UIViewRepresentable {
 }
 struct HighlightedQRCodeView: View {
     public var image: CIImage
-//    var qrCodeTextContent: String
-//    var imageRenderSize: CGSize
-//    var qrCodeScaleFactor: CGFloat
+    public var size: CGSize
     
     var body: some View {
         
         // Create a Metal view with its own renderer.
         let renderer = Renderer(imageProvider: { (scaleFactor: CGFloat, headroom: CGFloat) -> CIImage? in
+            let qrImage = image.transformed(by: CGAffineTransform(scaleX: 12, y: 12))
+            
             // Generate blank fill image with the max RGB color
             let maxRGB = headroom
             guard let EDR_colorSpace = CGColorSpace(name: CGColorSpace.extendedLinearSRGB),
@@ -156,7 +156,7 @@ struct HighlightedQRCodeView: View {
             
             // Use mask filter to create final QR code image
             let maskFilter = CIFilter.blendWithMask()
-            maskFilter.maskImage = image
+            maskFilter.maskImage = qrImage
             maskFilter.inputImage = fillImage
             
             // combine highlight layer and QR image
@@ -165,11 +165,12 @@ struct HighlightedQRCodeView: View {
             }
             return combinedImage
 //                .cropped(to: CGRect(x: 0, y: 0,
-//                                                    width: imageRenderSize.width * scaleFactor,
-//                                                    height: imageRenderSize.height * scaleFactor))
+//                                    width: size.width * scaleFactor,
+//                                    height: size.height * scaleFactor))
         })
         
         MetalView_SwiftUICompatible(renderer: renderer)
+            .frame(width: size.width, height: size.height)
     }
     
 }
@@ -179,13 +180,9 @@ struct Barcode: View {
     
     var body: some View {
         VStack {
-            HighlightedQRCodeView(image: ciImage)
-                .scaledToFit()
-//            image
-//                .resizable()
-//                .scaledToFit()
+            HighlightedQRCodeView(image: ciImage, size: CGSize(width: 300, height: 150))
             
-            ciImageTwo
+            image
                 .resizable()
                 .scaledToFit()
             
@@ -198,33 +195,6 @@ struct Barcode: View {
         filter.message = Data(message.utf8)
         
         return filter.outputImage!
-    }
-    
-    var ciImageTwo: Image {
-        let maxRGB = UIScreen.main.currentEDRHeadroom
-        guard let EDR_colorSpace = CGColorSpace(name: CGColorSpace.extendedLinearSRGB),
-              let maxFillColor = CIColor(red: maxRGB, green: maxRGB, blue: maxRGB,
-                                         colorSpace: EDR_colorSpace) else {
-            return Image(systemName: "exclaimationmark.circle")
-        }
-        let fillImage = CIImage(color: maxFillColor)
-        
-        // Use mask filter to create final QR code image
-        let maskFilter = CIFilter.blendWithMask()
-        maskFilter.maskImage = ciImage
-        maskFilter.inputImage = fillImage
-        let combinedImage = maskFilter.outputImage!
-        
-        // combine highlight layer and QR image
-        
-        let context = CIContext()
-        guard let cgImage = context.createCGImage(combinedImage, from: combinedImage.extent) else {
-            return Image(systemName: "exclamationmark.circle")
-        }
-
-        
-        return Image(uiImage: UIImage(cgImage: cgImage))
-            .interpolation(.none)
     }
     
     var image: Image {

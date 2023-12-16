@@ -11,26 +11,26 @@ import Foundation
 class ClassesViewModel: ViewModel {
     @Published public var profile: UserContactDetails? = nil
     
-    @Published public var allClubs: [ClubDetailPage] = []
-    @Published public private(set) var selectedClubs: Set<ClubDetailPage> = []
-    public func setSelectedClubs(_ newClubs: Set<ClubDetailPage>) async throws {
+    @Published public var allClubs: [DetailedClub] = []
+    @Published public private(set) var selectedClubs: Set<DetailedClub> = []
+    public func setSelectedClubs(_ newClubs: Set<DetailedClub>) async throws {
         await MainActor.run {
             selectedClubs = newClubs
         }
         try await onClubsChange()
     }
     
-    @Published public var allInstructors: [InstructorFromList] = []
-    @Published public var selectedInstructors: Set<InstructorFromList> = []
+    @Published public var allInstructors: [BasicInstructor] = []
+    @Published public var selectedInstructors: Set<BasicInstructor> = []
     
-    @Published public var allClassTypes: [ClassType] = []
-    @Published public var selectedClassTypes: Set<ClassType> = []
+    @Published public var allClassTypes: [BasicClassType] = []
+    @Published public var selectedClassTypes: Set<BasicClassType> = []
     
     @Published public var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
     
     @Published private var timetable: NormalisedTimetable?
     
-    public var filteredTimetable: [ClassInstance] {
+    public var filteredSessions: [ClassSession] {
         guard let timetable = self.timetable else { return [] }
         
         return timetable.classesForDate(date: selectedDate)
@@ -73,7 +73,7 @@ class ClassesViewModel: ViewModel {
     
     func onClubsChange() async throws {
         async let instructorsResponse = try await client.send(Paths.getInstructors(clubs: selectedClubs)).value
-        async let classesResponse = try await client.send(Paths.getAllClasses(clubs: selectedClubs)).value
+        async let classesResponse = try await client.send(Paths.getAvailableClassTypes(clubs: selectedClubs)).value
         
         let (classes, instructors) = try await (classesResponse, instructorsResponse)
         

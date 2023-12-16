@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ClassRow: View {
-    var classInstance: ClassInstance
+    var classSession: ClassSession
     
     var body: some View {
         HStack {
@@ -16,12 +16,12 @@ struct ClassRow: View {
 //                .fill(style: classInstance.color))
                 .frame(width: 5, height: 50)
             VStack(alignment: .leading) {
-                Text(classInstance.startsAt, style: .time)
-                Text("\(classInstance.durationMinutes) mins").foregroundStyle(.secondary)
+                Text(classSession.startsAt, style: .time)
+                Text("\(classSession.durationMinutes) mins").foregroundStyle(.secondary)
             }
             VStack(alignment: .leading) {
-                Text(classInstance.name).bold()
-                Text(classInstance.instructor.name).foregroundStyle(.secondary)
+                Text(classSession.name).bold()
+                Text(classSession.instructor.name).foregroundStyle(.secondary)
             }
             Spacer()
             Button("Save Class", systemImage: "plus") {}
@@ -31,5 +31,5 @@ struct ClassRow: View {
 }
 
 #Preview {
-    ClassRow(classInstance: .mock())
+    ClassRow(classSession: .mock())
 }

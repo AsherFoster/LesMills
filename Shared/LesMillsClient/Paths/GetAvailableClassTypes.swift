@@ -30,8 +30,8 @@ struct GetAllClassesRequest {
 }
 
 extension Paths {
-    /// Get a list of all instructors that run classes at a set of clubs (name only)
-    static func getAllClasses(clubs: Set<ClubDetailPage>) -> Request<[ClassType]> {
+    /// Get a list of all class types that run at a set of clubs (name only)
+    static func getAvailableClassTypes(clubs: Set<DetailedClub>) -> Request<[ClassType]> {
         Request(
             path: "/LesMillsData/GetAllClasses",
             method: "GET",

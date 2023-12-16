@@ -8,7 +8,7 @@
 import Foundation
 import Get
 
-struct InstructorFromList: Codable, Hashable, Identifiable {
+struct BasicInstructor: Codable, Hashable, Identifiable {
     let name: String
     
     var id: String {
@@ -33,7 +33,7 @@ struct GetInstructorsRequest {
 
 extension Paths {
     /// Get a list of all instructors that run classes at a set of clubs (name only)
-    static func getInstructors(clubs: Set<ClubDetailPage>) -> Request<[InstructorFromList]> {
+    static func getInstructors(clubs: Set<DetailedClub>) -> Request<[BasicInstructor]> {
         Request(
             path: "/LesMillsData/GetInstructors",
             method: "GET",

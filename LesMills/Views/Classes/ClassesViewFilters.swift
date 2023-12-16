@@ -35,8 +35,8 @@ struct ClassesViewFilters: View {
         }
     }
     
-    private var selectedClubs: Binding<Set<ClubDetailPage>> {
-        Binding<Set<ClubDetailPage>>(
+    private var selectedClubs: Binding<Set<DetailedClub>> {
+        Binding<Set<DetailedClub>>(
             get: {
                 viewModel.selectedClubs
             },

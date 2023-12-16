@@ -106,8 +106,8 @@ struct ClassesView: View {
         if viewModel.isLoading {
             ProgressView()
         } else {
-            List(viewModel.filteredTimetable) {
-                ClassRow(classInstance: $0)
+            List(viewModel.filteredSessions) {
+                ClassRow(classSession: $0)
             }
             .listStyle(.plain)
         }

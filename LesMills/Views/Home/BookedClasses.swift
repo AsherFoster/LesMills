@@ -10,13 +10,13 @@ import SwiftUI
 struct BookedClasses: View {
     @ObservedObject var viewModel: HomeViewModel
     
-    @State private var classesToday: [ClassInstance]? = nil
+    @State private var classesToday: [ClassSession]? = nil
     
     var body: some View {
         VStack {
             if classesToday != nil {
                 List (classesToday!) {
-                    ClassRow(classInstance: $0)
+                    ClassRow(classSession: $0)
                 }
                 .listStyle(.plain)
             } else {

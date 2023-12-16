@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-extension ClassInstance {
+extension ClassSession {
     private static let defaultColor = Color.red
     var color: Color {
         guard let rgb = Int(cmsColour.dropFirst(1), radix: 16) else {
-            return ClassInstance.defaultColor
+            return ClassSession.defaultColor
         }
         
         return Color(

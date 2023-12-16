@@ -8,33 +8,33 @@
 import Foundation
 import SwiftUI
 
-struct Club: Codable, Hashable, Identifiable {
+struct BasicClub: Codable, Hashable, Identifiable {
     let id: String // Example: "04"
     let name: String // Example: "Taranaki Street"
     
-    static func mock() -> Club {
-        Club(id: "04", name: "Taranaki Street")
+    static func mock() -> BasicClub {
+        BasicClub(id: "04", name: "Taranaki Street")
     }
 }
 
-struct Instructor: Codable, Hashable, Identifiable {
+struct DetailedInstructor: Codable, Hashable, Identifiable {
     let id: UUID // Example: "3cbddc6a-8685-e811-a95e-000d3ae12152"
     let name: String // Example: "Bex Palmer"
     let firstName: String // Example: "Bex Palmer"
     
-    static func mock() -> Instructor {
+    static func mock() -> DetailedInstructor {
         let name = ["Adrian Marsden", "Cleo Bennett", "Dalton Frazier", "Erika Hutton", "Fiona Greenway"].randomElement()!
-        return Instructor(id: UUID(), name: name, firstName: name)
+        return DetailedInstructor(id: UUID(), name: name, firstName: name)
     }
 }
 
 // This struct was generated from the LesMillsData/GetTimetable API endpoint
-struct ClassInstance: Codable, Hashable, Identifiable {
+struct ClassSession: Codable, Hashable, Identifiable {
     let id: UUID // Example: "0c920d5b-8110-ee11-8f6d-000d3a79b82b"
-    let club: Club
+    let club: BasicClub
     let lesMillsServiceId: String // Example: "900" (aka crmClassCode)
 //    let clubServiceId: String // Example: "04|900|"
-    let instructor: Instructor
+    let instructor: DetailedInstructor
     let clubServiceName: String // Example: "CEREMONY"
     let classLocation: String // Example: "Studio 2"
     let name: String // Example: "CEREMONY"
@@ -102,14 +102,14 @@ struct ClassInstance: Codable, Hashable, Identifiable {
     }
     
     
-    static func mock() -> ClassInstance {
+    static func mock() -> ClassSession {
         let mockClass = MockClassInstance.mocks.randomElement()!
         
-        return ClassInstance(
+        return ClassSession(
             id: UUID(),
-            club: Club.mock(),
+            club: BasicClub.mock(),
             lesMillsServiceId: String(Int.random(in: 1...99)),
-            instructor: Instructor.mock(),
+            instructor: DetailedInstructor.mock(),
             clubServiceName: mockClass.name,
             classLocation: mockClass.location,
             name: mockClass.name,

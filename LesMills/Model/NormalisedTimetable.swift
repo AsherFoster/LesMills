@@ -8,7 +8,7 @@
 import Foundation
 
 struct NormalisedTimetable {
-    private let classes: [ClassInstance]
+    private let classes: [ClassSession]
     
     public var dates: [Date] {
         let calendar = Calendar.current
@@ -21,7 +21,7 @@ struct NormalisedTimetable {
             .filter { datesSet.insert($0).inserted }
     }
     
-    public func classesForDate(date: Date) -> [ClassInstance] {
+    public func classesForDate(date: Date) -> [ClassSession] {
         let calendar = Calendar.current
         assert(calendar.startOfDay(for: date) == date)
         
@@ -29,7 +29,7 @@ struct NormalisedTimetable {
     }
     
     init(responses: [GetTimetableResponse]) {
-        var classes: [ClassInstance] = responses.flatMap { $0.flatList }
+        var classes: [ClassSession] = responses.flatMap { $0.sessions }
         
         // Combining the two timetables together will get them out of order
         classes.sort(by: { $0.startsAt < $1.startsAt })
