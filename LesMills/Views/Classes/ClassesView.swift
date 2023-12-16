@@ -103,13 +103,32 @@ struct ClassesView: View {
     
     @ViewBuilder
     var classes: some View {
-        if viewModel.isLoading {
-            ProgressView()
+        if !viewModel.isLoading, let timetableDates = viewModel.timetableDates {
+            PageViewController(
+                pages: timetableDates.map {
+                    sessionList(date: $0)
+                },
+                currentPage: Binding(
+                    get: {
+                        timetableDates.firstIndex(of: viewModel.selectedDate)!
+                    },
+                    set: {
+                        viewModel.selectedDate = timetableDates[$0]
+                    }
+                )
+            )
         } else {
-            List(viewModel.filteredSessions) {
-                ClassRow(classSession: $0)
-            }
-            .listStyle(.plain)
+            ProgressView()
+        }
+    }
+    
+    func sessionList(date: Date) -> some View {
+        List(viewModel.filteredSessions(forDate: date)) {
+            ClassRow(classSession: $0)
+        }
+        .listStyle(.plain)
+        .refreshable {
+            try! await viewModel.refreshTimetable()
         }
     }
 }

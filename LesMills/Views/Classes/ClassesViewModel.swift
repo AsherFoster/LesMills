@@ -23,24 +23,25 @@ class ClassesViewModel: ViewModel {
     @Published public var allInstructors: [BasicInstructor] = []
     @Published public var selectedInstructors: Set<BasicInstructor> = []
     
-    @Published public var allClassTypes: [BasicClassType] = []
-    @Published public var selectedClassTypes: Set<BasicClassType> = []
+    @Published public var allClassTypes: [ClassType] = []
+    @Published public var selectedClassTypes: Set<ClassType> = []
     
     @Published public var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
     
     @Published private var timetable: NormalisedTimetable?
     
-    public var filteredSessions: [ClassSession] {
+    public var timetableDates: [Date]? {
+        timetable?.dates
+    }
+    
+    func filteredSessions(forDate: Date) -> [ClassSession] {
         guard let timetable = self.timetable else { return [] }
         
-        return timetable.classesForDate(date: selectedDate)
+        return timetable.classesForDate(date: forDate)
             .filter { classInstance in
                 (selectedInstructors.isEmpty || selectedInstructors.contains(where: { $0.name == classInstance.instructor.name }))
                 && (selectedClassTypes.isEmpty || selectedClassTypes.contains(where: { $0.id == classInstance.lesMillsServiceId}))
             }
-    }
-    public var timetableDates: [Date]? {
-        timetable?.dates
     }
     
     

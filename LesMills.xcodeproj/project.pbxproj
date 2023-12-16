@@ -51,6 +51,7 @@
 		4DC928BB2B29A3DC00C80207 /* ShowBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC928BA2B29A3DC00C80207 /* ShowBarcode.swift */; };
 		4DDD36572B286CFC0015FCB3 /* ClassInstance+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD36562B286CFC0015FCB3 /* ClassInstance+Color.swift */; };
 		4DE0EECE2B2D6A8600598255 /* DetailedClub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EECD2B2D6A8600598255 /* DetailedClub.swift */; };
+		4DE0EED02B2D6C4400598255 /* ClassPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EECF2B2D6C4400598255 /* ClassPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		4DC928BA2B29A3DC00C80207 /* ShowBarcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBarcode.swift; sourceTree = "<group>"; };
 		4DDD36562B286CFC0015FCB3 /* ClassInstance+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassInstance+Color.swift"; sourceTree = "<group>"; };
 		4DE0EECD2B2D6A8600598255 /* DetailedClub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedClub.swift; sourceTree = "<group>"; };
+		4DE0EECF2B2D6C4400598255 /* ClassPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			children = (
 				4D093EF92AC2D322004F2F6A /* ClassRow.swift */,
 				4D093F042AC792A7004F2F6A /* ClassesView.swift */,
+				4DE0EECF2B2D6C4400598255 /* ClassPageViewController.swift */,
 				4D3A623A2B284CD700DD1AF4 /* ClassesViewModel.swift */,
 				4D3A623C2B284CF000DD1AF4 /* MultiSelectList.swift */,
 				4D3A62462B28684A00DD1AF4 /* ClassesViewFilters.swift */,
@@ -484,6 +487,7 @@
 				4D3A623B2B284CD700DD1AF4 /* ClassesViewModel.swift in Sources */,
 				4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */,
 				4DA975BD2B25B00200E79AA5 /* NextClasses.swift in Sources */,
+				4DE0EED02B2D6C4400598255 /* ClassPageViewController.swift in Sources */,
 				4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */,
 				4D90427D2AFB8425001E3311 /* GetDetails.swift in Sources */,
 				4D093EFA2AC2D322004F2F6A /* ClassRow.swift in Sources */,

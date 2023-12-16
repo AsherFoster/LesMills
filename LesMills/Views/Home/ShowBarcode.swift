@@ -19,7 +19,7 @@ struct ShowBarcode: View {
             .buttonStyle(.bordered)
             .controlSize(.large)
             .sheet(isPresented: $sheetShown) {
-//                ScreenBrightness()
+                ScreenBrightness()
                 Barcode(message: String(profile.lesMillsID))
                     .presentationDetents([.medium])
                     .presentationDragIndicator(.visible)
