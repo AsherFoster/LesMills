@@ -9,31 +9,27 @@ import SwiftUI
 
 struct BookedClasses: View {
     @ObservedObject var viewModel: HomeViewModel
-    
-    @State private var classesToday: [ClassSession]? = nil
-    
+
+    @ViewBuilder
     var body: some View {
-        VStack {
-            if classesToday != nil {
-                List (classesToday!) {
-                    ClassRow(classSession: $0)
+        if viewModel.isLoading {
+            VStack(alignment: .center) {
+                ProgressView()
+                    .padding()
+            }
+        } else {
+            if let sessions = viewModel.bookedSessions, !sessions.isEmpty {
+                List (sessions) {
+                    BookedSession(session: $0)
                 }
                 .listStyle(.plain)
             } else {
-                ProgressView()
+                Text("No classes today!")
             }
         }
-        .task{
-            await loadData()
-        }
-    }
-    
-    func loadData() async {
-//        try await client.getUserContactDetails()
-        //            classesToday = await client.getUpcomingClasses()
     }
 }
 
 #Preview {
-    BookedClasses(viewModel: .init())
+    BookedClasses(viewModel: .mock())
 }

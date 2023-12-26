@@ -34,6 +34,16 @@ class ClassesViewModel: ViewModel {
         timetable?.dates
     }
     
+    /// A filtered view of `allInstructors` that limits to instructors that are in the current week's timetable
+    public var instructorsInTimetable: [BasicInstructor] {
+        if let timetable = self.timetable {
+            return allInstructors.filter { instructor in
+                timetable.classes.contains { $0.instructor.name == instructor.name}
+            }
+        }
+        return []
+    }
+    
     func filteredSessions(forDate: Date) -> [ClassSession] {
         guard let timetable = self.timetable else { return [] }
         
@@ -115,5 +125,16 @@ class ClassesViewModel: ViewModel {
                 selectedDate = timetable.dates.first!
             }
         }
+    }
+    
+    static func mock() -> ClassesViewModel {
+        let model = ClassesViewModel()
+        model.profile = .mock()
+        model.allClubs = [.mock()]
+        model.selectedClubs = Set(model.allClubs)
+        model.allInstructors = [BasicInstructor(name: "Instructor")]
+        model.allClassTypes = [ClassType(id: "1", name: "Foo")]
+        model.timetable = .mock()
+        return model
     }
 }

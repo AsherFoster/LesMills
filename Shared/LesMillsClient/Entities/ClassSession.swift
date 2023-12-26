@@ -50,7 +50,21 @@ struct ClassSession: Codable, Hashable, Identifiable {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" // This is a crime
         dateFormatter.timeZone = TimeZone(identifier: "Pacific/Auckland")
 
-        return dateFormatter.date(from: dateTime)!
+        if let date = dateFormatter.date(from: dateTime) {
+            return date
+        }
+        
+        // Wait, this tries using two different date formats?
+        // Yup! The `/Booking/GetScheduleClassBookingList` and `/LesMillsData/GetTimetable` return the same
+        // shape of data - this ClassSession struct. Except one endpoint includes a timezone in dateTime and
+        // one does! Seems insane, right?
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        guard let date = dateFormatter.date(from: dateTime) else {
+            fatalError("Invalid date format")
+        }
+
+        return date
     }
     
     let allowBookings: Bool // Example: true

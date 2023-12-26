@@ -8,10 +8,10 @@
 import Foundation
 import Get
 
-struct ClubItem: Codable, Hashable {
+struct GetClubsResponseItem: Codable, Hashable {
     let clubDetailPage: DetailedClub
 }
-typealias GetClubsResponse = [ClubItem]
+typealias GetClubsResponse = [GetClubsResponseItem]
 
 
 extension Paths {

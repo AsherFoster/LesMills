@@ -13,16 +13,46 @@ struct ClassesViewFilters: View {
     var body: some View {
         HStack {
             FilterChip(label: "Clubs", active: !viewModel.selectedClubs.isEmpty) {
-                MultiSelectList(
-                    options: viewModel.allClubs,
-                    selection: selectedClubs
-                ) { Text($0.nodeName) }
+                List {
+                    Section {
+                        ForEach(viewModel.allClubs.filter {
+                            $0.id == viewModel.profile!.homeClubGuid
+                        }) { club in
+                            MultiSelectItem(option: club, selection: selectedClubs) {
+                                Text(club.nodeName)
+                            }
+                        }
+                    }
+                    Section {
+                        ForEach(viewModel.allClubs.filter {
+                            $0.id != viewModel.profile!.homeClubGuid
+                        }) { club in
+                            MultiSelectItem(option: club, selection: selectedClubs) {
+                                Text(club.nodeName)
+                            }
+                        }
+                    }
+                }
             }
             FilterChip(label: "Instructor", active: !viewModel.selectedInstructors.isEmpty) {
-                MultiSelectList(
-                    options: viewModel.allInstructors,
-                    selection: $viewModel.selectedInstructors
-                ) { Text($0.name) }
+                List {
+                    Section(header: Text("Instructors this week")) {
+                        ForEach(viewModel.instructorsInTimetable) { instructor in
+                            MultiSelectItem(option: instructor, selection: $viewModel.selectedInstructors) {
+                                Text(instructor.name)
+                            }
+                        }
+                    }
+                    Section(header: Text("Other instructors")) {
+                        ForEach(
+                            viewModel.allInstructors.filter { !viewModel.instructorsInTimetable.contains($0) }
+                        ) { instructor in
+                            MultiSelectItem(option: instructor, selection: $viewModel.selectedInstructors) {
+                                Text(instructor.name)
+                            }
+                        }
+                    }
+                }
             }
             FilterChip(label: "Class", active: !viewModel.selectedClassTypes.isEmpty) {
                 MultiSelectList(
@@ -50,5 +80,5 @@ struct ClassesViewFilters: View {
 }
 
 #Preview {
-    ClassesViewFilters(viewModel: .init())
+    ClassesViewFilters(viewModel: .mock())
 }

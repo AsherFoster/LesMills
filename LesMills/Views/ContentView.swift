@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
-    
-    @State var isAuthenticated = false
+    @State private var isAuthenticated = false
 //    @State var isAuthenticated: Bool {
 //        return viewModel.client.apiToken != nil
 //    }
@@ -26,9 +25,9 @@ struct ContentView: View {
                 LoginView()
             }
         }
-        .onAppear {
+        .task {
             do {
-                if try viewModel.client.signInFromStorage() {
+                if try await viewModel.client.signInFromStorage() {
                     isAuthenticated = true
                 }
             } catch {

@@ -8,7 +8,7 @@
 import Foundation
 
 struct NormalisedTimetable {
-    private let classes: [ClassSession]
+    public let classes: [ClassSession]
     
     public var dates: [Date] {
         let calendar = Calendar.current
@@ -35,5 +35,13 @@ struct NormalisedTimetable {
         classes.sort(by: { $0.startsAt < $1.startsAt })
         
         self.classes = classes
+    }
+    
+    private init(classes: [ClassSession]) {
+        self.classes = classes
+    }
+    
+    static func mock() -> NormalisedTimetable {
+        NormalisedTimetable(classes: [.mock(), .mock()])
     }
 }

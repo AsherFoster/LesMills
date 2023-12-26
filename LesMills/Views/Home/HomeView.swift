@@ -7,33 +7,6 @@
 
 import SwiftUI
 
-class HomeViewModel: ViewModel {
-    @Published var profile: UserContactDetails? = nil
-//    @Published var classesToday: [ClassInstance]? = nil
-    
-    func loadData() {
-        isLoading = true
-        
-        Task {
-            do {
-                let request = Paths.getDetails()
-                let contactDetails = try await client.send(request).value.contactDetails
-                
-                await MainActor.run {
-                    profile = contactDetails
-                }
-            } catch {
-                // TODO :shrug:
-                print("Failed to load HomeViewModel \(error)")
-            }
-            
-            await MainActor.run {
-                isLoading = false
-            }
-        }
-    }
-}
-
 struct HomeView: View {
     @StateObject var viewModel: HomeViewModel = .init()
     
