@@ -36,10 +36,12 @@ class HomeViewModel: ViewModel {
         }
     }
     
-    static func mock() -> HomeViewModel {
+    static func mock(hasBookedSessions: Bool = true) -> HomeViewModel {
         let model = HomeViewModel()
         model.profile = .mock()
-        model.bookedSessions = [.mock()]
+        if hasBookedSessions {
+            model.bookedSessions = [.mock(), .mock()]
+        }
         
         return model
     }

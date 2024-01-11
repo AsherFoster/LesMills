@@ -15,7 +15,7 @@
 		4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F042AC792A7004F2F6A /* ClassesView.swift */; };
 		4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F082ACEABF4004F2F6A /* AccountLinkView.swift */; };
 		4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F0A2ACEAD65004F2F6A /* NotImplementedView.swift */; };
-		4D279F532AFA40110010C5E8 /* BookedClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D279F522AFA40110010C5E8 /* BookedClasses.swift */; };
+		4D279F532AFA40110010C5E8 /* UpcomingSessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D279F522AFA40110010C5E8 /* UpcomingSessions.swift */; };
 		4D32A1C62B2AFD2F00532069 /* NormalisedTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32A1C52B2AFD2F00532069 /* NormalisedTimetable.swift */; };
 		4D32A1C82B2B093F00532069 /* ScreenBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32A1C72B2B093F00532069 /* ScreenBrightness.swift */; };
 		4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */; };
@@ -36,6 +36,8 @@
 		4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42EFFE2AEA6CDF00694111 /* LesMillsTextField.swift */; };
 		4D42F0012AEA71A400694111 /* LesMillsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42F0002AEA71A400694111 /* LesMillsClient.swift */; };
 		4D42F0032AEC710400694111 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42F0022AEC710400694111 /* AuthenticatedView.swift */; };
+		4D6216702B4FF33800EB4248 /* SaveBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D62166F2B4FF33800EB4248 /* SaveBooking.swift */; };
+		4D6216722B4FF6B900EB4248 /* PrepareBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6216712B4FF6B900EB4248 /* PrepareBooking.swift */; };
 		4D9042702AFB7936001E3311 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 4D90426F2AFB7936001E3311 /* Get */; };
 		4D9042762AFB8268001E3311 /* UserContactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042752AFB8268001E3311 /* UserContactDetails.swift */; };
 		4D9042792AFB8291001E3311 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042782AFB8291001E3311 /* SignIn.swift */; };
@@ -48,6 +50,8 @@
 		4D90428A2AFB95BD001E3311 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042892AFB95BD001E3311 /* ViewModel.swift */; };
 		4DA975BD2B25B00200E79AA5 /* NextClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA975BC2B25B00200E79AA5 /* NextClasses.swift */; };
 		4DA975BF2B25B0F500E79AA5 /* GetClubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA975BE2B25B0F500E79AA5 /* GetClubs.swift */; };
+		4DADB6B32B3BB14900949667 /* RandomUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DADB6B22B3BB14900949667 /* RandomUtils.swift */; };
+		4DADB6B72B3BD07800949667 /* SessionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DADB6B62B3BD07800949667 /* SessionDetail.swift */; };
 		4DC928BB2B29A3DC00C80207 /* ShowBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC928BA2B29A3DC00C80207 /* ShowBarcode.swift */; };
 		4DDD36572B286CFC0015FCB3 /* ClassInstance+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD36562B286CFC0015FCB3 /* ClassInstance+Color.swift */; };
 		4DE0EECE2B2D6A8600598255 /* DetailedClub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EECD2B2D6A8600598255 /* DetailedClub.swift */; };
@@ -88,7 +92,7 @@
 		4D093F042AC792A7004F2F6A /* ClassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesView.swift; sourceTree = "<group>"; };
 		4D093F082ACEABF4004F2F6A /* AccountLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkView.swift; sourceTree = "<group>"; };
 		4D093F0A2ACEAD65004F2F6A /* NotImplementedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotImplementedView.swift; sourceTree = "<group>"; };
-		4D279F522AFA40110010C5E8 /* BookedClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedClasses.swift; sourceTree = "<group>"; };
+		4D279F522AFA40110010C5E8 /* UpcomingSessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingSessions.swift; sourceTree = "<group>"; };
 		4D32A1C52B2AFD2F00532069 /* NormalisedTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalisedTimetable.swift; sourceTree = "<group>"; };
 		4D32A1C72B2B093F00532069 /* ScreenBrightness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBrightness.swift; sourceTree = "<group>"; };
 		4D39F1862AB0864F00FD0BCD /* LesMills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LesMills.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +117,8 @@
 		4D42EFFE2AEA6CDF00694111 /* LesMillsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsTextField.swift; sourceTree = "<group>"; };
 		4D42F0002AEA71A400694111 /* LesMillsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsClient.swift; sourceTree = "<group>"; };
 		4D42F0022AEC710400694111 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		4D62166F2B4FF33800EB4248 /* SaveBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBooking.swift; sourceTree = "<group>"; };
+		4D6216712B4FF6B900EB4248 /* PrepareBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareBooking.swift; sourceTree = "<group>"; };
 		4D9042752AFB8268001E3311 /* UserContactDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContactDetails.swift; sourceTree = "<group>"; };
 		4D9042782AFB8291001E3311 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		4D90427A2AFB8309001E3311 /* ValidateAPIToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAPIToken.swift; sourceTree = "<group>"; };
@@ -123,6 +129,8 @@
 		4D9042892AFB95BD001E3311 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4DA975BC2B25B00200E79AA5 /* NextClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextClasses.swift; sourceTree = "<group>"; };
 		4DA975BE2B25B0F500E79AA5 /* GetClubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClubs.swift; sourceTree = "<group>"; };
+		4DADB6B22B3BB14900949667 /* RandomUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUtils.swift; sourceTree = "<group>"; };
+		4DADB6B62B3BD07800949667 /* SessionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetail.swift; sourceTree = "<group>"; };
 		4DC928BA2B29A3DC00C80207 /* ShowBarcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBarcode.swift; sourceTree = "<group>"; };
 		4DDD36562B286CFC0015FCB3 /* ClassInstance+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassInstance+Color.swift"; sourceTree = "<group>"; };
 		4DE0EECD2B2D6A8600598255 /* DetailedClub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedClub.swift; sourceTree = "<group>"; };
@@ -167,6 +175,7 @@
 		4D093EF62AC2CAE3004F2F6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4DADB6B42B3BD06C00949667 /* ClassDetail */,
 				4D42EFFD2AEA6CCF00694111 /* Components */,
 				4D093EFD2AC79264004F2F6A /* Home */,
 				4D093EFE2AC7926F004F2F6A /* Account */,
@@ -183,7 +192,7 @@
 			children = (
 				4D093EF72AC2D019004F2F6A /* HomeView.swift */,
 				4DC928BA2B29A3DC00C80207 /* ShowBarcode.swift */,
-				4D279F522AFA40110010C5E8 /* BookedClasses.swift */,
+				4D279F522AFA40110010C5E8 /* UpcomingSessions.swift */,
 				4DA975BC2B25B00200E79AA5 /* NextClasses.swift */,
 				4DF976C82B3AE9AD00614235 /* BookedSession.swift */,
 			);
@@ -240,9 +249,9 @@
 				4D093EF62AC2CAE3004F2F6A /* Views */,
 				4D39F1B42AB0865500FD0BCD /* Model */,
 				4D39F18D2AB0865000FD0BCD /* Assets.xcassets */,
+				4DADB6B12B3BB13600949667 /* Helpers */,
 				4D39F18F2AB0865000FD0BCD /* LesMills.entitlements */,
 				4D39F1902AB0865000FD0BCD /* Preview Content */,
-				4DF976CA2B3AEBB900614235 /* CommonDateFormats.swift */,
 			);
 			path = LesMills;
 			sourceTree = "<group>";
@@ -339,6 +348,8 @@
 			children = (
 				4D9042782AFB8291001E3311 /* SignIn.swift */,
 				4DF976C42B3AE51B00614235 /* GetBookingList.swift */,
+				4D62166F2B4FF33800EB4248 /* SaveBooking.swift */,
+				4D6216712B4FF6B900EB4248 /* PrepareBooking.swift */,
 				4DA975BE2B25B0F500E79AA5 /* GetClubs.swift */,
 				4D3A623E2B28519E00DD1AF4 /* GetInstructors.swift */,
 				4DE0EED82B2EE8C100598255 /* UpdateDetails.swift */,
@@ -351,6 +362,23 @@
 				4D90427E2AFB848B001E3311 /* ForgotPassword.swift */,
 			);
 			path = Paths;
+			sourceTree = "<group>";
+		};
+		4DADB6B12B3BB13600949667 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4DF976CA2B3AEBB900614235 /* CommonDateFormats.swift */,
+				4DADB6B22B3BB14900949667 /* RandomUtils.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4DADB6B42B3BD06C00949667 /* ClassDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4DADB6B62B3BD07800949667 /* SessionDetail.swift */,
+			);
+			path = ClassDetail;
 			sourceTree = "<group>";
 		};
 		4DE0EED32B2D73D000598255 /* Extensions */ = {
@@ -510,6 +538,7 @@
 				4D3A623D2B284CF000DD1AF4 /* MultiSelectList.swift in Sources */,
 				4DF976CB2B3AEBB900614235 /* CommonDateFormats.swift in Sources */,
 				4D3A62432B285B3E00DD1AF4 /* GetTimetable.swift in Sources */,
+				4D6216702B4FF33800EB4248 /* SaveBooking.swift in Sources */,
 				4D90427B2AFB8309001E3311 /* ValidateAPIToken.swift in Sources */,
 				4DDD36572B286CFC0015FCB3 /* ClassInstance+Color.swift in Sources */,
 				4D9042792AFB8291001E3311 /* SignIn.swift in Sources */,
@@ -520,9 +549,12 @@
 				4D32A1C82B2B093F00532069 /* ScreenBrightness.swift in Sources */,
 				4DF976C32B3ABFAC00614235 /* MultiSelectItem.swift in Sources */,
 				4D9042762AFB8268001E3311 /* UserContactDetails.swift in Sources */,
+				4DADB6B72B3BD07800949667 /* SessionDetail.swift in Sources */,
+				4DADB6B32B3BB14900949667 /* RandomUtils.swift in Sources */,
 				4D3A623B2B284CD700DD1AF4 /* ClassesViewModel.swift in Sources */,
 				4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */,
 				4DA975BD2B25B00200E79AA5 /* NextClasses.swift in Sources */,
+				4D6216722B4FF6B900EB4248 /* PrepareBooking.swift in Sources */,
 				4DE0EED02B2D6C4400598255 /* ClassPageViewController.swift in Sources */,
 				4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */,
 				4DE0EED92B2EE8C100598255 /* UpdateDetails.swift in Sources */,
@@ -535,7 +567,7 @@
 				4D9042812AFB8543001E3311 /* ChangePassword.swift in Sources */,
 				4D32A1C62B2AFD2F00532069 /* NormalisedTimetable.swift in Sources */,
 				4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */,
-				4D279F532AFA40110010C5E8 /* BookedClasses.swift in Sources */,
+				4D279F532AFA40110010C5E8 /* UpcomingSessions.swift in Sources */,
 				4D42F0032AEC710400694111 /* AuthenticatedView.swift in Sources */,
 				4D3DDCEB2AD800A000E72291 /* LoginView.swift in Sources */,
 				4D3DDCF02ADFC3C900E72291 /* LoginForm.swift in Sources */,

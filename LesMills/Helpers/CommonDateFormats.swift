@@ -24,4 +24,12 @@ class CommonDateFormats {
         formatter.pmSymbol = "pm"
         return formatter
     }()
+    
+    static let dayAndTime: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE 'at' h:mma"
+        formatter.amSymbol = "am"
+        formatter.pmSymbol = "pm"
+        return formatter
+    }()
 }

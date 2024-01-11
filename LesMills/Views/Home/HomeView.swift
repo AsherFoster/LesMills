@@ -21,9 +21,7 @@ struct HomeView: View {
                             .bold()
                             .padding(.bottom)
                         
-                        Text("Today")
-                            .font(.title2)
-                        BookedClasses(viewModel: viewModel)
+                        UpcomingSessions(viewModel: viewModel)
                         
                         ShowBarcode(profile: profile)
 
@@ -33,7 +31,7 @@ struct HomeView: View {
 
                         Spacer()
                     }
-                    .padding()
+                        .padding()
                 }
             } else {
                 ProgressView()

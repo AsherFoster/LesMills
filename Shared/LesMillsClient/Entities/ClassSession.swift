@@ -86,7 +86,18 @@ struct ClassSession: Codable, Hashable, Identifiable {
 //    let popularClass: Bool // Example: false (haven't seen this used)
 //    let popularClassText: String // Example: ""
     
-    
+    var shareText: String {
+        var text = "\(name) - \(CommonDateFormats.dayAndTime.string(from: startsAt))"
+        if let url = classUrl {
+            text += "\n\n" + url
+        }
+        return text
+    }
+}
+
+
+// MARK: mock
+extension ClassSession {
     struct MockClassInstance {
         let name: String
         let duration: Int
@@ -118,6 +129,9 @@ struct ClassSession: Codable, Hashable, Identifiable {
     
     static func mock() -> ClassSession {
         let mockClass = MockClassInstance.mocks.randomElement()!
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" // This is a crime
+        dateFormatter.timeZone = TimeZone(identifier: "Pacific/Auckland")
         
         return ClassSession(
             id: UUID(),
@@ -129,7 +143,7 @@ struct ClassSession: Codable, Hashable, Identifiable {
             name: mockClass.name,
             description: nil,
             durationHours: Double(mockClass.duration) / 60.0,
-            dateTime: "2023-09-20T16:30:00",
+            dateTime: Date.now.ISO8601Format(),
             allowBookings: true,
             allowWaitList: false,
             childrensClass: false,
