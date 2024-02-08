@@ -1,10 +1,3 @@
-//
-//  ShowBarcode.swift
-//  LesMills
-//
-//  Created by Asher Foster on 13/12/23.
-//
-
 import SwiftUI
 
 struct ShowBarcode: View {

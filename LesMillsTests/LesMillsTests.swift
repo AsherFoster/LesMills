@@ -1,10 +1,3 @@
-//
-//  LesMillsTests.swift
-//  LesMillsTests
-//
-//  Created by Asher Foster on 12/09/23.
-//
-
 import XCTest
 
 final class LesMillsTests: XCTestCase {

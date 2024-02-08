@@ -1,10 +1,3 @@
-//
-//  NextClasses.swift
-//  LesMills
-//
-//  Created by Asher Foster on 10/12/23.
-//
-
 import SwiftUI
 
 struct NextClasses: View {

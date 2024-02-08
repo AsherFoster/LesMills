@@ -1,10 +1,3 @@
-//
-//  NotImplementedView.swift
-//  LesMills
-//
-//  Created by Asher Foster on 5/10/23.
-//
-
 import SwiftUI
 
 struct NotImplementedView: View {

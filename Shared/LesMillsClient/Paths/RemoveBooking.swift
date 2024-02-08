@@ -1,10 +1,3 @@
-//
-//  RemoveBooking.swift
-//  LesMills
-//
-//  Created by Asher Foster on 15/01/24.
-//
-
 import Foundation
 import Get
 

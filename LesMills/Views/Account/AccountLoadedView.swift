@@ -1,10 +1,3 @@
-//
-//  AccountMainPage.swift
-//  LesMills
-//
-//  Created by Asher Foster on 16/12/23.
-//
-
 import SwiftUI
 
 struct AccountProfileView: View {

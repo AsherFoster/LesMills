@@ -1,10 +1,3 @@
-//
-//  AuthenticatedView.swift
-//  LesMills
-//
-//  Created by Asher Foster on 28/10/23.
-//
-
 import SwiftUI
 
 struct AuthenticatedView: View {

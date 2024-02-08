@@ -1,10 +1,3 @@
-//
-//  AccountDetailsView.swift
-//  LesMills
-//
-//  Created by Asher Foster on 19/01/24.
-//
-
 import SwiftUI
 
 struct AccountDetailsView: View {

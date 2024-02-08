@@ -1,10 +1,3 @@
-//
-//  AccountLinkView.swift
-//  LesMills
-//
-//  Created by Asher Foster on 5/10/23.
-//
-
 // This file is a crime. Sorry.
 
 import SwiftUI

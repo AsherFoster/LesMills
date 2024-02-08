@@ -1,10 +1,3 @@
-//
-//  SessionDetail.swift
-//  LesMills
-//
-//  Created by Asher Foster on 27/12/23.
-//
-
 import SwiftUI
 
 struct DetailToken: View {

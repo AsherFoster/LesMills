@@ -1,10 +1,3 @@
-//
-//  MultiSelectList.swift
-//  LesMills
-//
-//  Created by Asher Foster on 12/12/23.
-//
-
 import SwiftUI
 
 

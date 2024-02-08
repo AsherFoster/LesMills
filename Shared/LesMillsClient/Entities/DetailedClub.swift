@@ -1,10 +1,3 @@
-//
-//  DetailedClub.swift
-//  LesMills
-//
-//  Created by Asher Foster on 16/12/23.
-//
-
 import Foundation
 
 struct DetailedClub: Codable, Hashable, Identifiable {

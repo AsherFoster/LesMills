@@ -1,10 +1,3 @@
-//
-//  ClassRow.swift
-//  LesMills
-//
-//  Created by Asher Foster on 26/09/23.
-//
-
 import SwiftUI
 
 struct ClassRow: View {

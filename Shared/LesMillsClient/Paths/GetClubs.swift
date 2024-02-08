@@ -1,10 +1,3 @@
-//
-//  GetClubs.swift
-//  LesMills
-//
-//  Created by Asher Foster on 10/12/23.
-//
-
 import Foundation
 import Get
 

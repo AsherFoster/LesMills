@@ -1,10 +1,3 @@
-//
-//  ClientFactory.swift
-//  LesMills
-//
-//  Created by Asher Foster on 8/02/24.
-//
-
 import Foundation
 import Factory
 

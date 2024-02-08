@@ -1,10 +1,3 @@
-//
-//  ClassesToday.swift
-//  LesMills
-//
-//  Created by Asher Foster on 7/11/23.
-//
-
 import SwiftUI
 
 struct UpcomingSessions: View {

@@ -1,9 +1,3 @@
-//
-//  PrepareBooking.swift
-//  LesMills
-//
-//  Created by Asher Foster on 11/01/24.
-//
 import Get
 import Foundation
 

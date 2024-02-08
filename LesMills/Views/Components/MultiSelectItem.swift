@@ -1,10 +1,3 @@
-//
-//  MultiSelectItem.swift
-//  LesMills
-//
-//  Created by Asher Foster on 26/12/23.
-//
-
 import SwiftUI
 
 struct MultiSelectItem<Option: Hashable, Content: View>: View {

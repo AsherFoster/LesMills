@@ -1,10 +1,3 @@
-//
-//  UserContactDetails.swift
-//  LesMills
-//
-//  Created by Asher Foster on 8/11/23.
-//
-
 import Foundation
 
 struct UserContactDetails: Codable, Hashable {
