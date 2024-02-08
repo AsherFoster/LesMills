@@ -3,6 +3,12 @@ import SwiftUI
 struct BookedSession: View {
     public var session: ClassSession
     
+    @StateObject private var bookingModel: ClassBookingModel
+    init(session: ClassSession) {
+        self.session = session
+        _bookingModel = StateObject(wrappedValue: ClassBookingModel(session: session))
+    }
+    
     var body: some View {
         NavigationLink(value: session) {
             HStack(spacing: 0.0) {
@@ -44,8 +50,7 @@ struct BookedSession: View {
             ShareLink(item: session.shareText)
             Button("Remove booking", systemImage: "trash", role: .destructive) {
                 Task {
-//                    let request = Paths.removeBooking(classSession: session)
-//                    try await client.send(request)
+                    await bookingModel.removeBooking()
                 }
             }
         }

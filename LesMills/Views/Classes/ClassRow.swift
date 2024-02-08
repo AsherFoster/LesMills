@@ -1,38 +1,27 @@
 import SwiftUI
+import Factory
 
 struct ClassRow: View {
-    
-    // Les Mills booking process:
-    // Is it in the past?
-    // Is it within BookableTimeframeInMins (5 mins)?
-    // is maxCapacity <= spacesTaken
-    // if allowBookings: (allow bookings == requires preparation)
-    //  prepareBookings()
-    //  
-    // else:
-    //  addClassToSchedule()
-    //  addBookingsToCalendar()
-    
-    var classSession: ClassSession
+    var session: ClassSession
     
     var body: some View {
         NavigationLink {
-            SessionDetail(session: classSession)
+            SessionDetail(session: session)
         } label: {
             HStack {
                 Path(roundedRect: CGRect(x: 0, y: 0, width: 5, height: 50), cornerSize: CGSize(width: 3, height: 3))
-                    .fill(classSession.color)
+                    .fill(session.color)
                     .frame(width: 5, height: 50)
                 VStack(alignment: .leading) {
-                    Text(classSession.startsAt, style: .time)
-                    Text("\(classSession.durationMinutes) mins").foregroundStyle(.secondary)
+                    Text(session.startsAt, style: .time)
+                    Text("\(session.durationMinutes) mins").foregroundStyle(.secondary)
                 }
                 VStack(alignment: .leading) {
-                    Text(classSession.name).bold()
-                    Text(classSession.instructor.name).foregroundStyle(.secondary)
+                    Text(session.name).bold()
+                    Text(session.instructor.name).foregroundStyle(.secondary)
                 }
                 Spacer()
-                Button("Save Class", systemImage: "plus") {}
+                BookClassButton(session: session)
                     .labelStyle(.iconOnly)
             }
                 .foregroundStyle(.primary)
@@ -42,7 +31,7 @@ struct ClassRow: View {
 
 #Preview {
     List {
-        ClassRow(classSession: .mock())
+        ClassRow(session: .mock())
     }
         .listStyle(.plain)
 }

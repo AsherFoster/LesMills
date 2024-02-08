@@ -67,9 +67,7 @@ struct SessionDetail: View {
                 .font(.subheadline)
                 .bold()
             
-            Button("Book", systemImage: "plus") {
-                
-            }
+            BookClassButton(session: session)
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
             

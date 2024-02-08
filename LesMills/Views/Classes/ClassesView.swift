@@ -108,7 +108,7 @@ struct ClassesView: View {
     
     func sessionList(date: Date) -> some View {
         List(viewModel.filteredSessions(forDate: date)) {
-            ClassRow(classSession: $0)
+            ClassRow(session: $0)
         }
         .listStyle(.plain)
         .refreshable {

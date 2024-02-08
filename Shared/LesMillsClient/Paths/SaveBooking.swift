@@ -32,15 +32,15 @@ extension Paths {
     ///  - The official app sends a whole host of data, but only these fields appear to be required
     ///  - The API will echo back to you whatever you provide as name, going as far as returning it from `/Booking/GetClassBookingList`
     ///  - `classID` doesn't actually appear to be required, you can create your own classes
-    static func saveBooking(classSession: ClassSession) -> Request<SaveBookingResponse> {
+    static func saveBooking(session: ClassSession) -> Request<SaveBookingResponse> {
         Request(
             path: "/Booking/SaveBooking",
             method: "POST",
             body: SaveBookingRequest(
-                classID: classSession.id,
-                clubID: classSession.club.id,
-                clubServiceID: classSession.clubServiceName,
-                name: classSession.name
+                classID: session.id,
+                clubID: session.club.id,
+                clubServiceID: session.clubServiceId,
+                name: session.name
             ),
             id: "SaveBooking"
         )

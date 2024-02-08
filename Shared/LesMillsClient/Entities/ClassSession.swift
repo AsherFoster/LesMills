@@ -26,9 +26,9 @@ struct ClassSession: Codable, Hashable, Identifiable {
     let id: UUID // Example: "0c920d5b-8110-ee11-8f6d-000d3a79b82b"
     let club: BasicClub
     let lesMillsServiceId: String // Example: "900" (aka crmClassCode)
-//    let clubServiceId: String // Example: "04|900|"
+    let clubServiceId: String // Example: "04|900|"
     let instructor: DetailedInstructor
-    let clubServiceName: String // Example: "CEREMONY"
+//    let clubServiceName: String // Example: "CEREMONY"
     let classLocation: String // Example: "Studio 2"
     let name: String // Example: "CEREMONY"
     let description: String? // Null in example provided
@@ -39,11 +39,7 @@ struct ClassSession: Codable, Hashable, Identifiable {
     
     private let dateTime: String // Example: "2023-09-13T06:00:00"
     var startsAt: Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" // This is a crime
-        dateFormatter.timeZone = TimeZone(identifier: "Pacific/Auckland")
-
-        if let date = dateFormatter.date(from: dateTime) {
+        if let date = CommonDateFormats.nzISODateTime.date(from: dateTime) {
             return date
         }
         
@@ -51,6 +47,8 @@ struct ClassSession: Codable, Hashable, Identifiable {
         // Yup! The `/Booking/GetScheduleClassBookingList` and `/LesMillsData/GetTimetable` return the same
         // shape of data - this ClassSession struct. Except one endpoint includes a timezone in dateTime and
         // one does! Seems insane, right?
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "Pacific/Auckland")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         
         guard let date = dateFormatter.date(from: dateTime) else {
@@ -61,33 +59,44 @@ struct ClassSession: Codable, Hashable, Identifiable {
     }
     
     let allowBookings: Bool // Example: true
-    let allowWaitList: Bool // Example: false
-    let childrensClass: Bool // Example: false
-    let maxAge: Int // Example: 0
-    let minAge: Int // Example: 0
+//    let allowWaitList: Bool // Example: false
+//    let childrensClass: Bool // Example: false
+//    let maxAge: Int // Example: 0
+//    let minAge: Int // Example: 0
 //    let noCostCancellationHours: Int // Example: 0 (always 0)
     let maxCapacity: Int // Example: 48
     let spacesTaken: Int // Example: 40
     //let bookingLink: String? // Null in example provided
-    let isFisikalService: Bool // Example: false
+//    let isFisikalService: Bool // Example: false
     let cmsColour: String // Example: "#CCCCCC"
     
     
-    let cmsName: String // Example: "CEREMONY"
-    //let cmsUrlName: String? // Null in example provided
+//    let cmsName: String // Example: "CEREMONY"
+//    let cmsUrlName: String? // Null in example provided
     let classUrl: String? // Example: "https://www.lesmills.co.nz/group-fitness/classes/ceremony"
 //    let popularClass: Bool // Example: false (haven't seen this used)
 //    let popularClassText: String // Example: ""
-    
-    var shareText: String {
-        var text = "\(name) - \(CommonDateFormats.dayAndTime.string(from: startsAt))"
-        if let url = classUrl {
-            text += "\n\n" + url
-        }
-        return text
-    }
 }
 
+// MARK: booking
+extension ClassSession {
+    enum SessionAvailability {
+        case available
+        case sessionInPast
+        case sessionIsFull
+    }
+    static let bookingMinimumNotice = TimeInterval(5 * 60)
+    
+    var availability: SessionAvailability {
+        if startsAt.addingTimeInterval(ClassSession.bookingMinimumNotice) < Date.now {
+            return .sessionInPast
+        }
+        if spacesTaken >= maxCapacity {
+            return .sessionIsFull
+        }
+        return .available
+    }
+}
 
 // MARK: mock
 extension ClassSession {
@@ -126,27 +135,24 @@ extension ClassSession {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" // This is a crime
         dateFormatter.timeZone = TimeZone(identifier: "Pacific/Auckland")
         
+        let club = BasicClub.mock()
+        let serviceId = String(Int.random(in: 1...99))
+        
         return ClassSession(
             id: UUID(),
-            club: BasicClub.mock(),
-            lesMillsServiceId: String(Int.random(in: 1...99)),
+            club: club,
+            lesMillsServiceId: serviceId,
+            clubServiceId: "\(club.id)|\(serviceId)|",
             instructor: DetailedInstructor.mock(),
-            clubServiceName: mockClass.name,
             classLocation: mockClass.location,
             name: mockClass.name,
             description: nil,
             durationHours: Double(mockClass.duration) / 60.0,
             dateTime: Date.now.ISO8601Format(),
             allowBookings: true,
-            allowWaitList: false,
-            childrensClass: false,
-            maxAge: 0,
-            minAge: 0,
             maxCapacity: 40,
             spacesTaken: 3,
-            isFisikalService: false,
             cmsColour: mockClass.color,
-            cmsName: mockClass.name,
             classUrl: "https://www.lesmills.co.nz/group-fitness/classes/the-trip"
         )
     }

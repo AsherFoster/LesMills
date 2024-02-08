@@ -70,10 +70,13 @@ extension LesMillsClient: APIClientDelegate {
         if let delegate = delegate {
             try delegate.client(_apiClient, validateResponse: response, data: data, task: task)
         } else {
-            #if DEBUG
+#if DEBUG
             print("\(response.statusCode): \(response.url != nil ? response.url!.absoluteString : "no URL")")
-            #endif
+#endif
             guard (200 ..< 300).contains(response.statusCode) else {
+#if DEBUG
+                print(String(data: data, encoding: .utf8)!)
+#endif
                 throw APIError.unacceptableStatusCode(response.statusCode)
             }
         }

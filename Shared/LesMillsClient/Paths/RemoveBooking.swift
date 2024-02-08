@@ -3,7 +3,8 @@ import Get
 
 struct RemoveBookingRequest: Codable, Hashable {
     let classID: UUID
-    let clubServiceID: String
+    let allowBookings: Bool
+    let noCostCancellations: Int
 }
 
 struct RemoveBookingDetail: Codable, Hashable {
@@ -33,16 +34,14 @@ struct RemoveBookingResponse: Codable, Hashable {
 }
 
 extension Paths {
-    
-    /// It's slightly unclear to me what the difference between this and saveBooking is.
-    ///
-    static func removeBooking(classSession: ClassSession) -> Request<RemoveBookingResponse> {
+    static func removeBooking(session: ClassSession) -> Request<RemoveBookingResponse> {
         Request(
-            path: "/Booking/RemoveBooking",
+            path: "/Booking/RemoveClassBookings",
             method: "POST",
             body: RemoveBookingRequest(
-                classID: classSession.id,
-                clubServiceID: classSession.clubServiceName
+                classID: session.id,
+                allowBookings: session.allowBookings,
+                noCostCancellations: 0
             ),
             id: "RemoveBooking"
         )

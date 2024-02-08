@@ -17,20 +17,20 @@ extension Paths {
     
     /// It's slightly unclear to me what the difference between this and saveBooking is.
     ///
-    static func prepareBooking(classSession: ClassSession) -> Request<SaveBookingResponse> {
+    static func prepareBooking(session: ClassSession) -> Request<SaveBookingResponse> {
         Request(
             path: "/Booking/PrepareBooking",
             method: "POST",
             body: PrepareBookingRequest(
-                classID: classSession.id,
-                clubID: classSession.club.id,
-                clubServiceID: classSession.clubServiceName,
-                name: classSession.name,
-                availableSpaces: classSession.maxCapacity - classSession.spacesTaken,
-                maxCapacity: classSession.maxCapacity,
-                dateAndTime: "prehistoric times" // Les Mills doesn't appear to use this time, but it will error without it
+                classID: session.id,
+                clubID: session.club.id,
+                clubServiceID: session.clubServiceId,
+                name: session.name,
+                availableSpaces: session.maxCapacity - session.spacesTaken,
+                maxCapacity: session.maxCapacity,
+                dateAndTime: CommonDateFormats.nzISODateTime.string(from: session.startsAt)
             ),
-            id: "SaveBooking"
+            id: "PrepareBooking"
         )
     }
 }
