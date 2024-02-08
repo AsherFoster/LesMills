@@ -14,3 +14,5 @@ extension Array where Element: Hashable {
         return self.filter { elementSet.insert($0).inserted }
     }
 }
+
+let currentAppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"

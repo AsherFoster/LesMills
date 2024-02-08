@@ -13,7 +13,6 @@ struct SaveBookingRequest: Codable, Hashable {
     let clubServiceID: String
     let name: String
 }
-
 struct SaveBookingResponse: Codable, Hashable {
     let message: SaveBookingResponseMessage
     
@@ -22,6 +21,7 @@ struct SaveBookingResponse: Codable, Hashable {
         // AddToScheduleSingleFail - if clubServiceID is missing
         // ClassAlreadyBooked
         // ClassIsFull - returned from PrepareBooking
+        // AppGenericError - prepareBooking when class is in past
         let addBookingResult: String
 //        let className: String
 //        let classDateTime: String // garbage

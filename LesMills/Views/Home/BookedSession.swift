@@ -49,7 +49,12 @@ struct BookedSession: View {
         }
         .contextMenu {
             ShareLink(item: session.shareText)
-            Button("Remove booking", systemImage: "trash", role: .destructive) {}
+            Button("Remove booking", systemImage: "trash", role: .destructive) {
+                Task {
+//                    let request = Paths.removeBooking(classSession: session)
+//                    try await client.send(request)
+                }
+            }
         }
     }
 }

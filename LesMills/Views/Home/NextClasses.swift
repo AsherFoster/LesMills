@@ -33,5 +33,5 @@ struct NextClasses: View {
 }
 
 #Preview {
-    NextClasses(viewModel: .init())
+    NextClasses(viewModel: .mock())
 }

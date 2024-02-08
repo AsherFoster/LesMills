@@ -31,7 +31,10 @@ extension Paths {
                 classID: classSession.id,
                 clubID: classSession.club.id,
                 clubServiceID: classSession.clubServiceName,
-                name: classSession.name
+                name: classSession.name,
+                availableSpaces: classSession.maxCapacity - classSession.spacesTaken,
+                maxCapacity: classSession.maxCapacity,
+                dateAndTime: "prehistoric times" // Les Mills doesn't appear to use this time, but it will error without it
             ),
             id: "SaveBooking"
         )

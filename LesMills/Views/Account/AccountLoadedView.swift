@@ -53,7 +53,6 @@ struct AccountLoadedView: View {
         return Binding(
             get: { viewModel.draftProfile![keyPath: path] },
             set: {
-                print("Setting \(path) to \($0)")
                 viewModel.draftProfile![keyPath: path] = $0
                 Task {
                     try await viewModel.saveDraftProfile()
@@ -66,7 +65,7 @@ struct AccountLoadedView: View {
         List {
             Section {
                 NavigationLink {
-                    NotImplementedView()  // TODO implement
+                    AccountDetailsView(viewModel: viewModel)
                 } label: {
                     AccountProfileView(viewModel: viewModel)
                 }
@@ -130,12 +129,14 @@ struct AccountLoadedView: View {
                 HStack {
                     Text("App Version")
                     Spacer()
-                    Text("0.0.0")
+                    Text(currentAppVersion)
                 }
             }
             
             Section {
-                Button("Sign out", role: .destructive) {}  // TODO implement
+                Button("Sign out", role: .destructive) {
+                    try! viewModel.client.signOut() // TODO error handling
+                }
             }
             
             Section {

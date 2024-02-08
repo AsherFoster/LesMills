@@ -39,12 +39,9 @@ struct SessionDetail: View {
                         .font(.largeTitle)
                         .bold()
                 }
+                    .frame(maxWidth: .infinity)
             }
                 .background {
-                    Image("TackyWorkoutPerson")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .ignoresSafeArea()
                     Rectangle()
                         .fill(
                             LinearGradient(
@@ -58,6 +55,12 @@ struct SessionDetail: View {
                                 endPoint: .bottom
                             )
                         )
+                        .ignoresSafeArea()
+                }
+                .background {
+                    Image("TackyWorkoutPerson")
+                        .resizable()
+                        .scaledToFill()
                         .ignoresSafeArea()
                 }
             

@@ -164,17 +164,15 @@ extension LesMillsClient {
     }
     
     @discardableResult
-    func signInFromStorage() async throws -> Bool {
+    func signInFromStorage() async throws -> UserContactDetails? {
         apiToken = try readTokenFromStorage()
         if apiToken == nil {
-            return false
+            return nil
         }
         
         do {
             let request = Paths.getDetails()
-            let contactDetails = try await send(request).value.contactDetails
-            
-            return true
+            return try await send(request).value.contactDetails
         } catch APIError.unacceptableStatusCode(let statusCode) {
             // Les Mills will return an Internal Server Error for invalid UUIDs, and 401 for bad tokens
             if statusCode == 401 || statusCode == 500 {
@@ -183,8 +181,8 @@ extension LesMillsClient {
             }
         }
         
-        // This is unexpectec, TODO handle
-        return false
+        // This is unexpected, TODO handle
+        return nil
     }
     
     func signIn(memberId: String, password: String) async throws -> SignInResponse {

@@ -74,7 +74,10 @@ struct UpcomingSessions: View {
 }
 
 #Preview {
-    UpcomingSessions(viewModel: .mock())
+    NavigationStack {
+        UpcomingSessions(viewModel: .mock())
+    }
+    
 }
 
 #Preview {
