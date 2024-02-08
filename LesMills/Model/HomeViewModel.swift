@@ -1,13 +1,10 @@
-//
-//  HomeViewModel.swift
-//  LesMills
-//
-//  Created by Asher Foster on 16/12/23.
-//
-
 import Foundation
+import Factory
 
-class HomeViewModel: ViewModel {
+class HomeViewModel: ObservableObject {
+    @Injected(\.client) var client: LesMillsClient
+    
+    @Published var isLoading = true
     @Published var profile: UserContactDetails? = nil
     @Published var bookedSessions: [ClassSession]? = nil
     

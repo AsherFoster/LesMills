@@ -1,11 +1,5 @@
-//
-//  AccountViewModel.swift
-//  LesMills
-//
-//  Created by Asher Foster on 16/12/23.
-//
-
 import Foundation
+import Factory
 
 struct UserProfileDraft {
     private var profile: UserContactDetails
@@ -63,7 +57,10 @@ struct UserProfileDraft {
     }
 }
 
-class AccountViewModel: ViewModel {
+class AccountViewModel: ObservableObject {
+    @Injected(\.client) var client: LesMillsClient
+    
+    @Published var isLoading = false
     @Published var profile: UserContactDetails? = nil
     
     var draftProfile: UserProfileDraft? = nil
@@ -109,6 +106,7 @@ class AccountViewModel: ViewModel {
     static func mock() -> AccountViewModel {
         let model = AccountViewModel()
         model.profile = .mock()
+        model.draftProfile = .init(profile: model.profile!)
         return model
     }
 }

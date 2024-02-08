@@ -1,18 +1,8 @@
-//
-//  AccountView.swift
-//  LesMills
-//
-//  Created by Asher Foster on 30/09/23.
-//
-
 import SwiftUI
 import Factory
 
 struct AccountView: View {
-    @Injected(\.client)
-    var client
-    
-    @StateObject private var viewModel: AccountViewModel = .init()
+    @StateObject private var viewModel = AccountViewModel()
     
     var body: some View {
         NavigationStack {

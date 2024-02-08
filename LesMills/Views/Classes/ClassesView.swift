@@ -1,10 +1,3 @@
-//
-//  ClassesView.swift
-//  LesMills
-//
-//  Created by Asher Foster on 30/09/23.
-//
-
 import SwiftUI
 
 struct FilterChip<Content: View>: View {
@@ -44,7 +37,7 @@ struct FilterChip<Content: View>: View {
 
 
 struct ClassesView: View {
-    @StateObject private var viewModel: ClassesViewModel = .init()
+    @StateObject private var viewModel = ClassesViewModel()
     
     var body: some View {
         NavigationStack {

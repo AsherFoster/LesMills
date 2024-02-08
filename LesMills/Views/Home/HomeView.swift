@@ -1,14 +1,7 @@
-//
-//  HomeView.swift
-//  LesMills
-//
-//  Created by Asher Foster on 26/09/23.
-//
-
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel: HomeViewModel = .init()
+    @StateObject var viewModel = HomeViewModel()
     
     @ViewBuilder
     var body: some View {

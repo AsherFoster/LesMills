@@ -16,7 +16,8 @@
 		4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F082ACEABF4004F2F6A /* AccountLinkView.swift */; };
 		4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D093F0A2ACEAD65004F2F6A /* NotImplementedView.swift */; };
 		4D279F532AFA40110010C5E8 /* UpcomingSessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D279F522AFA40110010C5E8 /* UpcomingSessions.swift */; };
-		4D27A4BA2B74B78E00E8E92F /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D27A4B92B74B78E00E8E92F /* GlobalState.swift */; };
+		4D27A4BA2B74B78E00E8E92F /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D27A4B92B74B78E00E8E92F /* RootViewModel.swift */; };
+		4D27A4BC2B74C16300E8E92F /* ClientFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D27A4BB2B74C16300E8E92F /* ClientFactory.swift */; };
 		4D32A1C62B2AFD2F00532069 /* NormalisedTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32A1C52B2AFD2F00532069 /* NormalisedTimetable.swift */; };
 		4D32A1C82B2B093F00532069 /* ScreenBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32A1C72B2B093F00532069 /* ScreenBrightness.swift */; };
 		4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */; };
@@ -96,7 +97,8 @@
 		4D093F082ACEABF4004F2F6A /* AccountLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkView.swift; sourceTree = "<group>"; };
 		4D093F0A2ACEAD65004F2F6A /* NotImplementedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotImplementedView.swift; sourceTree = "<group>"; };
 		4D279F522AFA40110010C5E8 /* UpcomingSessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingSessions.swift; sourceTree = "<group>"; };
-		4D27A4B92B74B78E00E8E92F /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
+		4D27A4B92B74B78E00E8E92F /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		4D27A4BB2B74C16300E8E92F /* ClientFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientFactory.swift; sourceTree = "<group>"; };
 		4D32A1C52B2AFD2F00532069 /* NormalisedTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalisedTimetable.swift; sourceTree = "<group>"; };
 		4D32A1C72B2B093F00532069 /* ScreenBrightness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBrightness.swift; sourceTree = "<group>"; };
 		4D39F1862AB0864F00FD0BCD /* LesMills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LesMills.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,7 +297,7 @@
 				4D32A1C52B2AFD2F00532069 /* NormalisedTimetable.swift */,
 				4DE0EED12B2D73BD00598255 /* HomeViewModel.swift */,
 				4DE0EED42B2D741F00598255 /* AccountViewModel.swift */,
-				4D27A4B92B74B78E00E8E92F /* GlobalState.swift */,
+				4D27A4B92B74B78E00E8E92F /* RootViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,6 +379,7 @@
 			children = (
 				4DF976CA2B3AEBB900614235 /* CommonDateFormats.swift */,
 				4DADB6B22B3BB14900949667 /* RandomUtils.swift */,
+				4D27A4BB2B74C16300E8E92F /* ClientFactory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -560,7 +563,7 @@
 				4D9042762AFB8268001E3311 /* UserContactDetails.swift in Sources */,
 				4DADB6B72B3BD07800949667 /* SessionDetail.swift in Sources */,
 				4DADB6B32B3BB14900949667 /* RandomUtils.swift in Sources */,
-				4D27A4BA2B74B78E00E8E92F /* GlobalState.swift in Sources */,
+				4D27A4BA2B74B78E00E8E92F /* RootViewModel.swift in Sources */,
 				4D3A623B2B284CD700DD1AF4 /* ClassesViewModel.swift in Sources */,
 				4D093F052AC792A7004F2F6A /* ClassesView.swift in Sources */,
 				4DA975BD2B25B00200E79AA5 /* NextClasses.swift in Sources */,
@@ -575,6 +578,7 @@
 				4DE0EED52B2D741F00598255 /* AccountViewModel.swift in Sources */,
 				4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */,
 				4D9042812AFB8543001E3311 /* ChangePassword.swift in Sources */,
+				4D27A4BC2B74C16300E8E92F /* ClientFactory.swift in Sources */,
 				4D32A1C62B2AFD2F00532069 /* NormalisedTimetable.swift in Sources */,
 				4DF59CCD2B548172007F60C0 /* RemoveBooking.swift in Sources */,
 				4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */,

@@ -1,13 +1,10 @@
-//
-//  LoginForm.swift
-//  LesMills
-//
-//  Created by Asher Foster on 18/10/23.
-//
-
 import SwiftUI
+import Factory
 
-class LoginViewModel: ViewModel {
+class LoginViewModel: ObservableObject {
+    @Injected(\.client) var client: LesMillsClient
+    
+    @Published var isLoading = false
     @Published private var error: String? = nil
     
     func login(memberId: String, password: String) async {

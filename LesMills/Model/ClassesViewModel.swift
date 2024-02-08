@@ -1,14 +1,11 @@
-//
-//  ClassesViewModel.swift
-//  LesMills
-//
-//  Created by Asher Foster on 12/12/23.
-//
-
 import Combine
 import Foundation
+import Factory
 
-class ClassesViewModel: ViewModel {
+class ClassesViewModel: ObservableObject {
+    @Injected(\.client) var client: LesMillsClient
+    
+    @Published public var isLoading = false
     @Published public var profile: UserContactDetails? = nil
     
     @Published public var allClubs: [DetailedClub] = []
