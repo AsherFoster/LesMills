@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct BookClassButton: View {
+struct BookSessionButton: View {
     var session: ClassSession
     @StateObject var bookingModel: ClassBookingModel
     init(session: ClassSession) {

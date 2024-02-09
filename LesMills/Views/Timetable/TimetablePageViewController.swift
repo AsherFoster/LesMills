@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
-struct PageViewController<Page: View>: UIViewControllerRepresentable {
+struct TimetablePageViewController<Page: View>: UIViewControllerRepresentable {
     var pages: [Page]
     @Binding var currentPage: Int
     
@@ -25,10 +25,10 @@ struct PageViewController<Page: View>: UIViewControllerRepresentable {
     }
     
     class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-        var parent: PageViewController
+        var parent: TimetablePageViewController
         var controllers = [UIViewController]()
         
-        init(_ pageViewController: PageViewController) {
+        init(_ pageViewController: TimetablePageViewController) {
             parent = pageViewController
             controllers = parent.pages.map { UIHostingController(rootView: $0) }
         }

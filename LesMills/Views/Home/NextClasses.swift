@@ -13,7 +13,7 @@ struct NextClasses: View {
             }
             Spacer()
             NavigationLink {
-                ClassesView()
+                TimetableView()
             } label: {
                 HStack {
                     Text("More")

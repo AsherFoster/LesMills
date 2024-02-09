@@ -16,7 +16,7 @@ struct AuthenticatedView: View {
                     Label("Home", systemImage: "house")
                 }
                 .tag(Tab.home)
-            ClassesView()
+            TimetableView()
                 .tabItem {
                     Label("Classes", systemImage: "calendar")
                 }

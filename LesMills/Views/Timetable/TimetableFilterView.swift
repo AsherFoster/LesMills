@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ClassesViewFilters: View {
+struct TimetableFilterView: View {
     @ObservedObject var viewModel: ClassesViewModel
     
     var body: some View {
@@ -73,5 +73,5 @@ struct ClassesViewFilters: View {
 }
 
 #Preview {
-    ClassesViewFilters(viewModel: .mock())
+    TimetableFilterView(viewModel: .mock())
 }

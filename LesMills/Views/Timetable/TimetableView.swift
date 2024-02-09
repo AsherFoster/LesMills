@@ -36,7 +36,7 @@ struct FilterChip<Content: View>: View {
 }
 
 
-struct ClassesView: View {
+struct TimetableView: View {
     @StateObject private var viewModel = ClassesViewModel()
     
     var body: some View {
@@ -57,7 +57,7 @@ struct ClassesView: View {
     
     var header: some View {
         VStack {
-            ClassesViewFilters(viewModel: viewModel)
+            TimetableFilterView(viewModel: viewModel)
             
             if let dates = viewModel.timetableDates {
                 ScrollView(.horizontal) {
@@ -88,7 +88,7 @@ struct ClassesView: View {
     var classes: some View {
         if !viewModel.isLoading, let timetableDates = viewModel.timetableDates {
             // TODO this could potentially be a TabView or something better
-            PageViewController(
+            TimetablePageViewController(
                 pages: timetableDates.map {
                     sessionList(date: $0)
                 },
@@ -108,7 +108,7 @@ struct ClassesView: View {
     
     func sessionList(date: Date) -> some View {
         List(viewModel.filteredSessions(forDate: date)) {
-            ClassRow(session: $0)
+            SessionRow(session: $0)
         }
         .listStyle(.plain)
         .refreshable {
@@ -118,5 +118,5 @@ struct ClassesView: View {
 }
 
 #Preview {
-    ClassesView()
+    TimetableView()
 }

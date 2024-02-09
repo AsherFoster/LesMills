@@ -1,7 +1,7 @@
 import SwiftUI
 import Factory
 
-struct ClassRow: View {
+struct SessionRow: View {
     var session: ClassSession
     
     var body: some View {
@@ -21,7 +21,7 @@ struct ClassRow: View {
                     Text(session.instructor.name).foregroundStyle(.secondary)
                 }
                 Spacer()
-                BookClassButton(session: session)
+                BookSessionButton(session: session)
                     .labelStyle(.iconOnly)
             }
                 .foregroundStyle(.primary)
@@ -31,7 +31,7 @@ struct ClassRow: View {
 
 #Preview {
     List {
-        ClassRow(session: .mock())
+        SessionRow(session: .mock())
     }
         .listStyle(.plain)
 }
