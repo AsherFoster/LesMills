@@ -21,15 +21,17 @@ extension Paths {
         Request(
             path: "/Booking/PrepareBooking",
             method: "POST",
-            body: PrepareBookingRequest(
-                classID: session.id,
-                clubID: session.club.id,
-                clubServiceID: session.clubServiceId,
-                name: session.name,
-                availableSpaces: session.maxCapacity - session.spacesTaken,
-                maxCapacity: session.maxCapacity,
-                dateAndTime: CommonDateFormats.nzISODateTime.string(from: session.startsAt)
-            ),
+            body: [
+                PrepareBookingRequest(
+                    classID: session.id,
+                    clubID: session.club.id,
+                    clubServiceID: session.clubServiceId,
+                    name: session.name,
+                    availableSpaces: session.maxCapacity - session.spacesTaken,
+                    maxCapacity: session.maxCapacity,
+                    dateAndTime: CommonDateFormats.nzISODateTime.string(from: session.startsAt)
+                )
+            ],
             id: "PrepareBooking"
         )
     }

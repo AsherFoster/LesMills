@@ -36,12 +36,14 @@ extension Paths {
         Request(
             path: "/Booking/SaveBooking",
             method: "POST",
-            body: SaveBookingRequest(
-                classID: session.id,
-                clubID: session.club.id,
-                clubServiceID: session.clubServiceId,
-                name: session.name
-            ),
+            body: [
+                SaveBookingRequest(
+                    classID: session.id,
+                    clubID: session.club.id,
+                    clubServiceID: session.clubServiceId,
+                    name: session.name
+                )
+            ],
             id: "SaveBooking"
         )
     }

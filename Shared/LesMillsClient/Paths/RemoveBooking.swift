@@ -38,11 +38,13 @@ extension Paths {
         Request(
             path: "/Booking/RemoveClassBookings",
             method: "POST",
-            body: RemoveBookingRequest(
-                classID: session.id,
-                allowBookings: session.allowBookings,
-                noCostCancellations: 0
-            ),
+            body: [
+                RemoveBookingRequest(
+                    classID: session.id,
+                    allowBookings: session.allowBookings,
+                    noCostCancellations: 0
+                )
+            ],
             id: "RemoveBooking"
         )
     }
