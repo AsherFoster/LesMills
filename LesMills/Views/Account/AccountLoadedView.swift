@@ -40,7 +40,7 @@ struct AccountProfileView: View {
 struct AccountLoadedView: View {
     @ObservedObject var viewModel: AccountViewModel
     
-    var profile: UserContactDetails { viewModel.profile! }
+    var profile: UserProfile { viewModel.profile! }
     
     func profileBool(path: WritableKeyPath<UserProfileDraft, Bool>) -> Binding<Bool> {
         return Binding(

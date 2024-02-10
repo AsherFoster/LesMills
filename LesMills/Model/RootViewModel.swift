@@ -12,7 +12,7 @@ class RootViewModel: ObservableObject {
     var error: String?
     
     @Published
-    var profile: UserContactDetails?
+    var profile: UserProfile?
     var isAuthenticated: Bool { profile != nil }
     
     func startup() async {

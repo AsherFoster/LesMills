@@ -6,7 +6,7 @@ struct SignInRequest: Codable, Hashable {
     let password: String
 }
 struct SignInResponse: Codable, Hashable {
-    let contactDetails: UserContactDetails
+    let contactDetails: UserProfile
     let message: String
     
     static func mock() -> SignInResponse {

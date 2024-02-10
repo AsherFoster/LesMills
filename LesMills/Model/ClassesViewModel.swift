@@ -6,7 +6,7 @@ class ClassesViewModel: ObservableObject {
     @Injected(\.client) var client: LesMillsClient
     
     @Published public var isLoading = false
-    @Published public var profile: UserContactDetails? = nil
+    @Published public var profile: UserProfile? = nil
     
     @Published public var allClubs: [DetailedClub] = []
     @Published public private(set) var selectedClubs: Set<DetailedClub> = []
@@ -59,9 +59,9 @@ class ClassesViewModel: ObservableObject {
         Task {
             do {
                 async let clubsResponse = try await client.send(Paths.getClubs())
-                async let contactDetailsResponse = try await client.send(Paths.getDetails())
+                async let contactDetailsResponse = try await client.getProfile()
                 
-                let (contactDetails, clubs) = try await (contactDetailsResponse.value.contactDetails, clubsResponse.value)
+                let (contactDetails, clubs) = try await (contactDetailsResponse, clubsResponse.value)
                 
                 await MainActor.run {
                     profile = contactDetails

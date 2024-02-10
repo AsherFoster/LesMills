@@ -160,7 +160,7 @@ extension LesMillsClient {
     }
     
     @discardableResult
-    func signInFromStorage() async throws -> UserContactDetails? {
+    func signInFromStorage() async throws -> UserProfile? {
         apiToken = try readTokenFromStorage()
         if apiToken == nil {
             return nil

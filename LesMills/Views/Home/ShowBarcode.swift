@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ShowBarcode: View {
-    public var profile: UserContactDetails
+    public var profile: UserProfile
     @State var sheetShown: Bool = false
     
     var body: some View {

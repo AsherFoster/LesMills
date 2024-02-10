@@ -2,7 +2,7 @@ import Foundation
 import Get
 
 struct GetDetailsResponse: Codable, Hashable {
-    let contactDetails: UserContactDetails
+    let contactDetails: UserProfile
 }
 
 extension Paths {

@@ -1,6 +1,6 @@
 import Foundation
 
-struct UserContactDetails: Codable, Hashable {
+struct UserProfile: Codable, Hashable {
     // Core info
     let lesMillsID: Int // 12345678
     let apiToken: UUID // "9a342872-bd11-4e07-b560-1c831f1870a8"
@@ -38,8 +38,8 @@ struct UserContactDetails: Codable, Hashable {
 //    let allowCovidEntry: Bool // false
 //    let covidPassExpiryDate: String? // nil
     
-    static func mock() -> UserContactDetails {
-        UserContactDetails(
+    static func mock() -> UserProfile {
+        UserProfile(
             lesMillsID: 12345678,
             apiToken: UUID(),
             homeClubGuid: "04",

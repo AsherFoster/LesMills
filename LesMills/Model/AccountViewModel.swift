@@ -2,7 +2,7 @@ import Foundation
 import Factory
 
 struct UserProfileDraft {
-    private var profile: UserContactDetails
+    private var profile: UserProfile
     
     var email: String // "example@gmail.com"
     var mobilePhone: String // "0211234567"
@@ -20,7 +20,7 @@ struct UserProfileDraft {
     var sendClassReminders: Bool // false
     var saveClassesToCalendar: Bool // true
     
-    init(profile: UserContactDetails) {
+    init(profile: UserProfile) {
         self.profile = profile
         email = profile.email
         mobilePhone = profile.mobilePhone
@@ -61,7 +61,7 @@ class AccountViewModel: ObservableObject {
     @Injected(\.client) var client: LesMillsClient
     
     @Published var isLoading = false
-    @Published var profile: UserContactDetails? = nil
+    @Published var profile: UserProfile? = nil
     
     var draftProfile: UserProfileDraft? = nil
     

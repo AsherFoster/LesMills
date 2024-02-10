@@ -5,7 +5,7 @@ class HomeViewModel: ObservableObject {
     @Injected(\.client) var client: LesMillsClient
     
     @Published var isLoading = true
-    @Published var profile: UserContactDetails? = nil
+    @Published var profile: UserProfile? = nil
     @Published var bookedSessions: [ClassSession]? = nil
     
     func loadData() {
@@ -13,10 +13,10 @@ class HomeViewModel: ObservableObject {
         
         Task {
             do {
-                async let contactDetailsReq = try await client.send(Paths.getDetails())
-                async let bookingListReq = try await client.send(Paths.getBookingList())
+                async let contactDetailsReq = try await client.getProfile()
+                async let bookingListReq = try await client.getBookedClasses()
                 
-                let (contactDetails, bookingList) = try await (contactDetailsReq.value.contactDetails, bookingListReq.value.scheduleClassBooking)
+                let (contactDetails, bookingList) = try await (contactDetailsReq, bookingListReq)
                 
                 await MainActor.run {
                     profile = contactDetails
