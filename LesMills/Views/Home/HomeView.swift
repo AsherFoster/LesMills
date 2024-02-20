@@ -1,43 +1,43 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel = HomeViewModel()
+    @ObservedObject var viewModel: HomeViewModel
+    @State var isBarcodeShown = false
     
-    @ViewBuilder
     var body: some View {
-        VStack {
-            if !viewModel.isLoading, let profile = viewModel.profile {
-                NavigationStack {
-                    VStack(alignment: .leading) {
-                        Text("Kia ora, \(profile.firstName)")
-                            .font(.largeTitle)
-                            .bold()
-                            .padding(.bottom)
-                        
-                        UpcomingSessions(viewModel: viewModel)
-                        
-                        ShowBarcode(profile: profile)
-
-                        
-                        NextClasses(viewModel: viewModel)
-
-
-                        Spacer()
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Kia ora, \(viewModel.profile!.firstName)")
+                    .font(.largeTitle)
+                    .bold()
+                Spacer()
+                Group {
+                    Button("Show barcode", systemImage: "barcode.viewfinder") {
+                        isBarcodeShown.toggle()
                     }
-                        .padding()
+                    .sheet(isPresented: $isBarcodeShown) {
+                        BarcodeSheet(profile: viewModel.profile!)
+                    }
+                    NavigationLink {
+                        AccountView()
+                    } label: {
+                        Label("Account", systemImage: "person.circle")
+                            .foregroundStyle(.accent)
+                    }
                 }
-            } else {
-                ProgressView()
+                .controlSize(.large)
+                .labelStyle(.iconOnly)
             }
-                //            .navigationTitle("Home")
+            .padding()
+            
+            TimetableView()
         }
-        .onAppear {
-            viewModel.loadData()
+        .safeAreaInset(edge: .bottom) {
+            NextClassSnackbar(session: viewModel.bookedSessions?.first, profile: viewModel.profile!)
         }
     }
 }
 
 #Preview {
-    HomeView()
-        .preferredColorScheme(.dark)
+    HomeView(viewModel: .mock())
 }
