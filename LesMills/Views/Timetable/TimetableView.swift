@@ -1,20 +1,15 @@
 import SwiftUI
 
 struct TimetableView: View {
-    @StateObject private var viewModel = ClassesViewModel()
+    @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
-        NavigationStack {
-            header
-                .padding(.horizontal)
-                .padding(.top)
-            Section {
-                classes
-                Spacer()
-            }
-                .onAppear {
-                    viewModel.loadData()
-                }
+        header
+            .padding(.horizontal)
+            .padding(.top)
+        Section {
+            classes
+            Spacer()
         }
     }
     
@@ -49,7 +44,7 @@ struct TimetableView: View {
     
     @ViewBuilder
     var classes: some View {
-        if !viewModel.isLoading, let timetableDates = viewModel.timetableDates {
+        if let timetableDates = viewModel.timetableDates {
             // TODO this could potentially be a TabView or something better
             TimetablePageViewController(
                 pages: timetableDates.map {
@@ -81,5 +76,5 @@ struct TimetableView: View {
 }
 
 #Preview {
-    TimetableView()
+    TimetableView(viewModel: .mock())
 }

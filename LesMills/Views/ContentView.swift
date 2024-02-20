@@ -3,24 +3,20 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var viewModel = RootViewModel()
     
+    @ViewBuilder
     var body: some View {
-        Group {
-            if viewModel.isReady {
-                if let error = viewModel.error {
-                    Text(error)
-                } else if viewModel.isAuthenticated {
-                    AuthenticatedView()
-                    .preferredColorScheme(.dark)
-                    .background(.background)
-                } else {
-                    LoginView()
-                }
+        if viewModel.isReady {
+            if let error = viewModel.error {
+                Text(error)
+            } else if let profile = viewModel.profile {
+                AuthenticatedView(profile: profile)
+                .preferredColorScheme(.dark)
+                .background(.background)
             } else {
-                ProgressView()
+                LoginView()
             }
-        }
-        .task {
-            await viewModel.startup()
+        } else {
+            ProgressView()
         }
     }
 }

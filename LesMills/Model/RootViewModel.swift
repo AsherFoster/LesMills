@@ -15,21 +15,23 @@ class RootViewModel: ObservableObject {
     var profile: UserProfile?
     var isAuthenticated: Bool { profile != nil }
     
-    func startup() async {
-        do {
-            let p = try await client.signInFromStorage()
-            
-            // Ok but surely there has to be a better way to do this
-            await MainActor.run {
-                profile = p
+    init() {
+        Task {
+            do {
+                let p = try await client.signInFromStorage()
+                
+                // Ok but surely there has to be a better way to do this
+                await MainActor.run {
+                    profile = p
+                }
+            } catch {
+                await MainActor.run {
+                    self.error = "Failed to startup :("
+                }
             }
-        } catch {
             await MainActor.run {
-                self.error = "Failed to startup :("
+                isReady = true
             }
-        }
-        await MainActor.run {
-            isReady = true
         }
     }
 }

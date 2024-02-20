@@ -1,12 +1,33 @@
-import Combine
 import Foundation
 import Factory
 
-class ClassesViewModel: ObservableObject {
-    @Injected(\.client) var client: LesMillsClient
+class MainViewModel: ObservableObject {
+    init(profile: UserProfile) {
+        self.profile = profile
+        
+        Task {
+            do {
+                async let bookingListResponse = try await client.getBookedClasses()
+                async let clubsResponse = try await client.send(Paths.getClubs())
+                
+                let (bookingList, clubs) = try await (bookingListResponse, clubsResponse.value)
+                
+                await MainActor.run {
+                    bookedSessions = bookingList
+                    allClubs = clubs.map { $0.clubDetailPage }
+                }
+                try await setSelectedClubs(Set(allClubs.filter { $0.id == profile.homeClubGuid}))
+            } catch {
+                // TODO :shrug:
+                print("Failed to load MainViewModel \(error)")
+            }
+        }
+    }
     
-    @Published public var isLoading = false
-    @Published public var profile: UserProfile? = nil
+    @Injected(\.client) private var client: LesMillsClient
+    
+    @Published public var profile: UserProfile
+    @Published public var bookedSessions: [ClassSession]? = nil
     
     @Published public var allClubs: [DetailedClub] = []
     @Published public private(set) var selectedClubs: Set<DetailedClub> = []
@@ -49,34 +70,6 @@ class ClassesViewModel: ObservableObject {
                 (selectedInstructors.isEmpty || selectedInstructors.contains(where: { $0.name == classInstance.instructor.name }))
                 && (selectedClassTypes.isEmpty || selectedClassTypes.contains(where: { $0.id == classInstance.lesMillsServiceId}))
             }
-    }
-    
-    
-    
-    func loadData() {
-        isLoading = true
-        
-        Task {
-            do {
-                async let clubsResponse = try await client.send(Paths.getClubs())
-                async let contactDetailsResponse = try await client.getProfile()
-                
-                let (contactDetails, clubs) = try await (contactDetailsResponse, clubsResponse.value)
-                
-                await MainActor.run {
-                    profile = contactDetails
-                    allClubs = clubs.map { $0.clubDetailPage }
-                }
-                try await setSelectedClubs(Set(allClubs.filter { $0.id == profile?.homeClubGuid}))
-            } catch {
-                // TODO :shrug:
-                print("Failed to load HomeViewModel \(error)")
-            }
-            
-            await MainActor.run {
-                isLoading = false
-            }
-        }
     }
     
     func onClubsChange() async throws {
@@ -123,15 +116,20 @@ class ClassesViewModel: ObservableObject {
             }
         }
     }
-    
-    static func mock() -> ClassesViewModel {
-        let model = ClassesViewModel()
-        model.profile = .mock()
+}
+
+extension MainViewModel {
+    static func mock(hasBookedSessions: Bool = true) -> MainViewModel {
+        let model = MainViewModel(profile: .mock())
+        if hasBookedSessions {
+            model.bookedSessions = [.mock(), .mock()]
+        }
         model.allClubs = [.mock()]
         model.selectedClubs = Set(model.allClubs)
         model.allInstructors = [BasicInstructor(name: "Instructor")]
         model.allClassTypes = [ClassType(id: "1", name: "Foo")]
         model.timetable = .mock()
+        
         return model
     }
 }

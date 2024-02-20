@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TimetableFilterView: View {
-    @ObservedObject var viewModel: ClassesViewModel
+    @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
         HStack {
@@ -9,7 +9,7 @@ struct TimetableFilterView: View {
                 List {
                     Section {
                         ForEach(viewModel.allClubs.filter {
-                            $0.id == viewModel.profile!.homeClubGuid
+                            $0.id == viewModel.profile.homeClubGuid
                         }) { club in
                             MultiSelectItem(option: club, selection: selectedClubs) {
                                 Text(club.nodeName)
@@ -18,7 +18,7 @@ struct TimetableFilterView: View {
                     }
                     Section {
                         ForEach(viewModel.allClubs.filter {
-                            $0.id != viewModel.profile!.homeClubGuid
+                            $0.id != viewModel.profile.homeClubGuid
                         }) { club in
                             MultiSelectItem(option: club, selection: selectedClubs) {
                                 Text(club.nodeName)
