@@ -9,32 +9,34 @@ struct AuthenticatedView: View {
     @State var isBarcodeShown = false
     
     var body: some View {
-        VStack {
-            TimetableView(viewModel: viewModel)
-        }
-        .navigationTitle("Home")
-        .navigationBarTitleDisplayMode(.large)
-        .toolbar {
-            ToolbarItem {
-                Button {
-                    isBarcodeShown.toggle()
-                } label: {
-                    Label("Show barcode", systemImage: "barcode.viewfinder")
+        NavigationStack {
+            VStack {
+                TimetableView(viewModel: viewModel)
+            }
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        isBarcodeShown.toggle()
+                    } label: {
+                        Label("Show barcode", systemImage: "barcode.viewfinder")
+                    }
+                    .sheet(isPresented: $isBarcodeShown) {
+                        BarcodeSheet(profile: viewModel.profile)
+                    }
                 }
-                .sheet(isPresented: $isBarcodeShown) {
-                    BarcodeSheet(profile: viewModel.profile)
+                ToolbarItem {
+                    NavigationLink {
+                        AccountView()
+                    } label: {
+                        Label("Account", systemImage: "person.circle")
+                    }
                 }
             }
-            ToolbarItem {
-                NavigationLink {
-                    AccountView()
-                } label: {
-                    Label("Account", systemImage: "person.circle")
-                }
+            .safeAreaInset(edge: .bottom) {
+                NextClassSnackbar(session: viewModel.bookedSessions?.first, profile: viewModel.profile)
             }
-        }
-        .safeAreaInset(edge: .bottom) {
-            NextClassSnackbar(session: viewModel.bookedSessions?.first, profile: viewModel.profile)
         }
     }
 }

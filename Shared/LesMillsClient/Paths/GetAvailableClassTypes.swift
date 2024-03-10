@@ -1,7 +1,7 @@
 import Foundation
 import Get
 
-struct ClassType: Codable, Hashable, Identifiable {
+struct APIClassType: Codable, Hashable, Identifiable {
     let id: String
     let name: String
     
@@ -24,7 +24,7 @@ struct GetAllClassesRequest {
 
 extension Paths {
     /// Get a list of all class types that run at a set of clubs (name only)
-    static func getAvailableClassTypes(clubs: Set<DetailedClub>) -> Request<[ClassType]> {
+    static func getAvailableClassTypes(clubs: Set<DetailedClub>) -> Request<[APIClassType]> {
         Request(
             path: "/LesMillsData/GetAllClasses",
             method: "GET",

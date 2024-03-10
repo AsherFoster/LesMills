@@ -68,7 +68,7 @@ class MainViewModel: ObservableObject {
         return timetable.classesForDate(date: forDate)
             .filter { classInstance in
                 (selectedInstructors.isEmpty || selectedInstructors.contains(where: { $0.name == classInstance.instructor.name }))
-                && (selectedClassTypes.isEmpty || selectedClassTypes.contains(where: { $0.id == classInstance.lesMillsServiceId}))
+                && (selectedClassTypes.isEmpty || selectedClassTypes.contains(where: { $0.contains(id: classInstance.lesMillsServiceId) }))
             }
     }
     
@@ -82,8 +82,8 @@ class MainViewModel: ObservableObject {
             allInstructors = instructors
             selectedInstructors = selectedInstructors.filter { instructors.contains($0) }
             
-            allClassTypes = classes
-            selectedClassTypes = selectedClassTypes.filter { classes.contains($0) }
+            allClassTypes = ClassType.groupTypes(apiTypes: classes).sorted(by: { $0.id < $1.id })
+            selectedClassTypes = Set(allClassTypes).filter { newClass in selectedClassTypes.contains { $0.id == newClass.id }}
         }
         
         try await refreshTimetable()
@@ -127,7 +127,7 @@ extension MainViewModel {
         model.allClubs = [.mock()]
         model.selectedClubs = Set(model.allClubs)
         model.allInstructors = [BasicInstructor(name: "Instructor")]
-        model.allClassTypes = [ClassType(id: "1", name: "Foo")]
+        model.allClassTypes = [.mock()]
         model.timetable = .mock()
         
         return model
