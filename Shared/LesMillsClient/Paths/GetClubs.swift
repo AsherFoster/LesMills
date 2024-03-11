@@ -2,7 +2,7 @@ import Foundation
 import Get
 
 struct GetClubsResponseItem: Codable, Hashable {
-    let clubDetailPage: DetailedClub
+    let clubDetailPage: Club
 }
 typealias GetClubsResponse = [GetClubsResponseItem]
 

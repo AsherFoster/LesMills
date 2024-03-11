@@ -26,7 +26,7 @@ struct GetInstructorsRequest {
 
 extension Paths {
     /// Get a list of all instructors that run classes at a set of clubs (name only)
-    static func getInstructors(clubs: Set<DetailedClub>) -> Request<[BasicInstructor]> {
+    static func getInstructors(clubs: Set<Club>) -> Request<[BasicInstructor]> {
         Request(
             path: "/LesMillsData/GetInstructors",
             method: "GET",

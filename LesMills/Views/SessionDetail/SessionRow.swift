@@ -14,11 +14,12 @@ struct SessionRow: View {
                     .frame(width: 5, height: 50)
                 VStack(alignment: .leading) {
                     Text(session.startsAt, style: .time)
-                    Text("\(session.durationMinutes) mins").foregroundStyle(.secondary)
+                    Text(session.duration.converted(to: .minutes).formatted())
+                        .foregroundStyle(.secondary)
                 }
                 VStack(alignment: .leading) {
-                    Text(session.name).bold()
-                    Text(session.instructor.name).foregroundStyle(.secondary)
+                    Text(session.classType.name).bold()
+                    Text(session.instructor).foregroundStyle(.secondary)
                 }
                 Spacer()
                 BookSessionButton(session: session)

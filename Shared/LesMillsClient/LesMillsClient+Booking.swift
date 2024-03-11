@@ -12,7 +12,7 @@ extension LesMillsClient {
         // Allow bookings = requires bookings
         let response: SaveBookingResponse
         do {
-            if session.allowBookings {
+            if session.requiresBooking {
                 let request = Paths.prepareBooking(session: session)
                 response = (try await send(request)).value
             } else {
@@ -40,10 +40,5 @@ extension LesMillsClient {
     func getProfile()  async throws -> UserProfile {
         let contactDetailsReq = try await send(Paths.getDetails())
         return contactDetailsReq.value.contactDetails
-    }
-    
-    func getBookedClasses() async throws -> [ClassSession] {
-        let bookingListReq = try await send(Paths.getBookingList())
-        return bookingListReq.value.scheduleClassBooking
     }
 }

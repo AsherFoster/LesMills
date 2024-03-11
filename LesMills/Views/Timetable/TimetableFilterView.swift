@@ -12,7 +12,7 @@ struct TimetableFilterView: View {
                             $0.id == viewModel.profile.homeClubGuid
                         }) { club in
                             MultiSelectItem(option: club, selection: selectedClubs) {
-                                Text(club.nodeName)
+                                Text(club.name)
                             }
                         }
                     }
@@ -21,7 +21,7 @@ struct TimetableFilterView: View {
                             $0.id != viewModel.profile.homeClubGuid
                         }) { club in
                             MultiSelectItem(option: club, selection: selectedClubs) {
-                                Text(club.nodeName)
+                                Text(club.name)
                             }
                         }
                     }
@@ -30,18 +30,19 @@ struct TimetableFilterView: View {
             FilterChip(label: "Instructor", active: !viewModel.selectedInstructors.isEmpty) {
                 List {
                     Section(header: Text("Instructors this week")) {
-                        ForEach(viewModel.instructorsInTimetable) { instructor in
+                        ForEach(viewModel.instructorsInTimetable, id: \.self) { instructor in
                             MultiSelectItem(option: instructor, selection: $viewModel.selectedInstructors) {
-                                Text(instructor.name)
+                                Text(instructor)
                             }
                         }
                     }
                     Section(header: Text("Other instructors")) {
                         ForEach(
-                            viewModel.allInstructors.filter { !viewModel.instructorsInTimetable.contains($0) }
+                            viewModel.allInstructors.filter { !viewModel.instructorsInTimetable.contains($0) },
+                            id: \.self
                         ) { instructor in
                             MultiSelectItem(option: instructor, selection: $viewModel.selectedInstructors) {
-                                Text(instructor.name)
+                                Text(instructor)
                             }
                         }
                     }
@@ -58,8 +59,8 @@ struct TimetableFilterView: View {
         }
     }
     
-    private var selectedClubs: Binding<Set<DetailedClub>> {
-        Binding<Set<DetailedClub>>(
+    private var selectedClubs: Binding<Set<Club>> {
+        Binding<Set<Club>>(
             get: {
                 viewModel.selectedClubs
             },

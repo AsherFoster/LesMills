@@ -24,7 +24,7 @@
 		4D27A4C02B74D6B900E8E92F /* LesMillsClient+Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D27A4BF2B74D6B900E8E92F /* LesMillsClient+Booking.swift */; };
 		4D27A4C22B74DA1500E8E92F /* ClassBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D27A4C12B74DA1500E8E92F /* ClassBookingModel.swift */; };
 		4D27A4C42B74DFA800E8E92F /* BookSessionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D27A4C32B74DFA800E8E92F /* BookSessionButton.swift */; };
-		4D32A1C62B2AFD2F00532069 /* NormalisedTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32A1C52B2AFD2F00532069 /* NormalisedTimetable.swift */; };
+		4D32A1C62B2AFD2F00532069 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32A1C52B2AFD2F00532069 /* Timetable.swift */; };
 		4D32A1C82B2B093F00532069 /* ScreenBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32A1C72B2B093F00532069 /* ScreenBrightness.swift */; };
 		4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */; };
 		4D39F18E2AB0865000FD0BCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D39F18D2AB0865000FD0BCD /* Assets.xcassets */; };
@@ -36,7 +36,6 @@
 		4D3A623F2B28519E00DD1AF4 /* GetInstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A623E2B28519E00DD1AF4 /* GetInstructors.swift */; };
 		4D3A62412B28593800DD1AF4 /* GetAvailableClassTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A62402B28593800DD1AF4 /* GetAvailableClassTypes.swift */; };
 		4D3A62432B285B3E00DD1AF4 /* GetTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A62422B285B3E00DD1AF4 /* GetTimetable.swift */; };
-		4D3A62452B285CDF00DD1AF4 /* ClassSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A62442B285CDF00DD1AF4 /* ClassSession.swift */; };
 		4D3A62472B28684A00DD1AF4 /* TimetableFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A62462B28684A00DD1AF4 /* TimetableFilterView.swift */; };
 		4D3DDCEB2AD800A000E72291 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DDCEA2AD800A000E72291 /* LoginView.swift */; };
 		4D3DDCF02ADFC3C900E72291 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DDCEF2ADFC3C900E72291 /* LoginForm.swift */; };
@@ -45,6 +44,8 @@
 		4D42F0032AEC710400694111 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42F0022AEC710400694111 /* AuthenticatedView.swift */; };
 		4D6216702B4FF33800EB4248 /* SaveBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D62166F2B4FF33800EB4248 /* SaveBooking.swift */; };
 		4D6216722B4FF6B900EB4248 /* PrepareBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6216712B4FF6B900EB4248 /* PrepareBooking.swift */; };
+		4D7A00172B9D8E4000CEF009 /* ClassSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7A00162B9D8E4000CEF009 /* ClassSession.swift */; };
+		4D7A00192B9D902800CEF009 /* GetGroupFitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7A00182B9D902800CEF009 /* GetGroupFitness.swift */; };
 		4D89C11F2B5A636D006A8957 /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D89C11E2B5A636D006A8957 /* AccountDetailsView.swift */; };
 		4D9042702AFB7936001E3311 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 4D90426F2AFB7936001E3311 /* Get */; };
 		4D9042762AFB8268001E3311 /* UserContactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042752AFB8268001E3311 /* UserContactDetails.swift */; };
@@ -59,12 +60,14 @@
 		4DADB6B32B3BB14900949667 /* RandomUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DADB6B22B3BB14900949667 /* RandomUtils.swift */; };
 		4DADB6B72B3BD07800949667 /* SessionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DADB6B62B3BD07800949667 /* SessionDetail.swift */; };
 		4DDD36572B286CFC0015FCB3 /* ClassSession+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD36562B286CFC0015FCB3 /* ClassSession+Color.swift */; };
-		4DE0EECE2B2D6A8600598255 /* DetailedClub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EECD2B2D6A8600598255 /* DetailedClub.swift */; };
 		4DE0EED02B2D6C4400598255 /* TimetablePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EECF2B2D6C4400598255 /* TimetablePageViewController.swift */; };
 		4DE0EED52B2D741F00598255 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EED42B2D741F00598255 /* AccountViewModel.swift */; };
 		4DE0EED72B2D74B200598255 /* AccountLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EED62B2D74B200598255 /* AccountLoadedView.swift */; };
 		4DE0EED92B2EE8C100598255 /* UpdateDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EED82B2EE8C100598255 /* UpdateDetails.swift */; };
+		4DE155162B95D0F100B7041D /* ClassType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE155152B95D0F100B7041D /* ClassType.swift */; };
 		4DF59CCD2B548172007F60C0 /* RemoveBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF59CCC2B548172007F60C0 /* RemoveBooking.swift */; };
+		4DF620092B9F016000462BB5 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF620082B9F016000462BB5 /* Club.swift */; };
+		4DF6200B2B9F01AB00462BB5 /* APIClassSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF6200A2B9F01AB00462BB5 /* APIClassSession.swift */; };
 		4DF976C32B3ABFAC00614235 /* MultiSelectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF976C22B3ABFAC00614235 /* MultiSelectItem.swift */; };
 		4DF976C52B3AE51B00614235 /* GetBookingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF976C42B3AE51B00614235 /* GetBookingList.swift */; };
 		4DF976CB2B3AEBB900614235 /* CommonDateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF976CA2B3AEBB900614235 /* CommonDateFormats.swift */; };
@@ -106,7 +109,7 @@
 		4D27A4BF2B74D6B900E8E92F /* LesMillsClient+Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LesMillsClient+Booking.swift"; sourceTree = "<group>"; };
 		4D27A4C12B74DA1500E8E92F /* ClassBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassBookingModel.swift; sourceTree = "<group>"; };
 		4D27A4C32B74DFA800E8E92F /* BookSessionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSessionButton.swift; sourceTree = "<group>"; };
-		4D32A1C52B2AFD2F00532069 /* NormalisedTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalisedTimetable.swift; sourceTree = "<group>"; };
+		4D32A1C52B2AFD2F00532069 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		4D32A1C72B2B093F00532069 /* ScreenBrightness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBrightness.swift; sourceTree = "<group>"; };
 		4D39F1862AB0864F00FD0BCD /* LesMills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LesMills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesMillsApp.swift; sourceTree = "<group>"; };
@@ -122,7 +125,6 @@
 		4D3A623E2B28519E00DD1AF4 /* GetInstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInstructors.swift; sourceTree = "<group>"; };
 		4D3A62402B28593800DD1AF4 /* GetAvailableClassTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableClassTypes.swift; sourceTree = "<group>"; };
 		4D3A62422B285B3E00DD1AF4 /* GetTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTimetable.swift; sourceTree = "<group>"; };
-		4D3A62442B285CDF00DD1AF4 /* ClassSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSession.swift; sourceTree = "<group>"; };
 		4D3A62462B28684A00DD1AF4 /* TimetableFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableFilterView.swift; sourceTree = "<group>"; };
 		4D3DDCEA2AD800A000E72291 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4D3DDCEF2ADFC3C900E72291 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
@@ -131,6 +133,8 @@
 		4D42F0022AEC710400694111 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		4D62166F2B4FF33800EB4248 /* SaveBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBooking.swift; sourceTree = "<group>"; };
 		4D6216712B4FF6B900EB4248 /* PrepareBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareBooking.swift; sourceTree = "<group>"; };
+		4D7A00162B9D8E4000CEF009 /* ClassSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSession.swift; sourceTree = "<group>"; };
+		4D7A00182B9D902800CEF009 /* GetGroupFitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroupFitness.swift; sourceTree = "<group>"; };
 		4D89C11E2B5A636D006A8957 /* AccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsView.swift; sourceTree = "<group>"; };
 		4D9042752AFB8268001E3311 /* UserContactDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContactDetails.swift; sourceTree = "<group>"; };
 		4D9042782AFB8291001E3311 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -143,12 +147,14 @@
 		4DADB6B22B3BB14900949667 /* RandomUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUtils.swift; sourceTree = "<group>"; };
 		4DADB6B62B3BD07800949667 /* SessionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetail.swift; sourceTree = "<group>"; };
 		4DDD36562B286CFC0015FCB3 /* ClassSession+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassSession+Color.swift"; sourceTree = "<group>"; };
-		4DE0EECD2B2D6A8600598255 /* DetailedClub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedClub.swift; sourceTree = "<group>"; };
 		4DE0EECF2B2D6C4400598255 /* TimetablePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetablePageViewController.swift; sourceTree = "<group>"; };
 		4DE0EED42B2D741F00598255 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		4DE0EED62B2D74B200598255 /* AccountLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoadedView.swift; sourceTree = "<group>"; };
 		4DE0EED82B2EE8C100598255 /* UpdateDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetails.swift; sourceTree = "<group>"; };
+		4DE155152B95D0F100B7041D /* ClassType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassType.swift; sourceTree = "<group>"; };
 		4DF59CCC2B548172007F60C0 /* RemoveBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveBooking.swift; sourceTree = "<group>"; };
+		4DF620082B9F016000462BB5 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		4DF6200A2B9F01AB00462BB5 /* APIClassSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClassSession.swift; sourceTree = "<group>"; };
 		4DF976C22B3ABFAC00614235 /* MultiSelectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectItem.swift; sourceTree = "<group>"; };
 		4DF976C42B3AE51B00614235 /* GetBookingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookingList.swift; sourceTree = "<group>"; };
 		4DF976CA2B3AEBB900614235 /* CommonDateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDateFormats.swift; sourceTree = "<group>"; };
@@ -284,7 +290,6 @@
 			children = (
 				4D27A4B92B74B78E00E8E92F /* RootViewModel.swift */,
 				4D0AFD902B84A72100C36E24 /* MainViewModel.swift */,
-				4D32A1C52B2AFD2F00532069 /* NormalisedTimetable.swift */,
 				4DE0EED42B2D741F00598255 /* AccountViewModel.swift */,
 				4D27A4C12B74DA1500E8E92F /* ClassBookingModel.swift */,
 			);
@@ -326,6 +331,7 @@
 		4D9042722AFB822C001E3311 /* LesMillsClient */ = {
 			isa = PBXGroup;
 			children = (
+				4DE155142B95D0CB00B7041D /* Abstractions */,
 				4D9042772AFB8285001E3311 /* Paths */,
 				4D9042732AFB823B001E3311 /* Entities */,
 				4D42F0002AEA71A400694111 /* LesMillsClient.swift */,
@@ -338,8 +344,8 @@
 			isa = PBXGroup;
 			children = (
 				4D9042752AFB8268001E3311 /* UserContactDetails.swift */,
-				4D3A62442B285CDF00DD1AF4 /* ClassSession.swift */,
-				4DE0EECD2B2D6A8600598255 /* DetailedClub.swift */,
+				4DF620082B9F016000462BB5 /* Club.swift */,
+				4DF6200A2B9F01AB00462BB5 /* APIClassSession.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				4D9042782AFB8291001E3311 /* SignIn.swift */,
+				4D7A00182B9D902800CEF009 /* GetGroupFitness.swift */,
 				4DF976C42B3AE51B00614235 /* GetBookingList.swift */,
 				4D62166F2B4FF33800EB4248 /* SaveBooking.swift */,
 				4D6216712B4FF6B900EB4248 /* PrepareBooking.swift */,
@@ -393,6 +400,16 @@
 				4D27A4BD2B74CC7C00E8E92F /* ClassSession+ShareText.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4DE155142B95D0CB00B7041D /* Abstractions */ = {
+			isa = PBXGroup;
+			children = (
+				4DE155152B95D0F100B7041D /* ClassType.swift */,
+				4D7A00162B9D8E4000CEF009 /* ClassSession.swift */,
+				4D32A1C52B2AFD2F00532069 /* Timetable.swift */,
+			);
+			path = Abstractions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,10 +551,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DA975BF2B25B0F500E79AA5 /* GetClubs.swift in Sources */,
+				4DF620092B9F016000462BB5 /* Club.swift in Sources */,
 				4D3A62412B28593800DD1AF4 /* GetAvailableClassTypes.swift in Sources */,
-				4D3A62452B285CDF00DD1AF4 /* ClassSession.swift in Sources */,
 				4DE0EED72B2D74B200598255 /* AccountLoadedView.swift in Sources */,
-				4DE0EECE2B2D6A8600598255 /* DetailedClub.swift in Sources */,
 				4D42F0012AEA71A400694111 /* LesMillsClient.swift in Sources */,
 				4D3A623F2B28519E00DD1AF4 /* GetInstructors.swift in Sources */,
 				4D0AFD8D2B8433DD00C36E24 /* BarcodeSheet.swift in Sources */,
@@ -548,12 +564,14 @@
 				4D6216702B4FF33800EB4248 /* SaveBooking.swift in Sources */,
 				4D90427B2AFB8309001E3311 /* ValidateAPIToken.swift in Sources */,
 				4DDD36572B286CFC0015FCB3 /* ClassSession+Color.swift in Sources */,
+				4D7A00172B9D8E4000CEF009 /* ClassSession.swift in Sources */,
 				4D9042792AFB8291001E3311 /* SignIn.swift in Sources */,
 				4D093EFC2AC7908A004F2F6A /* ContentView.swift in Sources */,
 				4D9042832AFB8639001E3311 /* CheckContactExists.swift in Sources */,
 				4D89C11F2B5A636D006A8957 /* AccountDetailsView.swift in Sources */,
 				4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */,
 				4DF976C52B3AE51B00614235 /* GetBookingList.swift in Sources */,
+				4D7A00192B9D902800CEF009 /* GetGroupFitness.swift in Sources */,
 				4D32A1C82B2B093F00532069 /* ScreenBrightness.swift in Sources */,
 				4DF976C32B3ABFAC00614235 /* MultiSelectItem.swift in Sources */,
 				4D9042762AFB8268001E3311 /* UserContactDetails.swift in Sources */,
@@ -565,19 +583,20 @@
 				4D6216722B4FF6B900EB4248 /* PrepareBooking.swift in Sources */,
 				4DE0EED02B2D6C4400598255 /* TimetablePageViewController.swift in Sources */,
 				4D0AFD8B2B842B5000C36E24 /* NextClassSnackbar.swift in Sources */,
+				4DF6200B2B9F01AB00462BB5 /* APIClassSession.swift in Sources */,
 				4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */,
+				4DE155162B95D0F100B7041D /* ClassType.swift in Sources */,
 				4D0AFD912B84A72100C36E24 /* MainViewModel.swift in Sources */,
 				4DE0EED92B2EE8C100598255 /* UpdateDetails.swift in Sources */,
 				4D27A4C22B74DA1500E8E92F /* ClassBookingModel.swift in Sources */,
 				4D90427D2AFB8425001E3311 /* GetDetails.swift in Sources */,
 				4D093EFA2AC2D322004F2F6A /* SessionRow.swift in Sources */,
-				4DC928BB2B29A3DC00C80207 /* ShowBarcode.swift in Sources */,
 				4D3A62472B28684A00DD1AF4 /* TimetableFilterView.swift in Sources */,
 				4DE0EED52B2D741F00598255 /* AccountViewModel.swift in Sources */,
 				4D093F0B2ACEAD65004F2F6A /* NotImplementedView.swift in Sources */,
 				4D9042812AFB8543001E3311 /* ChangePassword.swift in Sources */,
 				4D27A4BC2B74C16300E8E92F /* ClientFactory.swift in Sources */,
-				4D32A1C62B2AFD2F00532069 /* NormalisedTimetable.swift in Sources */,
+				4D32A1C62B2AFD2F00532069 /* Timetable.swift in Sources */,
 				4DF59CCD2B548172007F60C0 /* RemoveBooking.swift in Sources */,
 				4D093F092ACEABF4004F2F6A /* AccountLinkView.swift in Sources */,
 				4D42F0032AEC710400694111 /* AuthenticatedView.swift in Sources */,

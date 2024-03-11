@@ -4,7 +4,7 @@ import SwiftUI
 extension ClassSession {
     private static let defaultColor = Color.red
     var color: Color {
-        guard let rgb = Int(cmsColour.dropFirst(1), radix: 16) else {
+        guard let rgb = Int(colourHex.dropFirst(1), radix: 16) else {
             return ClassSession.defaultColor
         }
         

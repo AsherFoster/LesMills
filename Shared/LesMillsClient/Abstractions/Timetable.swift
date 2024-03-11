@@ -1,6 +1,6 @@
 import Foundation
 
-struct NormalisedTimetable {
+struct Timetable {
     public let classes: [ClassSession]
     
     public var dates: [Date] {
@@ -21,20 +21,25 @@ struct NormalisedTimetable {
         return classes.filter { calendar.isDate($0.startsAt, equalTo: date, toGranularity: .day) }
     }
     
-    init(responses: [GetTimetableResponse]) {
-        var classes: [ClassSession] = responses.flatMap { $0.sessions }
+    private init(classes: [ClassSession]) {
+        self.classes = classes
+    }
+    
+    static func mock() -> Timetable {
+        Timetable(classes: [.mock(), .mock()])
+    }
+}
+
+extension Timetable {
+    /// Hydrate APIClassTypes with full club and classType data
+    init(responses: [GetTimetableResponse], classTypes: [ClassType], clubs: [Club]) {
+        var classes = responses
+            .flatMap { $0.sessions }
+            .map { $0.toClassSession(clubs: clubs, classTypes: classTypes) }
         
         // Combining the two timetables together will get them out of order
         classes.sort(by: { $0.startsAt < $1.startsAt })
         
         self.classes = classes
-    }
-    
-    private init(classes: [ClassSession]) {
-        self.classes = classes
-    }
-    
-    static func mock() -> NormalisedTimetable {
-        NormalisedTimetable(classes: [.mock(), .mock()])
-    }
+    }    
 }

@@ -4,7 +4,7 @@ import Get
 struct GetBookingListResponse: Codable, Hashable {
     let success: Bool
     let error: String
-    let scheduleClassBooking: [ClassSession]
+    let scheduleClassBooking: [APIClassSession]
 }
 
 extension Paths {

@@ -28,7 +28,7 @@ struct SessionDetail: View {
                     Path(roundedRect: CGRect(x: 0, y: 0, width: 5, height: 30), cornerSize: CGSize(width: 3, height: 3))
                         .fill(session.color)
                         .frame(width: 5, height: 30)
-                    Text(session.name)
+                    Text(session.serviceName)
                         .font(.largeTitle)
                         .bold()
                 }
@@ -62,7 +62,7 @@ struct SessionDetail: View {
             HStack {
                 Text(session.startsAt, formatter: CommonDateFormats.time)
                 Text("·")
-                Text("\(session.durationMinutes) mins")
+                Text(session.duration.converted(to: .minutes).formatted())
             }
                 .font(.subheadline)
                 .bold()
@@ -74,8 +74,8 @@ struct SessionDetail: View {
             VStack(alignment: .leading) {
                 ScrollView(.horizontal) {
                     HStack {
-                        DetailToken(label: "Instructor", value: session.instructor.name)
-                        DetailToken(label: "Location", value: session.classLocation)
+                        DetailToken(label: "Instructor", value: session.instructor)
+                        DetailToken(label: "Location", value: session.location)
                         if session.maxCapacity > 0 {
                             DetailToken(
                                 label: "Spaces",
@@ -86,7 +86,7 @@ struct SessionDetail: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("About \(session.name)")
+                    Text("About \(session.classType.name)")
                     NotImplementedView()
                         .frame(maxWidth: .infinity)
                 }

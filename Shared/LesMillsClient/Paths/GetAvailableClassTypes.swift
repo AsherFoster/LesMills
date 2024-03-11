@@ -24,7 +24,7 @@ struct GetAllClassesRequest {
 
 extension Paths {
     /// Get a list of all class types that run at a set of clubs (name only)
-    static func getAvailableClassTypes(clubs: Set<DetailedClub>) -> Request<[APIClassType]> {
+    static func getAvailableClassTypes(clubs: Set<Club>) -> Request<[APIClassType]> {
         Request(
             path: "/LesMillsData/GetAllClasses",
             method: "GET",

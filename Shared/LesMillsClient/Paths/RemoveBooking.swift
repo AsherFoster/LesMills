@@ -41,7 +41,7 @@ extension Paths {
             body: [
                 RemoveBookingRequest(
                     classID: session.id,
-                    allowBookings: session.allowBookings,
+                    allowBookings: session.requiresBooking,
                     noCostCancellations: 0
                 )
             ],

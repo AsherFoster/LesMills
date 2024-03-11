@@ -10,7 +10,7 @@ class LoginViewModel: ObservableObject {
     func login(memberId: String, password: String) async {
         isLoading = true
         do {
-            try await client.signIn(memberId: memberId, password: password)
+            _ = try await client.signIn(memberId: memberId, password: password)
         } catch {
             self.error = "\(error)"
         }

@@ -40,8 +40,8 @@ extension Paths {
                 SaveBookingRequest(
                     classID: session.id,
                     clubID: session.club.id,
-                    clubServiceID: session.clubServiceId,
-                    name: session.name
+                    clubServiceID: session.serviceID,
+                    name: session.serviceName
                 )
             ],
             id: "SaveBooking"
