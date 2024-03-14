@@ -25,8 +25,8 @@ extension Paths {
                 PrepareBookingRequest(
                     classID: session.id,
                     clubID: session.club.id,
-                    clubServiceID: session.serviceID,
-                    name: session.serviceName,
+                    clubServiceID: session.apiID,
+                    name: session.apiType,
                     availableSpaces: session.maxCapacity - session.spacesTaken,
                     maxCapacity: session.maxCapacity,
                     dateAndTime: CommonDateFormats.nzISODateTime.string(from: session.startsAt)

@@ -18,7 +18,7 @@ struct SessionRow: View {
                         .foregroundStyle(.secondary)
                 }
                 VStack(alignment: .leading) {
-                    Text(session.classType.name).bold()
+                    Text(session.name).bold()
                     Text(session.instructor).foregroundStyle(.secondary)
                 }
                 Spacer()

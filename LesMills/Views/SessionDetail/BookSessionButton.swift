@@ -48,7 +48,7 @@ struct BookSessionButton: View {
                     }
                 }
             case .sessionIsFull, .sessionInPast:
-                Button("Unavailable", systemImage: "plus") {}
+                Button("Book", systemImage: "plus") {}
                     .disabled(true)
             }
         case .loading:

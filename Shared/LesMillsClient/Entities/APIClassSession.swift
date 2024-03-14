@@ -69,28 +69,32 @@ struct APIClassSession: Codable, Hashable, Identifiable {
 
 extension APIClassSession {
     func toClassSession(clubs: [Club], classTypes: [ClassType]) -> ClassSession {
-        if
-            let club = clubs.first(where: { $0.id == club.id }),
-            let classType = classTypes.first(where: { $0.contains(serviceID: lesMillsServiceId) })
-        {
-            return toClassSession(club: club, classType: classType)
-        } else {
-            // TODO polish this up
-            fatalError("Les Mills' API has given us a club we don't know about, or a class type we don't know about. Either way, this is unexpected")
-        }
+        let maybeClub = clubs.first { $0.id == self.club.id }
+        let club = maybeClub ?? Club(
+            id: "ERROR",
+            name: "ERROR",
+            streetAddress: "ERROR",
+            phoneNumber: "ERROR",
+            emailAddress: "ERROR"
+        )
+        return toClassSession(
+            club: club,
+            classType: classTypes.first { $0.contains(apiID: lesMillsServiceId) }
+        )
     }
     
-    func toClassSession(club: Club, classType: ClassType) -> ClassSession {
+    func toClassSession(club: Club, classType: ClassType?) -> ClassSession {
         ClassSession(
             id: id,
+            name: ClassType.getCleanedName(name),
             club: club,
             classType: classType,
             location: classLocation,
             instructor: instructor.name,
             startsAt: startsAt,
             duration: Measurement(value: durationHours, unit: .hours),
-            serviceID: lesMillsServiceId,
-            serviceName: name,
+            apiID: lesMillsServiceId,
+            apiType: name,
             requiresBooking: allowBookings,
             maxCapacity: maxCapacity,
             spacesTaken: spacesTaken,

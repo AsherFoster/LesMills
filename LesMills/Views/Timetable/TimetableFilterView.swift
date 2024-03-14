@@ -52,7 +52,7 @@ struct TimetableFilterView: View {
                 MultiSelectList(
                     options: viewModel.allClassTypes,
                     selection: $viewModel.selectedClassTypes
-                ) { Text($0.name) }
+                ) { Text($0.genericName) }
             }
             
             Spacer()

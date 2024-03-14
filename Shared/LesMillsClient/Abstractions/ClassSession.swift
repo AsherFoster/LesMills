@@ -2,9 +2,9 @@ import Foundation
 
 struct ClassSession: Hashable, Identifiable {
     let id: UUID // Example: "0c920d5b-8110-ee11-8f6d-000d3a79b82b"
+    let name: String // Normalised version of apiType
     let club: Club
-    
-    let classType: ClassType
+    let classType: ClassType?
     
     let location: String // Example: "Studio 2"
     let instructor: String
@@ -12,9 +12,8 @@ struct ClassSession: Hashable, Identifiable {
     let startsAt: Date
     let duration: Measurement<UnitDuration>
     
-    // While a ClassType is a group of service IDs, each session is for a specific ID
-    let serviceID: String
-    let serviceName: String
+    let apiID: String
+    let apiType: String
     let requiresBooking: Bool
     let maxCapacity: Int // Example: 48
     let spacesTaken: Int // Example: 40
@@ -65,14 +64,15 @@ extension ClassSession {
         
         return ClassSession(
             id: UUID(),
+            name: mockClass.name,
             club: club,
             
             classType: ClassType(
-                name: mockClass.name,
+                genericName: mockClass.name,
                 description: "Total body workout to gain strength and lean, toned muscle.",
                 websiteUrl: URL(string: "https://www.lesmills.co.nz/group-fitness/classes/bodypump"),
-                allNames: [mockClass.name],
-                serviceIDs: [serviceId]
+                apiTypes: [mockClass.name],
+                apiIDs: [serviceId]
             ),
             
             location: location,
@@ -81,8 +81,8 @@ extension ClassSession {
             startsAt: Date.now,
             duration: Measurement(value: Double(mockClass.duration), unit: UnitDuration.minutes),
             
-            serviceID: serviceId,
-            serviceName: mockClass.name,
+            apiID: serviceId,
+            apiType: mockClass.name,
             requiresBooking: true,
             maxCapacity: 40,
             spacesTaken: 3,

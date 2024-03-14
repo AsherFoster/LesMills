@@ -1,22 +1,22 @@
 import Foundation
 
 struct ClassType: Hashable {
-    let name: String
+    let genericName: String
     let description: String?
     let websiteUrl: URL?
     
-    let allNames: Set<String>
-    let serviceIDs: Set<String>
+    let apiTypes: Set<String>
+    let apiIDs: Set<String>
     
-    func contains(serviceID: String) -> Bool {
-        serviceIDs.contains(serviceID)
+    func contains(apiID: String) -> Bool {
+        apiIDs.contains(apiID)
     }
     
     static func aggregateFromGroupFitness(groupFitnessItems: [GroupFitnessItem]) -> [ClassType] {
         var grouped: [String: [GroupFitnessData]] = [:]
         
         for groupFitnessItem in groupFitnessItems {
-            grouped[normaliseName(groupFitnessItem.ProductPage.name), default: []].append(groupFitnessItem.ProductPage)
+            grouped[getGenericName(groupFitnessItem.ProductPage.name), default: []].append(groupFitnessItem.ProductPage)
         }
         
         
@@ -24,22 +24,23 @@ struct ClassType: Hashable {
             let websiteUrl: URL? = if let u = items.filter({ !$0.url.isEmpty }).map({ $0.url }).first { URL(string: u) } else { nil }
             
             return ClassType(
-                name: normalisedName,
+                genericName: normalisedName,
                 description: items.filter{ !$0.description.isEmpty && $0.description != $0.name }.map { $0.description }.first,
                 websiteUrl: websiteUrl,
-                allNames: Set(items.map { $0.name}),
-                serviceIDs: Set(items.map { $0.serviceId })
+                apiTypes: Set(items.map { $0.name}),
+                apiIDs: Set(items.map { $0.serviceId })
             )
         }
     }
     
     
-    static let KNOWN_GARBAGE_SUFFIXES = [" 30", " 45", " 60"]
-    static let KNOWN_GARBAGE_PREFIXES = ["NEW - ", "Virtual "]
-    static let PRESERVE_CAPITALISATION = ["GRIT", "RPM"]
-    private static func normaliseName(_ apiName: String) -> String {
+    private static let KNOWN_GARBAGE_SUFFIXES = [" 30", " 45", " 60"]
+    private static let KNOWN_GARBAGE_PREFIXES = ["Virtual "]
+    
+    /// Gets a generic name for the type of class - ie, Virtual BodyPump 45 is still a BodyPump class
+    static func getGenericName(_ apiType: String) -> String {
         // Rule 1: If it ends in a duration, get rid of that
-        var normalisedName = Substring(apiName)
+        var normalisedName = Substring(getCleanedName(apiType))
         for suffix in KNOWN_GARBAGE_SUFFIXES {
             if normalisedName.hasSuffix(suffix) {
                 normalisedName = normalisedName.dropLast(suffix.count)
@@ -47,14 +48,19 @@ struct ClassType: Hashable {
         }
         
         for prefix in KNOWN_GARBAGE_PREFIXES {
-        if normalisedName.hasPrefix(prefix) {
-            normalisedName = normalisedName.dropFirst(prefix.count)
+            if normalisedName.hasPrefix(prefix) {
+                normalisedName = normalisedName.dropFirst(prefix.count)
+            }
         }
-        }
-        
+        return String(normalisedName)
+    }
+    
+    static let PRESERVE_CAPITALISATION = ["GRIT", "RPM"]
+    /// A cleaned name is a normalised version of a class name without excessive capitalisation
+    static func getCleanedName(_ apiType: String) -> String {
         // Make everything Title Case except for certain words/acronyms which should be preserved
         // This is because Les Mills is obsessed with caps (CEREMONY!) inconsistent capitalisation (BodyAttack & BODYATTACK!)
-        normalisedName = Substring(normalisedName.capitalized)
+        var normalisedName = Substring(apiType.capitalized)
         for match in PRESERVE_CAPITALISATION {
             normalisedName.replace(try! Regex(match).ignoresCase(), with: match)
         }
@@ -69,7 +75,7 @@ struct ClassType: Hashable {
 }
 
 extension ClassType: Identifiable {
-    var id: String { name.lowercased() }
+    var id: String { genericName.lowercased() }
 }
 
 extension ClassType {
@@ -97,11 +103,11 @@ extension ClassType {
         let mockClass = MockClassInstance.mocks.randomElement()!
         
         return ClassType(
-            name: mockClass.name,
+            genericName: mockClass.name,
             description: "Total body workout to gain strength and lean, toned muscle.",
             websiteUrl: URL(string: "https://www.lesmills.co.nz/group-fitness/classes/bodypump"),
-            allNames: [mockClass.name],
-            serviceIDs: ["17"]
+            apiTypes: [mockClass.name],
+            apiIDs: ["17"]
         )
     }
 }

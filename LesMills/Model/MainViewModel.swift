@@ -68,7 +68,7 @@ class MainViewModel: ObservableObject {
         return timetable.classesForDate(date: forDate)
             .filter { classSession in
                 (selectedInstructors.isEmpty || selectedInstructors.contains(classSession.instructor))
-                && (selectedClassTypes.isEmpty || selectedClassTypes.contains(classSession.classType))
+                && (selectedClassTypes.isEmpty || selectedClassTypes.contains { $0.contains(apiID: classSession.apiID) })
             }
     }
     

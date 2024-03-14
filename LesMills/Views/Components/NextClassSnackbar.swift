@@ -69,7 +69,7 @@ struct NextClassSnackbar: View {
     private var classDescription: some View {
         if let session = self.session {
             VStack(alignment: .leading) {
-                Text(session.classType.name)
+                Text(session.name)
                     .font(.headline)
                 HStack {
                     Text(session.startsAt, formatter: CommonDateFormats.time)

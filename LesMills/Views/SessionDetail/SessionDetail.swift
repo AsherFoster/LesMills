@@ -24,16 +24,37 @@ struct SessionDetail: View {
             // Gradient and background is applied to the title and spacer only
             VStack {
                 Spacer(minLength: 200)
+                
                 HStack {
-                    Path(roundedRect: CGRect(x: 0, y: 0, width: 5, height: 30), cornerSize: CGSize(width: 3, height: 3))
-                        .fill(session.color)
-                        .frame(width: 5, height: 30)
-                    Text(session.serviceName)
-                        .font(.largeTitle)
-                        .bold()
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Path(roundedRect: CGRect(x: 0, y: 0, width: 5, height: 30), cornerSize: CGSize(width: 3, height: 3))
+                                .fill(session.color)
+                                .frame(width: 5, height: 30)
+                            Text(session.name)
+                                .font(.largeTitle)
+                                .bold()
+                        }
+                        HStack {
+                            Text(session.startsAt, formatter: CommonDateFormats.time)
+                            Text("·")
+                            Text(session.duration.converted(to: .minutes).formatted())
+                        }
+                            .font(.subheadline)
+                            .bold()
+
+                        
+                    }
+                    
+                    Spacer()
+                    
+                    BookSessionButton(session: session)
+                        .buttonStyle(.borderedProminent)
+                        .controlSize(.large)
                 }
-                    .frame(maxWidth: .infinity)
+                .padding()
             }
+                .frame(maxWidth: .infinity)
                 .background {
                     Rectangle()
                         .fill(
@@ -57,19 +78,7 @@ struct SessionDetail: View {
                         .ignoresSafeArea()
                 }
             
-            // The rest of the page (including content that looks like the header) uses
-            // the normal background
-            HStack {
-                Text(session.startsAt, formatter: CommonDateFormats.time)
-                Text("·")
-                Text(session.duration.converted(to: .minutes).formatted())
-            }
-                .font(.subheadline)
-                .bold()
-            
-            BookSessionButton(session: session)
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
+            // The rest of the page uses the normal background
             
             VStack(alignment: .leading) {
                 ScrollView(.horizontal) {
@@ -85,12 +94,16 @@ struct SessionDetail: View {
                     }
                 }
                 
-                VStack(alignment: .leading) {
-                    Text("About \(session.classType.name)")
-                    NotImplementedView()
-                        .frame(maxWidth: .infinity)
+                if let classType = session.classType {
+                    VStack(alignment: .leading) {
+                        if let description = classType.description {
+                            Text("About \(classType.genericName)")
+                        
+                            Text(description)
+                        }
+                    }
+                        .padding()
                 }
-                    .padding()
             }
         }
     }
