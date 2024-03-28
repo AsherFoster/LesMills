@@ -56,11 +56,11 @@
 		4D9042812AFB8543001E3311 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042802AFB8543001E3311 /* ChangePassword.swift */; };
 		4D9042832AFB8639001E3311 /* CheckContactExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9042822AFB8639001E3311 /* CheckContactExists.swift */; };
 		4D9042882AFB95A4001E3311 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 4D9042872AFB95A4001E3311 /* Factory */; };
+		4DA7B22A2BB58DAB006F81F3 /* ForgotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7B2292BB58DAB006F81F3 /* ForgotView.swift */; };
 		4DA975BF2B25B0F500E79AA5 /* GetClubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA975BE2B25B0F500E79AA5 /* GetClubs.swift */; };
 		4DADB6B32B3BB14900949667 /* RandomUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DADB6B22B3BB14900949667 /* RandomUtils.swift */; };
 		4DADB6B72B3BD07800949667 /* SessionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DADB6B62B3BD07800949667 /* SessionDetail.swift */; };
 		4DDD36572B286CFC0015FCB3 /* ClassSession+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD36562B286CFC0015FCB3 /* ClassSession+Color.swift */; };
-		4DE0EED02B2D6C4400598255 /* TimetablePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EECF2B2D6C4400598255 /* TimetablePageViewController.swift */; };
 		4DE0EED52B2D741F00598255 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EED42B2D741F00598255 /* AccountViewModel.swift */; };
 		4DE0EED72B2D74B200598255 /* AccountLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EED62B2D74B200598255 /* AccountLoadedView.swift */; };
 		4DE0EED92B2EE8C100598255 /* UpdateDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0EED82B2EE8C100598255 /* UpdateDetails.swift */; };
@@ -143,11 +143,11 @@
 		4D90427E2AFB848B001E3311 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		4D9042802AFB8543001E3311 /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
 		4D9042822AFB8639001E3311 /* CheckContactExists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckContactExists.swift; sourceTree = "<group>"; };
+		4DA7B2292BB58DAB006F81F3 /* ForgotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotView.swift; sourceTree = "<group>"; };
 		4DA975BE2B25B0F500E79AA5 /* GetClubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClubs.swift; sourceTree = "<group>"; };
 		4DADB6B22B3BB14900949667 /* RandomUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUtils.swift; sourceTree = "<group>"; };
 		4DADB6B62B3BD07800949667 /* SessionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetail.swift; sourceTree = "<group>"; };
 		4DDD36562B286CFC0015FCB3 /* ClassSession+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassSession+Color.swift"; sourceTree = "<group>"; };
-		4DE0EECF2B2D6C4400598255 /* TimetablePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetablePageViewController.swift; sourceTree = "<group>"; };
 		4DE0EED42B2D741F00598255 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		4DE0EED62B2D74B200598255 /* AccountLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoadedView.swift; sourceTree = "<group>"; };
 		4DE0EED82B2EE8C100598255 /* UpdateDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetails.swift; sourceTree = "<group>"; };
@@ -216,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				4D093F042AC792A7004F2F6A /* TimetableView.swift */,
-				4DE0EECF2B2D6C4400598255 /* TimetablePageViewController.swift */,
 				4D3A62462B28684A00DD1AF4 /* TimetableFilterView.swift */,
 				4D0AFD8E2B847F0400C36E24 /* FilterChip.swift */,
 			);
@@ -301,6 +300,7 @@
 			children = (
 				4D3DDCEA2AD800A000E72291 /* LoginView.swift */,
 				4D3DDCEF2ADFC3C900E72291 /* LoginForm.swift */,
+				4DA7B2292BB58DAB006F81F3 /* ForgotView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -480,7 +480,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					4D39F1852AB0864F00FD0BCD = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -581,7 +581,6 @@
 				4D093F052AC792A7004F2F6A /* TimetableView.swift in Sources */,
 				4D27A4C02B74D6B900E8E92F /* LesMillsClient+Booking.swift in Sources */,
 				4D6216722B4FF6B900EB4248 /* PrepareBooking.swift in Sources */,
-				4DE0EED02B2D6C4400598255 /* TimetablePageViewController.swift in Sources */,
 				4D0AFD8B2B842B5000C36E24 /* NextClassSnackbar.swift in Sources */,
 				4DF6200B2B9F01AB00462BB5 /* APIClassSession.swift in Sources */,
 				4D42EFFF2AEA6CDF00694111 /* LesMillsTextField.swift in Sources */,
@@ -607,6 +606,7 @@
 				4D093F002AC79277004F2F6A /* AccountView.swift in Sources */,
 				4D90427F2AFB848B001E3311 /* ForgotPassword.swift in Sources */,
 				4D0157342B2991EE0089BFFF /* Barcode.swift in Sources */,
+				4DA7B22A2BB58DAB006F81F3 /* ForgotView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,14 +764,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LesMills/LesMills.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LesMills/Preview Content\"";
 				DEVELOPMENT_TEAM = MCWDNJU54B;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LesMills/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -791,6 +794,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.asherfoster.LesMills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -805,14 +809,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LesMills/LesMills.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LesMills/Preview Content\"";
 				DEVELOPMENT_TEAM = MCWDNJU54B;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LesMills/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -832,6 +839,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.asherfoster.LesMills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;

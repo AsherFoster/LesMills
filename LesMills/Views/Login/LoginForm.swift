@@ -58,16 +58,12 @@ struct LoginForm: View {
             HStack {
                 Spacer()
                 NavigationLink {
-                    NotImplementedView()
+                    ForgotView()
                 } label: {
                     Text("Forgot ID")
                 }
                 Spacer()
-                NavigationLink {
-                    NotImplementedView()
-                } label: {
-                    Text("Sign up")
-                }
+                Link("Sign up", destination: URL(string: "https://www.lesmills.co.nz/memberships")!)
                 Spacer()
             }
         }

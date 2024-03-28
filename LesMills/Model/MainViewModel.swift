@@ -21,11 +21,15 @@ class MainViewModel: ObservableObject {
                 // TODO :shrug:
                 print("Failed to load MainViewModel \(error)")
             }
+            await MainActor.run {
+                isLoading = false
+            }
         }
     }
     
     @Injected(\.client) private var client: LesMillsClient
     
+    @Published public var isLoading: Bool = true
     @Published public var profile: UserProfile
     @Published public var bookedSessions: [ClassSession]? = nil
     
@@ -46,11 +50,7 @@ class MainViewModel: ObservableObject {
     
     @Published public var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
     
-    @Published private var timetable: Timetable?
-    
-    public var timetableDates: [Date]? {
-        timetable?.dates
-    }
+    @Published public var timetable: Timetable?
     
     /// A filtered view of `allInstructors` that limits to instructors that are in the current week's timetable
     public var instructorsInTimetable: [String] {
@@ -73,6 +73,10 @@ class MainViewModel: ObservableObject {
     }
     
     func onClubsChange() async throws {
+        await MainActor.run {
+            isLoading = true
+        }
+        
         async let instructorsResponse = try await client.send(Paths.getInstructors(clubs: selectedClubs)).value
         async let classesResponse = try await client.send(Paths.getGroupFitness()).value
         
@@ -90,6 +94,10 @@ class MainViewModel: ObservableObject {
     }
     
     func refreshTimetable() async throws {
+        await MainActor.run {
+            isLoading = true
+        }
+        
         let responses = await withTaskGroup(of: GetTimetableResponse.self) { group in
             for club in selectedClubs {
                 group.addTask {
@@ -114,6 +122,8 @@ class MainViewModel: ObservableObject {
             if !timetable.dates.isEmpty && !timetable.dates.contains(selectedDate) {
                 selectedDate = timetable.dates.first!
             }
+            
+            isLoading = false
         }
     }
 }

@@ -32,6 +32,7 @@ struct FilterChip<Content: View>: View {
         .sheet(isPresented: $filterOpen) {
             selectValue()
                 .presentationDragIndicator(.visible)
+                .presentationDetents([.fraction(0.8)])
         }
     }
 }

@@ -98,6 +98,7 @@ struct SessionDetail: View {
                     VStack(alignment: .leading) {
                         if let description = classType.description {
                             Text("About \(classType.genericName)")
+                                .font(.headline)
                         
                             Text(description)
                         }

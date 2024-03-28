@@ -3,9 +3,18 @@ import SwiftUI
 struct TimetableFilterView: View {
     @ObservedObject var viewModel: MainViewModel
     
+    private func pluralised(_ count: Int, singular: String, plural: String) -> String {
+        if count == 0 {
+            return plural.localizedCapitalized
+        }
+        return count.formatted() + " " + (count == 1 ? singular : plural)
+    }
     var body: some View {
         HStack {
-            FilterChip(label: "Clubs", active: !viewModel.selectedClubs.isEmpty) {
+            FilterChip(
+                label: pluralised(viewModel.selectedClubs.count, singular: "club", plural: "clubs"),
+                active: !viewModel.selectedClubs.isEmpty
+            ) {
                 List {
                     Section {
                         ForEach(viewModel.allClubs.filter {
@@ -27,32 +36,27 @@ struct TimetableFilterView: View {
                     }
                 }
             }
-            FilterChip(label: "Instructor", active: !viewModel.selectedInstructors.isEmpty) {
-                List {
-                    Section(header: Text("Instructors this week")) {
-                        ForEach(viewModel.instructorsInTimetable, id: \.self) { instructor in
-                            MultiSelectItem(option: instructor, selection: $viewModel.selectedInstructors) {
-                                Text(instructor)
-                            }
-                        }
-                    }
-                    Section(header: Text("Other instructors")) {
-                        ForEach(
-                            viewModel.allInstructors.filter { !viewModel.instructorsInTimetable.contains($0) },
-                            id: \.self
-                        ) { instructor in
-                            MultiSelectItem(option: instructor, selection: $viewModel.selectedInstructors) {
-                                Text(instructor)
-                            }
-                        }
+            FilterChip(
+                label: pluralised(viewModel.selectedInstructors.count, singular: "instructor", plural: "instructors"),
+                active: !viewModel.selectedInstructors.isEmpty
+            ) {
+                List(viewModel.instructorsInTimetable, id: \.self) { instructor in
+                    MultiSelectItem(option: instructor, selection: $viewModel.selectedInstructors) {
+                        Text(instructor)
                     }
                 }
             }
-            FilterChip(label: "Class", active: !viewModel.selectedClassTypes.isEmpty) {
+            FilterChip(
+                label: pluralised(viewModel.selectedClassTypes.count, singular: "class", plural: "classes"),
+                active: !viewModel.selectedClassTypes.isEmpty
+            ) {
                 MultiSelectList(
                     options: viewModel.allClassTypes,
                     selection: $viewModel.selectedClassTypes
                 ) { Text($0.genericName) }
+                    .toolbar {
+                        Button("Clear") {}
+                    }
             }
             
             Spacer()

@@ -17,6 +17,7 @@ struct SessionRow: View {
                     Text(session.duration.converted(to: .minutes).formatted())
                         .foregroundStyle(.secondary)
                 }
+                .frame(minWidth: 80, alignment: .leading)
                 VStack(alignment: .leading) {
                     Text(session.name).bold()
                     Text(session.instructor).foregroundStyle(.secondary)
