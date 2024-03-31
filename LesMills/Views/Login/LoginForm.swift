@@ -8,13 +8,19 @@ class LoginViewModel: ObservableObject {
     @Published private var error: String? = nil
     
     func login(memberId: String, password: String) async {
-        isLoading = true
+        await MainActor.run {
+            isLoading = true
+        }
         do {
             _ = try await client.signIn(memberId: memberId, password: password)
         } catch {
-            self.error = "\(error)"
+            await MainActor.run {
+                self.error = "\(error)"
+            }
         }
-        isLoading = false
+        await MainActor.run {
+            isLoading = false
+        }
     }
     
 }

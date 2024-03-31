@@ -26,6 +26,7 @@
 		4D27A4C42B74DFA800E8E92F /* BookSessionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D27A4C32B74DFA800E8E92F /* BookSessionButton.swift */; };
 		4D32A1C62B2AFD2F00532069 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32A1C52B2AFD2F00532069 /* Timetable.swift */; };
 		4D32A1C82B2B093F00532069 /* ScreenBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32A1C72B2B093F00532069 /* ScreenBrightness.swift */; };
+		4D33EEA32BB956D900B0C80C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 4D33EEA22BB956D900B0C80C /* KeychainAccess */; };
 		4D39F18A2AB0864F00FD0BCD /* LesMillsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39F1892AB0864F00FD0BCD /* LesMillsApp.swift */; };
 		4D39F18E2AB0865000FD0BCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D39F18D2AB0865000FD0BCD /* Assets.xcassets */; };
 		4D39F1922AB0865000FD0BCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D39F1912AB0865000FD0BCD /* Preview Assets.xcassets */; };
@@ -167,6 +168,7 @@
 			files = (
 				4D9042702AFB7936001E3311 /* Get in Frameworks */,
 				4D9042882AFB95A4001E3311 /* Factory in Frameworks */,
+				4D33EEA32BB956D900B0C80C /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +433,7 @@
 			packageProductDependencies = (
 				4D90426F2AFB7936001E3311 /* Get */,
 				4D9042872AFB95A4001E3311 /* Factory */,
+				4D33EEA22BB956D900B0C80C /* KeychainAccess */,
 			);
 			productName = LesMills;
 			productReference = 4D39F1862AB0864F00FD0BCD /* LesMills.app */;
@@ -507,6 +510,7 @@
 			packageReferences = (
 				4D90426E2AFB7936001E3311 /* XCRemoteSwiftPackageReference "Get" */,
 				4D9042862AFB95A4001E3311 /* XCRemoteSwiftPackageReference "Factory" */,
+				4D33EEA12BB956D900B0C80C /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 4D39F1872AB0864F00FD0BCD /* Products */;
 			projectDirPath = "";
@@ -980,6 +984,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4D33EEA12BB956D900B0C80C /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		4D90426E2AFB7936001E3311 /* XCRemoteSwiftPackageReference "Get" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Get";
@@ -999,6 +1011,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4D33EEA22BB956D900B0C80C /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D33EEA12BB956D900B0C80C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		4D90426F2AFB7936001E3311 /* Get */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D90426E2AFB7936001E3311 /* XCRemoteSwiftPackageReference "Get" */;

@@ -1,6 +1,7 @@
 import Foundation
 import Get
 import Security
+import KeychainAccess
 
 enum Paths {}
 
@@ -93,70 +94,34 @@ extension LesMillsClient: APIClientDelegate {
 
 
 extension LesMillsClient {
-    static let keychainKeyName = "LES_MILLS_API_TOKEN"
-    
+    static let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+    static let tokenKeyName = "token"
+
     private func saveTokenToStorage(token: UUID) throws {
-        #if DEBUG
+#if DEBUG
         print("saveTokenToStorage", token.uuidString)
-        #endif
+#endif
         
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: LesMillsClient.keychainKeyName,
-            kSecValueData as String: Data(token.uuidString.utf8),
-            kSecAttrAccessible as String:
-            kSecAttrAccessibleWhenUnlockedThisDeviceOnly
-        ]
-        let status = SecItemAdd(query as CFDictionary, nil)
-        guard status == errSecSuccess else {
-            throw APIError.unacceptableStatusCode(500) // TODO make an actual error
-        }
+        LesMillsClient.keychain[LesMillsClient.tokenKeyName] = token.uuidString
     }
     
     private func readTokenFromStorage() throws -> UUID? {
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: LesMillsClient.keychainKeyName,
-            kSecMatchLimit as String: kSecMatchLimitOne,
-            kSecReturnData as String: kCFBooleanTrue as Any
-        ]
-        var dataTypeRef: AnyObject?
-        let status = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
-        
-        if status == errSecItemNotFound {
-            return nil
+        if let token = try? LesMillsClient.keychain.get(LesMillsClient.tokenKeyName) {
+#if DEBUG
+            print("readTokenFromStorage", token)
+#endif
+            if let uuid = UUID(uuidString: token) {
+                return uuid
+            } else {
+                print("Failed to parse token, nuking")
+                removeTokenFromStorage()
+            }
         }
-        
-        guard status == errSecSuccess else {
-            throw APIError.unacceptableStatusCode(500) // TODO make an actual error
-        }
-        
-        #if DEBUG
-        print("readTokenFromStorage", String(data: dataTypeRef as! Data, encoding: .utf8)!)
-        #endif
-        
-        guard
-            let data = dataTypeRef as? Data,
-            let dataStr = String(data: data, encoding: .utf8),
-            let uuid = UUID(uuidString: dataStr)
-        else {
-            throw APIError.unacceptableStatusCode(500) // TODO make an actual error
-        }
-        
-        return uuid
+        return nil
     }
     
-    private func removeTokenFromStorage() throws {
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: LesMillsClient.keychainKeyName,
-            kSecMatchLimit as String: kSecMatchLimitOne,
-            kSecReturnData as String: kCFBooleanTrue as Any
-        ]
-        let status = SecItemDelete(query as CFDictionary)
-        guard status == errSecSuccess else {
-            throw APIError.unacceptableStatusCode(500) // TODO make an actual error
-        }
+    private func removeTokenFromStorage() {
+        LesMillsClient.keychain[LesMillsClient.tokenKeyName] = nil
     }
     
     @discardableResult
@@ -193,7 +158,7 @@ extension LesMillsClient {
     }
     
     func signOut() throws {
-        try removeTokenFromStorage()
+        removeTokenFromStorage()
         apiToken = nil
     }
 }
