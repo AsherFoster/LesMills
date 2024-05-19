@@ -61,38 +61,19 @@ class AccountViewModel: ObservableObject {
     @Injected(\.client) var client: LesMillsClient
     
     @Published var isLoading = false
-    @Published var profile: UserProfile? = nil
-    
+    @Published var profile: UserProfile
     var draftProfile: UserProfileDraft? = nil
     
-    func loadData() async {
-        await MainActor.run {
-            isLoading = true
-        }
-        
-        do {
-            let request = Paths.getDetails()
-            let contactDetails = try await client.send(request).value.contactDetails
-            
-            await MainActor.run {
-                profile = contactDetails
-                draftProfile = .init(profile: contactDetails)
-            }
-        } catch {
-            // TODO :shrug:
-            print("Failed to load AccountViewModel \(error)")
-        }
-        
-        await MainActor.run {
-            isLoading = false
-        }
+    init(profile: UserProfile) {
+        self.profile = profile
+        draftProfile = .init(profile: profile)
     }
     
     func saveDraftProfile() async throws {
         guard let draftProfile = draftProfile else { return }
         
         let request = Paths.updateDetails(changes: draftProfile.getUpdate())
-        let resp = try await client.send(request)
+        _ = try await client.send(request)
         
         let updateProfileRequest = Paths.getDetails()
         let contactDetails = try await client.send(updateProfileRequest).value.contactDetails
@@ -104,9 +85,6 @@ class AccountViewModel: ObservableObject {
     }
     
     static func mock() -> AccountViewModel {
-        let model = AccountViewModel()
-        model.profile = .mock()
-        model.draftProfile = .init(profile: model.profile!)
-        return model
+        AccountViewModel(profile: .mock())
     }
 }

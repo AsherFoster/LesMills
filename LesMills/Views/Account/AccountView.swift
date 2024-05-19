@@ -2,18 +2,16 @@ import SwiftUI
 import Factory
 
 struct AccountView: View {
-    @StateObject private var viewModel = AccountViewModel()
+    @EnvironmentObject private var rootModel: RootViewModel
     
     var body: some View {
         Group {
-            if viewModel.profile != nil {
-                AccountLoadedView(viewModel: viewModel)
+            if let profile = rootModel.profile {
+                AccountLoadedView(profile: profile)
             } else {
+                // TODO this should be impossible
                 ProgressView()
             }
-        }
-        .task {
-            await viewModel.loadData()
         }
         .navigationTitle("Account")
     }

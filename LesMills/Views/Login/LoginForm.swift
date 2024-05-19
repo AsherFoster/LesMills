@@ -7,26 +7,29 @@ class LoginViewModel: ObservableObject {
     @Published var isLoading = false
     @Published private var error: String? = nil
     
-    func login(memberId: String, password: String) async {
+    func login(memberId: String, password: String) async -> UserProfile? {
         await MainActor.run {
             isLoading = true
         }
+        var profile: UserProfile?
         do {
-            _ = try await client.signIn(memberId: memberId, password: password)
+            let resp = try await client.signIn(memberId: memberId, password: password)
+            profile = resp.contactDetails
         } catch {
             await MainActor.run {
                 self.error = "\(error)"
             }
-        }
+        } 
         await MainActor.run {
             isLoading = false
         }
-    }
-    
+        return profile
+    }    
 }
 
 struct LoginForm: View {
-    @StateObject var model = LoginViewModel()
+    @EnvironmentObject var rootModel: RootViewModel
+    @StateObject var viewModel = LoginViewModel()
     
     @State private var memberId: String = ""
     @State private var password: String = ""
@@ -45,10 +48,12 @@ struct LoginForm: View {
             
             Button() {
                 Task {
-                    await model.login(memberId: memberId, password: password)
+                    if let profile = await viewModel.login(memberId: memberId, password: password) {
+                        rootModel.doneLogin(profile: profile)
+                    }
                 }
             } label: {
-                if model.isLoading {
+                if viewModel.isLoading {
                     ProgressView()
                         .controlSize(.small)
                         .frame(maxWidth: .infinity, maxHeight: 20.0)
@@ -73,9 +78,8 @@ struct LoginForm: View {
                 Spacer()
             }
         }
-        .disabled(model.isLoading)
+        .disabled(viewModel.isLoading)
         .padding()
-        
     }
 }
 

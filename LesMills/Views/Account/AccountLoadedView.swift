@@ -14,7 +14,7 @@ struct AccountProfileView: View {
                         .opacity(0.3)
                 )
             VStack(alignment: .leading) {
-                Text(viewModel.profile!.firstName)
+                Text(viewModel.profile.firstName)
                     .font(.title2)
                 Text("Update Details")
                     .font(.subheadline)
@@ -27,7 +27,7 @@ struct AccountProfileView: View {
         
         // Implement a FNV1a PRNG algorithm suggested by ChatGPT
         var result: UInt64 = 14695981039346656037
-        for byte in Array((viewModel.profile?.firstName ?? "TODO").utf8) {
+        for byte in Array((viewModel.profile.firstName).utf8) {
             result ^= UInt64(byte)
             result &*= 1099511628211
         }
@@ -39,8 +39,11 @@ struct AccountProfileView: View {
 
 struct AccountLoadedView: View {
     @ObservedObject var viewModel: AccountViewModel
+    @EnvironmentObject var rootModel: RootViewModel
     
-    var profile: UserProfile { viewModel.profile! }
+    init(profile: UserProfile) {
+        _viewModel = ObservedObject(wrappedValue: AccountViewModel(profile: profile))
+    }
     
     func profileBool(path: WritableKeyPath<UserProfileDraft, Bool>) -> Binding<Bool> {
         return Binding(
@@ -128,7 +131,7 @@ struct AccountLoadedView: View {
             
             Section {
                 Button("Sign out", role: .destructive) {
-                    try! viewModel.client.signOut() // TODO error handling
+                    try! rootModel.signOut() // TODO error handling
                 }
             }
             
@@ -140,5 +143,5 @@ struct AccountLoadedView: View {
 }
 
 #Preview {
-    AccountLoadedView(viewModel: .mock())
+    AccountLoadedView(profile: .mock())
 }

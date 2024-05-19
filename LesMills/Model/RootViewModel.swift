@@ -34,4 +34,13 @@ class RootViewModel: ObservableObject {
             }
         }
     }
+    
+    func doneLogin(profile: UserProfile) {
+        self.profile = profile
+    }
+    
+    func signOut() {
+        try! client.signOut()
+        profile = nil
+    }
 }

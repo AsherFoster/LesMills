@@ -27,6 +27,7 @@ struct SessionRow: View {
                     .labelStyle(.iconOnly)
             }
                 .foregroundStyle(.primary)
+                .opacity(session.startsAt < Date.now ? 0.5 : 1)
         }
     }
 }
