@@ -1,18 +1,15 @@
 import SwiftUI
 
 struct AuthenticatedView: View {
-    init(profile: UserProfile) {
-        _viewModel = StateObject(wrappedValue: MainViewModel(profile: profile))
-    }
+    @EnvironmentObject var rootModel: RootViewModel
+    @StateObject var viewModel = MainViewModel()
     
-    @StateObject var viewModel: MainViewModel
     @State var isBarcodeShown = false
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                TimetableView(viewModel: viewModel)
-            }
+        VStack {
+            TimetableView(viewModel: viewModel)
+        }
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
@@ -35,12 +32,23 @@ struct AuthenticatedView: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                NextClassSnackbar(session: viewModel.bookedSessions?.first, profile: viewModel.profile)
+                NextClassSnackbar()
+                    .padding(.horizontal)
+                    .padding(.top)
+                    .background(.linearGradient(colors: [.clear, .black.opacity(0.7)], startPoint: .top, endPoint: .bottom))
             }
-        }
+            .onAppear {
+                Task {
+                    await viewModel.load(rootModel: rootModel)
+//                    viewModel.timetable = .mock()
+                }
+            }
     }
 }
 
 #Preview {
-    AuthenticatedView(profile: .mock())
+    NavigationStack {
+        AuthenticatedView()
+            .environmentObject(RootViewModel.mock())
+    }
 }

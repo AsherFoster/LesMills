@@ -11,13 +11,19 @@ class ClassBookingModel: ObservableObject {
         case booked
     }
     
+    var rootModel: RootViewModel
     var session: ClassSession
     @Published var state: BookingState
     
-    init(session: ClassSession) {
+    init(session: ClassSession, rootModel: RootViewModel) {
         self.session = session
-        // TODO work out if class is already booked
-        state = .idle(availability: session.availability)
+        self.rootModel = rootModel
+        
+        if rootModel.bookedSessions.contains(where: { $0.id == session.id }) {
+            state = .booked
+        } else {
+            state = .idle(availability: session.availability)
+        }
     }
     
     @Injected(\.client) private var client: LesMillsClient
@@ -61,6 +67,9 @@ class ClassBookingModel: ObservableObject {
         }
         await feedback.notificationOccurred(.success)
         
+        do {
+            try await rootModel.refreshBookings()
+        } catch {} // TODO error?
     }
     
     func reset() {
@@ -83,5 +92,9 @@ class ClassBookingModel: ObservableObject {
             reset()
         }
         await feedback.notificationOccurred(.success)
+        
+        do {
+            try await rootModel.refreshBookings()
+        } catch {} // TODO error?
     }
 }

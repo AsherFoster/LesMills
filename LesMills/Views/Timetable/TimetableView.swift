@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct TimetableView: View {
+    @EnvironmentObject var rootModel: RootViewModel
     @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
@@ -58,6 +59,7 @@ struct TimetableView: View {
                     }
             }
         }
+        .ignoresSafeArea()
         .tabViewStyle(.page(indexDisplayMode: .never))
     }
     
@@ -81,17 +83,21 @@ struct TimetableView: View {
             .listStyle(.plain)
             .refreshable {
                 try! await viewModel.refreshTimetable()
+                try! await rootModel.refreshBookings()
             }
         }
     }
 }
 
 #Preview {
-    TimetableView(viewModel: .mock())
+    let viewModel = MainViewModel.mock()
+    return TimetableView(viewModel: viewModel)
+        .environmentObject(viewModel.rootModel)
 }
 
 #Preview("Nothing's left") {
     let viewModel = MainViewModel.mock()
     viewModel.selectedClassTypes = [viewModel.allClassTypes[0]]
     return TimetableView(viewModel: viewModel)
+        .environmentObject(viewModel.rootModel)
 }

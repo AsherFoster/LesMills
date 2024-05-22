@@ -25,7 +25,7 @@ extension Paths {
                 PrepareBookingRequest(
                     classID: session.id,
                     clubID: session.club.id,
-                    clubServiceID: session.apiID,
+                    clubServiceID: "\(session.club.id)|\(session.apiID)|",
                     name: session.apiType,
                     availableSpaces: session.maxCapacity - session.spacesTaken,
                     maxCapacity: session.maxCapacity,

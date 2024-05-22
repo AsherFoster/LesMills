@@ -5,11 +5,11 @@ struct BookingContextMenu<Content: View>: View {
     var content: () -> Content
     @StateObject private var bookingModel: ClassBookingModel
     
-    init(session: ClassSession, _ content: @escaping () -> Content) {
+    init(session: ClassSession, rootModel: RootViewModel, _ content: @escaping () -> Content) {
         self.session = session
         self.content = content
         
-        _bookingModel = StateObject(wrappedValue: ClassBookingModel(session: session))
+        _bookingModel = StateObject(wrappedValue: ClassBookingModel(session: session, rootModel: rootModel))
     }
     
     var body: some View {
@@ -26,14 +26,15 @@ struct BookingContextMenu<Content: View>: View {
 }
 
 struct NextClassSnackbar: View {
-    public var session: ClassSession?
-    public var profile: UserProfile
+    @EnvironmentObject private var rootModel: RootViewModel
+    private var profile: UserProfile { rootModel.profile! }
+    private var session: ClassSession? { rootModel.bookedSessions.first }
     
     @State private var isBarcodeOpen = false
     
     var body: some View {
-        if let session = self.session {
-            BookingContextMenu(session: session) {
+        if let session = session {
+            BookingContextMenu(session: session, rootModel: rootModel) {
                 content
             }
         } else {
@@ -80,7 +81,6 @@ struct NextClassSnackbar: View {
             }
         } else {
             Text("Nothing booked")
-                .font(.headline)
                 .foregroundStyle(.secondary)
         }
     }
@@ -88,8 +88,10 @@ struct NextClassSnackbar: View {
 
 #Preview {
     VStack {
-        NextClassSnackbar(session: .mock(), profile: .mock())
-        NextClassSnackbar(session: nil, profile: .mock())
+        NextClassSnackbar()
+            .environmentObject(RootViewModel.mock())
+        NextClassSnackbar()
+            .environmentObject(RootViewModel.mock(hasBookedSessions: false))
     }
         .padding()
         .background(.secondary)

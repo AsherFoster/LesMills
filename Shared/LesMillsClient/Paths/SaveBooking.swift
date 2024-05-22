@@ -16,7 +16,8 @@ struct SaveBookingResponse: Codable, Hashable {
         // ClassAlreadyBooked
         // ClassIsFull - returned from PrepareBooking
         // AppGenericError - prepareBooking when class is in past
-        let addBookingResult: String
+        // BookingToIntergenSingleClassFail - prepareBooking when class is full
+        let addBookingResult: String?
 //        let className: String
 //        let classDateTime: String // garbage
 //        let penaltyEndDate: String?

@@ -15,13 +15,20 @@ struct ContentView: View {
         if viewModel.isReady {
             if let error = viewModel.error {
                 Text(error)
-            } else if let profile = viewModel.profile {
-                AuthenticatedView(profile: profile)
+            } else if viewModel.isAuthenticated {
+                NavigationStack {
+                    AuthenticatedView()
+                }
             } else {
                 LoginView()
             }
         } else {
             ProgressView()
+                .onAppear {
+                    Task {
+                        await viewModel.load()
+                    }
+                }
         }
     }
 }

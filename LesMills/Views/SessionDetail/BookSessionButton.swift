@@ -2,11 +2,13 @@ import Foundation
 import SwiftUI
 
 struct BookSessionButton: View {
+    @EnvironmentObject var rootModel: RootViewModel
+    
     var session: ClassSession
     @StateObject var bookingModel: ClassBookingModel
     init(session: ClassSession) {
         self.session = session
-        _bookingModel = StateObject(wrappedValue: ClassBookingModel(session: session))
+        _bookingModel = StateObject(wrappedValue: ClassBookingModel(session: session, rootModel: RootViewModel()))
     }
 
     var body: some View {
@@ -33,6 +35,9 @@ struct BookSessionButton: View {
                 default:
                     Text("This isn't an error message! What are you doing here?")
                 }
+            }
+            .onAppear {
+                bookingModel.rootModel = rootModel
             }
     }
     

@@ -2,55 +2,36 @@ import Foundation
 import Factory
 
 class MainViewModel: ObservableObject {
-    init(profile: UserProfile) {
-        self.profile = profile
+    var rootModel = RootViewModel()
+    
+    func load(rootModel: RootViewModel) async {
+        self.rootModel = rootModel
         
-        Task {
-            do {
-                async let bookingListResponse = try await client.send(Paths.getBookingList())
-                async let clubsResponse = try await client.send(Paths.getClubs())
-                
-                let (bookingList, clubs) = try await (bookingListResponse.value.scheduleClassBooking, clubsResponse.value)
-                
-                await MainActor.run {
-                    bookedSessions = bookingList.map { $0.toClassSession(clubs: allClubs, classTypes: allClassTypes) }
-                    allClubs = clubs.map { $0.clubDetailPage }
-                }
-                try await setSelectedClubs(Set(allClubs.filter { $0.id == profile.homeClubGuid}))
-            } catch {
-                // TODO :shrug:
-                print("Failed to load MainViewModel \(error)")
-            }
-            await MainActor.run {
-                isLoading = false
-            }
+        let homeClub = Set(rootModel.clubs.filter { $0.id == rootModel.profile!.homeClubGuid})
+    
+        await setSelectedClubs(homeClub)
+        await MainActor.run {
+            isLoading = false
         }
     }
     
     @Injected(\.client) private var client: LesMillsClient
     
     @Published public var isLoading: Bool = true
-    @Published public var profile: UserProfile
-    @Published public var bookedSessions: [ClassSession]? = nil
+    public var profile: UserProfile { rootModel.profile! }
     
-    @Published public var allClubs: [Club] = []
+    
+    public var allClubs: [Club] { rootModel.clubs }
     @Published public private(set) var selectedClubs: Set<Club> = []
-    public func setSelectedClubs(_ newClubs: Set<Club>) async throws {
+    public func setSelectedClubs(_ newClubs: Set<Club>) async {
         await MainActor.run {
             selectedClubs = newClubs
         }
-        try await onClubsChange()
+        try! await onClubsChange()
     }
     
     @Published public var allInstructors: [String] = []
     @Published public var selectedInstructors: Set<String> = []
-    
-    @Published public var allClassTypes: [ClassType] = []
-    @Published public var selectedClassTypes: Set<ClassType> = []
-    
-    @Published public var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
-    
-    @Published public var timetable: Timetable?
     
     /// A filtered view of `allInstructors` that limits to instructors that are in the current week's timetable
     public var instructorsInTimetable: [String] {
@@ -61,6 +42,13 @@ class MainViewModel: ObservableObject {
         }
         return []
     }
+    
+    public var allClassTypes: [ClassType] { rootModel.classTypes }
+    @Published public var selectedClassTypes: Set<ClassType> = []
+    
+    @Published public var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
+    
+    @Published public var timetable: Timetable?
     
     func filteredSessions(forDate: Date) -> [ClassSession] {
         guard let timetable = self.timetable else { return [] }
@@ -77,17 +65,11 @@ class MainViewModel: ObservableObject {
             isLoading = true
         }
         
-        async let instructorsResponse = try await client.send(Paths.getInstructors(clubs: selectedClubs)).value
-        async let classesResponse = try await client.send(Paths.getGroupFitness()).value
-        
-        let (classes, instructors) = try await (classesResponse, instructorsResponse)
+        let instructors = try await client.send(Paths.getInstructors(clubs: selectedClubs)).value
         
         await MainActor.run {
             allInstructors = instructors.map { $0.name }
             selectedInstructors = selectedInstructors.filter { allInstructors.contains($0) }
-            
-            allClassTypes = ClassType.aggregateFromGroupFitness(groupFitnessItems: classes).sorted(by: { $0.id < $1.id })
-            selectedClassTypes = Set(allClassTypes).filter { newClass in selectedClassTypes.contains { $0.id == newClass.id }}
         }
         
         try await refreshTimetable()
@@ -130,15 +112,13 @@ class MainViewModel: ObservableObject {
 
 extension MainViewModel {
     static func mock(hasBookedSessions: Bool = true) -> MainViewModel {
-        let model = MainViewModel(profile: .mock())
-        if hasBookedSessions {
-            model.bookedSessions = [.mock(), .mock()]
-        }
-        model.allClubs = [.mock()]
+        let rootModel = RootViewModel.mock(hasBookedSessions: hasBookedSessions)
+        let model = MainViewModel()
+        model.rootModel = rootModel
+        model.isLoading = false
         model.selectedClubs = Set(model.allClubs)
         // ChatGPT reckons these are perfectly normal names
         model.allInstructors = ["Arnold Iron", "Skip Roper", "Sally Spin", "Wendy Weights", "Barb Bell"]
-        model.allClassTypes = [.mock()]
         model.timetable = .mock()
         
         return model

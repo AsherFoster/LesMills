@@ -17,24 +17,30 @@ struct SessionRow: View {
                     Text(session.duration.converted(to: .minutes).formatted())
                         .foregroundStyle(.secondary)
                 }
-                .frame(minWidth: 80, alignment: .leading)
+                    .frame(minWidth: 80, alignment: .leading)
                 VStack(alignment: .leading) {
-                    Text(session.name).bold()
-                    Text(session.instructor).foregroundStyle(.secondary)
+                    Text(session.name)
+                        .bold()
+                    Text(session.instructor)
+                        .foregroundStyle(.secondary)
                 }
                 Spacer()
-                BookSessionButton(session: session)
-                    .labelStyle(.iconOnly)
+                if session.startsAt >= Date.now {
+                    BookSessionButton(session: session)
+                        .labelStyle(.iconOnly)
+                }
             }
-                .foregroundStyle(.primary)
-                .opacity(session.startsAt < Date.now ? 0.5 : 1)
+            .opacity(session.startsAt < Date.now ? 0.7 : 1)
         }
     }
 }
 
 #Preview {
-    List {
-        SessionRow(session: .mock())
+    NavigationStack {
+        List {
+            SessionRow(session: .mock(isInPast: true))
+            SessionRow(session: .mock())
+        }
+            .listStyle(.plain)
     }
-        .listStyle(.plain)
 }

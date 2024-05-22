@@ -5,11 +5,10 @@ extension LesMillsClient {
         case classAlreadyBooked
         case classIsFull
         case networkError(underlyingError: Error)
-        case lesMillsError(message: String)
+        case lesMillsError(message: String?)
     }
     
     func bookSession(session: ClassSession) async throws {
-        // Allow bookings = requires bookings
         let response: SaveBookingResponse
         do {
             if session.requiresBooking {
@@ -23,7 +22,8 @@ extension LesMillsClient {
             throw BookingError.networkError(underlyingError: error)
         }
         
-        if response.message.addBookingResult != "AddToScheduleSingleSuccess" {
+        // frustratingly, Les Mills doesn't return a success error code all the time
+        if response.message.addBookingResult != nil && response.message.addBookingResult != "AddToScheduleSingleSuccess" {
             throw switch response.message.addBookingResult {
             case "ClassAlreadyBooked":
                 BookingError.classAlreadyBooked

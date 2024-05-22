@@ -44,7 +44,7 @@ extension ClassSession {
 
 // MARK: mock
 extension ClassSession {
-    static func mock() -> ClassSession {
+    static func mock(isInPast: Bool = false) -> ClassSession {
         let mockClass = ClassType.MockClassInstance.mocks.randomElement()!
         
         var location: String {
@@ -78,7 +78,7 @@ extension ClassSession {
             location: location,
             instructor: ["Adrian Marsden", "Cleo Bennett", "Dalton Frazier", "Erika Hutton", "Fiona Greenway"].randomElement()!,
             
-            startsAt: Date.now,
+            startsAt: Calendar.current.date(byAdding: .hour, value: isInPast ? -1 : 1, to: .now)!,
             duration: Measurement(value: Double(mockClass.duration), unit: UnitDuration.minutes),
             
             apiID: serviceId,

@@ -10,7 +10,7 @@ struct Timetable {
             .map {
                 calendar.startOfDay(for: $0.startsAt)
             }
-            // Don't return the set in order to maintain list order
+            // Don't return the set so to maintain list order
             .filter { datesSet.insert($0).inserted }
     }
     
@@ -20,13 +20,11 @@ struct Timetable {
         
         return classes.filter { calendar.isDate($0.startsAt, equalTo: date, toGranularity: .day) }
     }
-    
-    private init(classes: [ClassSession]) {
-        self.classes = classes
-    }
-    
+}
+
+extension Timetable {
     static func mock() -> Timetable {
-        Timetable(classes: [.mock(), .mock()])
+        Timetable(classes: (1...10).map { _ in .mock() })
     }
 }
 
